@@ -8,16 +8,20 @@
     "build": "tsc -p .",
     "test": "jest --coverage",
     "semantic-release": "semantic-release",
-    "commit": "git-cz "
+    "commit": "npx git-cz"
   },
   "repository": "https://github.com/jeffzh4ng/dsa-ts",
   "author": "Jeff Zhang",
   "license": "MIT",
   "prepublish": "tsc",
   "devDependencies": {
+    "@types/jest": "^25.2.3",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "3.2.0",
-    "semantic-release": "^17.0.8"
+    "jest": "^26.0.1",
+    "semantic-release": "^17.0.8",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
   },
   "dependencies": {},
   "config": {
