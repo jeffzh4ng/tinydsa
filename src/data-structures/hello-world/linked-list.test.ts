@@ -1,5 +1,8 @@
+import HelloWorld from './index'
+
 describe('hello world test', () => {
   it('works', () => {
-    expect(true).toBe(true)
+    const helloWorld = new HelloWorld()
+    expect(helloWorld).toBeTruthy()
   })
 })

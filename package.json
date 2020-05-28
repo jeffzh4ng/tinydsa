@@ -6,7 +6,7 @@
   "types": "lib",
   "scripts": {
     "build": "tsc -p .",
-    "test": "jest",
+    "test": "jest --config jest.config.js",
     "semantic-release": "semantic-release",
     "commit": "npx git-cz"
   },
@@ -16,8 +16,10 @@
   "prepublish": "tsc",
   "devDependencies": {
     "@types/jest": "^25.2.3",
+    "codecov": "^3.7.0",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "3.2.0",
+    "husky": "^4.2.5",
     "jest": "^26.0.1",
     "semantic-release": "^17.0.8",
     "ts-jest": "^26.0.0",
@@ -27,6 +29,12 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test"
     }
   }
 }
