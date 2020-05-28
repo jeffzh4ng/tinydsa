@@ -8,7 +8,8 @@
     "build": "tsc -p .",
     "test": "jest --config jest.config.js",
     "semantic-release": "semantic-release",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "report-coverage": "codecov"
   },
   "repository": "https://github.com/jeffzh4ng/dsa-ts",
   "author": "Jeff Zhang",

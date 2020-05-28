@@ -14,12 +14,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - uses: codecov/codecov-action@v1
-        with:
-          fail_ci_if_error: true
       - run: npm install
       - run: npm run build --if-present
       - run: npm test
+      - run: npm run report-coverage
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

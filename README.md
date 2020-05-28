@@ -2,6 +2,7 @@
 
 ![](https://img.shields.io/github/v/release/jeffzh4ng/dsa-ts)
 [![Tests](https://github.com/jeffzh4ng/dsa-ts/workflows/Tests/badge.svg)](https://github.com/jeffzh4ng/dsa-ts/actions?query=branch%3Amaster++)
+![](https://img.shields.io/codecov/c/github/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/github/license/jeffzh4ng/dsa-ts)
 
 A collection of algorithms and data structures implemented in Typescript for
