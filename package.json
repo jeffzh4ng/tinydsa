@@ -1,0 +1,32 @@
+{
+  "name": "dsa-ts",
+  "version": "0.0.0-development",
+  "description": "A collection of data structures and algorithms in Typescript",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "jest",
+    "semantic-release": "semantic-release",
+    "commit": "npx git-cz"
+  },
+  "repository": "https://github.com/jeffzh4ng/dsa-ts",
+  "author": "Jeff Zhang",
+  "license": "MIT",
+  "prepublish": "tsc",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "3.2.0",
+    "jest": "^26.0.1",
+    "semantic-release": "^17.0.8",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {},
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
