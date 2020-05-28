@@ -1,4 +1,4 @@
-name: Release npm package
+name: Release
 
 on:
   push:
@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@v1
+      - uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
         with:
           node-version: '12.x'
       - run: npm install
