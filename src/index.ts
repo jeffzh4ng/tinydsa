@@ -1,1 +1,1 @@
-export * from './data-structures'
+export { default as Collections } from './data-structures'
