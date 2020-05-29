@@ -1,1 +1,7 @@
-export { default as HelloWorld } from './hello-world'
+import LinkedList from './linked-list'
+
+const Collections = {
+  LinkedList,
+}
+
+export default Collections
