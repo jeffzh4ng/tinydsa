@@ -1,9 +1,9 @@
-import LinkedList from './index'
+import LinkedList from '../src/data-structures/linked-list'
 import {
   EMPTY_LIST_ERROR,
   OUT_OF_BOUNDS_ERROR,
   VALUE_DOES_NOT_EXIST_ERROR,
-} from './linked-list'
+} from '../src/data-structures/linked-list'
 
 describe('Linked List - simple number', () => {
   let list: LinkedList<number>
