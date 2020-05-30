@@ -11,7 +11,7 @@ interface List<T> {
   size: number
 }
 
-class LinkedList<T> {
+class LinkedList<T> implements Iterable<T> {
   private list: List<T> | undefined
 
   constructor() {
@@ -319,28 +319,15 @@ class LinkedList<T> {
 
     return this
   }
-  /**
-   * Returns an array representation of the linked list - O(n)
-   */
-  toArray(): T[] {
-    const nodes: T[] = []
 
-    if (!this.list) return nodes
+  *[Symbol.iterator]() {
+    if (!this.list) return
 
-    let cur: LinkedListNode<T> | null = this.list.head
+    let cur: LinkedListNode<T> | null
 
-    while (cur != null) {
-      nodes.push(cur.val)
-      cur = cur.next
+    for (cur = this.list.head; cur != null; cur = cur.next) {
+      yield cur.val
     }
-
-    return nodes
-  }
-  /**
-   * Returns a string representation of the linked list - O(n)
-   */
-  toString(): string {
-    return this.toArray().toString()
   }
 }
 

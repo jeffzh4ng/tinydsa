@@ -270,28 +270,32 @@ describe('Linked List - simple number', () => {
   })
 
   describe('helpers', () => {
-    it('converts to array', () => {
-      expect(list.toArray()).toEqual([])
-
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
-
-      expect(list.toArray()).toEqual([1, 2, 3])
-    })
-
     it('creates list from array', () => {
       const array = [1, 2, 3]
       list.fromArray(array)
-      expect(list.toArray()).toEqual([1, 2, 3])
+      expect(Array.from(list)).toEqual([1, 2, 3])
+    })
+  })
+
+  describe('iterator', () => {
+    it('is iterable', () => {
+      const array = [1, 2, 3]
+      list.fromArray(array)
+
+      let i = 0
+      for (const n of list) {
+        expect(n).toBe(array[i])
+        i += 1
+      }
     })
 
-    it('converts to string', () => {
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
+    it('does not iterate over an empty list', () => {
+      let count = 0
+      for (const n of list) {
+        count += 1
+      }
 
-      expect(list.toString()).toEqual('1,2,3')
+      expect(count).toBe(0)
     })
   })
 })
