@@ -17,15 +17,17 @@ production use.
 - [ ] Heap
 - [ ] Hash Map
 - [ ] Hash Set
-- [ ] Binary Search Tree
-- [ ] AVL Tree
-- [ ] Red Black Tree
-- [ ] Segment Tree
-- [ ] Fenwick Tree
-- [ ] Trie
+- [ ] Tree
+  - [ ] Binary Search Tree
+  - [ ] AVL Tree
+  - [ ] Red Black Tree
+  - [ ] Segment Tree
+  - [ ] Fenwick Tree
+  - [ ] Trie
 - [ ] Graph
 - [ ] Disjoint Set
 - [ ] Bloom Filter
+- [ ] LRU Cache
 
 ## License
 
