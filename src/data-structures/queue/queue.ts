@@ -1,7 +1,7 @@
 import LinkedList from '../linked-list'
 import { EqualsFunction } from '../utils'
 
-class Stack<T> implements Iterable<T> {
+class Queue<T> implements Iterable<T> {
   private list: LinkedList<T>
 
   constructor() {
@@ -9,27 +9,31 @@ class Stack<T> implements Iterable<T> {
   }
 
   /**
-   * Returns size of stack - O(1)
-   * @returns {number}
+   * Returns size of queue - O(1)
    */
   size(): number {
     return this.list.size()
   }
-
   /**
-   * Returns true if stack is empty, false otherwise - O(1)
-   * @returns {number}
+   * Returns true if queue is empty, false otherwise - O(1)
    */
   isEmpty(): boolean {
     return this.list.isEmpty()
   }
 
   /**
-   * Pushes element onto the stack - O(1)
-   * @param {T} element - element to push on stack
+   * Enqueues element into queue - O(1)
+   * @param {T} element - element to be enqueued
    */
-  push(element: T): void {
-    this.list.addBack(element)
+  enqueue(element: T): void {
+    this.list.addFront(element)
+  }
+  /**
+   * Dequeues element from queue - O(1)
+   * @returns {T}
+   */
+  dequeue(): T {
+    return this.list.removeBack()
   }
 
   /**
@@ -45,19 +49,18 @@ class Stack<T> implements Iterable<T> {
   }
 
   /**
-   * Pops an element off the stack - O(1)
-   * @returns {T} - Element which was popped off
+   * Peeks at the element at the front of the queue - O(1)
+   * @returns {T} - Frontmost element
    */
-  pop(): T {
-    return this.list.removeBack()
-  }
-
-  /**
-   * Peeks at the top most element on the stack - O(1)
-   * @returns {T} - Topmost element
-   */
-  peek(): T {
+  peekFront(): T {
     return this.list.peekBack()
+  }
+  /**
+   * Peeks at the element at the back of the queue - O(1)
+   * @returns {T} - Backmost element
+   */
+  peekBack(): T {
+    return this.list.peekFront()
   }
 
   /**
@@ -72,4 +75,4 @@ class Stack<T> implements Iterable<T> {
   }
 }
 
-export default Stack
+export default Queue

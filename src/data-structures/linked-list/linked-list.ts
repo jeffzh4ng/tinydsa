@@ -41,7 +41,7 @@ class LinkedList<T> implements Iterable<T> {
    * @param {T} val - value to add to list
    * @return {void}
    */
-  addFirst(val: T): void {
+  addFront(val: T): void {
     const newNode = new LinkedListNode(val)
 
     if (this.list) {
@@ -66,7 +66,7 @@ class LinkedList<T> implements Iterable<T> {
    * @param {T} - value to add to list
    * @return {void}
    */
-  addLast(val: T): void {
+  addBack(val: T): void {
     const newNode = new LinkedListNode(val)
 
     if (this.list) {
@@ -94,12 +94,12 @@ class LinkedList<T> implements Iterable<T> {
    */
   addAt(i: number, val: T): void {
     if (i === 0) {
-      this.addFirst(val)
+      this.addFront(val)
       return
     }
 
     if (i === this.size()) {
-      this.addLast(val)
+      this.addBack(val)
       return
     }
 
@@ -130,7 +130,7 @@ class LinkedList<T> implements Iterable<T> {
    * Gets the value of head - O(1)
    * @returns {T} value of head
    */
-  peekFirst(): T {
+  peekFront(): T {
     if (!this.list) throw new Error(EMPTY_LIST_ERROR)
     return this.list.head.val
   }
@@ -138,7 +138,7 @@ class LinkedList<T> implements Iterable<T> {
    * Gets the value of tail - O(1)
    * @returns {T} value of tail
    */
-  peekLast(): T {
+  peekBack(): T {
     if (!this.list) throw new Error(EMPTY_LIST_ERROR)
     return this.list.tail.val
   }
@@ -197,6 +197,7 @@ class LinkedList<T> implements Iterable<T> {
    * @param {T} value  - value to search for
    * @param {EqualsFunction<T>} equalsFunction - optional
    * function to check if two items are equal
+   * @returns {boolean}
    */
   contains(value: T, equalsFunction?: EqualsFunction<T>): boolean {
     const index = this.indexOf(
@@ -211,7 +212,7 @@ class LinkedList<T> implements Iterable<T> {
    * Removes head - O(1)
    * @return {T} - value of removed head
    */
-  removeFirst(): T {
+  removeFront(): T {
     if (!this.list) throw new Error(EMPTY_LIST_ERROR)
 
     // extract val of head so we can return it later
@@ -236,7 +237,7 @@ class LinkedList<T> implements Iterable<T> {
    * Removes tail - O(1)
    * @return {T} - value of removed head
    */
-  removeLast(): T {
+  removeBack(): T {
     if (!this.list) throw new Error(EMPTY_LIST_ERROR)
 
     // extract the val of tail so we can return it later
@@ -277,9 +278,9 @@ class LinkedList<T> implements Iterable<T> {
     if (!this.list) throw new Error(EMPTY_LIST_ERROR)
 
     if (i === 0) {
-      return this.removeFirst()
+      return this.removeFront()
     } else if (i === this.size() - 1) {
-      return this.removeLast()
+      return this.removeBack()
     }
 
     if (i < 0 || i >= this.list.size) {
@@ -315,7 +316,7 @@ class LinkedList<T> implements Iterable<T> {
    */
   fromArray(A: T[]): LinkedList<T> {
     for (const a of A) {
-      this.addLast(a)
+      this.addBack(a)
     }
 
     return this

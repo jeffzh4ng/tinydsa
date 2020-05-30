@@ -13,7 +13,7 @@ production use.
 
 - [x] Linked List
 - [x] Stack
-- [ ] Queue
+- [x] Queue
 - [ ] Heap
 - [ ] Hash Map
 - [ ] Hash Set
