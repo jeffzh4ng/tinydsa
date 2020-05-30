@@ -19,25 +19,25 @@ describe('Linked List - simple number', () => {
   describe('throwing', () => {
     it('throws when peekFirst() is called on an empty list', () => {
       expect(() => {
-        list.peekFirst()
+        list.peekFront()
       }).toThrow(EMPTY_LIST_ERROR)
     })
 
     it('throws when peekLast() is called on an empty list', () => {
       expect(() => {
-        list.peekLast()
+        list.peekBack()
       }).toThrow(EMPTY_LIST_ERROR)
     })
 
     it('throws when removeFirst() is called on an empty list', () => {
       expect(() => {
-        list.removeFirst()
+        list.removeFront()
       }).toThrow(EMPTY_LIST_ERROR)
     })
 
     it('throws when removeFirst() is called on an empty list', () => {
       expect(() => {
-        list.removeLast()
+        list.removeBack()
       }).toThrow(EMPTY_LIST_ERROR)
     })
 
@@ -46,7 +46,7 @@ describe('Linked List - simple number', () => {
         list.removeAt(0)
       }).toThrow(EMPTY_LIST_ERROR)
 
-      list.addLast(1)
+      list.addBack(1)
       expect(() => {
         list.removeAt(2)
       }).toThrow(OUT_OF_BOUNDS_ERROR)
@@ -67,7 +67,7 @@ describe('Linked List - simple number', () => {
         list.get(-1)
       }).toThrow(OUT_OF_BOUNDS_ERROR)
 
-      list.addLast(1)
+      list.addBack(1)
 
       expect(() => {
         list.get(2)
@@ -77,18 +77,18 @@ describe('Linked List - simple number', () => {
 
   describe('adding', () => {
     it('adds to head of list', () => {
-      list.addFirst(8)
+      list.addFront(8)
       expect(list.size()).toBe(1)
 
-      list.addFirst(3)
+      list.addFront(3)
       expect(list.size()).toBe(2)
     })
 
     it('adds to tail of list', () => {
-      list.addLast(8)
+      list.addBack(8)
       expect(list.size()).toBe(1)
 
-      list.addLast(3)
+      list.addBack(3)
       expect(list.size()).toBe(2)
     })
 
@@ -119,9 +119,9 @@ describe('Linked List - simple number', () => {
 
   describe('finding', () => {
     it('gets nodes', () => {
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
+      list.addBack(1)
+      list.addBack(2)
+      list.addBack(3)
 
       expect(list.get(0)).toBe(1)
       expect(list.get(1)).toBe(2)
@@ -131,9 +131,9 @@ describe('Linked List - simple number', () => {
     it('gets index of nodes', () => {
       expect(list.indexOf(1)).toBe(-1)
 
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
+      list.addBack(1)
+      list.addBack(2)
+      list.addBack(3)
 
       expect(list.indexOf(1)).toBe(0)
       expect(list.indexOf(2)).toBe(1)
@@ -143,9 +143,9 @@ describe('Linked List - simple number', () => {
 
     it('finds out if list contains node', () => {
       expect(list.contains(1)).toBe(false)
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
+      list.addBack(1)
+      list.addBack(2)
+      list.addBack(3)
 
       expect(list.contains(1)).toBe(true)
       expect(list.contains(3)).toBe(true)
@@ -153,54 +153,54 @@ describe('Linked List - simple number', () => {
     })
 
     it('peeks head', () => {
-      list.addFirst(1)
-      expect(list.peekFirst()).toBe(1)
+      list.addFront(1)
+      expect(list.peekFront()).toBe(1)
 
-      list.addFirst(2)
-      expect(list.peekFirst()).toBe(2)
+      list.addFront(2)
+      expect(list.peekFront()).toBe(2)
     })
 
     it('peeks tail', () => {
-      list.addLast(1)
-      expect(list.peekLast()).toBe(1)
+      list.addBack(1)
+      expect(list.peekBack()).toBe(1)
 
-      list.addLast(2)
-      expect(list.peekLast()).toBe(2)
+      list.addBack(2)
+      expect(list.peekBack()).toBe(2)
     })
   })
 
   describe('removing', () => {
     it('removes from head', () => {
-      list.addLast(8)
-      list.addLast(3)
+      list.addBack(8)
+      list.addBack(3)
 
-      list.removeFirst()
+      list.removeFront()
       expect(list.size()).toBe(1)
-      expect(list.peekFirst()).toBe(3)
+      expect(list.peekFront()).toBe(3)
 
-      list.removeFirst()
+      list.removeFront()
       expect(list.size()).toBe(0)
     })
 
     it('removes from tail', () => {
-      list.addLast(8)
-      list.addLast(3)
+      list.addBack(8)
+      list.addBack(3)
 
-      list.removeLast()
+      list.removeBack()
       expect(list.size()).toBe(1)
-      expect(list.peekFirst()).toBe(8)
+      expect(list.peekFront()).toBe(8)
 
-      list.removeLast()
+      list.removeBack()
       expect(list.size()).toBe(0)
     })
 
     it('removes at specific index', () => {
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
-      list.addLast(4)
-      list.addLast(5)
-      list.addLast(6)
+      list.addBack(1)
+      list.addBack(2)
+      list.addBack(3)
+      list.addBack(4)
+      list.addBack(5)
+      list.addBack(6)
 
       // 1-2-3-4-5-6
 
@@ -235,9 +235,9 @@ describe('Linked List - simple number', () => {
     })
 
     it('removes specific value', () => {
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
+      list.addBack(1)
+      list.addBack(2)
+      list.addBack(3)
 
       const val1 = list.remove(1)
       expect(val1).toBe(1)
@@ -253,14 +253,14 @@ describe('Linked List - simple number', () => {
     })
 
     it('clears the list', () => {
-      list.addLast(1)
-      list.addLast(2)
-      list.addLast(3)
-      list.addLast(4)
+      list.addBack(1)
+      list.addBack(2)
+      list.addBack(3)
+      list.addBack(4)
       list.clear()
       expect(list.isEmpty()).toBe(true)
 
-      list.addLast(1)
+      list.addBack(1)
       list.clear()
       expect(list.isEmpty()).toBe(true)
 
@@ -323,9 +323,9 @@ describe('Linked list - complex object', () => {
     const mage = new Hero(789)
 
     list = new LinkedList()
-    list.addLast(knight)
-    list.addLast(archer)
-    list.addLast(mage)
+    list.addBack(knight)
+    list.addBack(archer)
+    list.addBack(mage)
   })
 
   it('gets the index of a Hero', () => {

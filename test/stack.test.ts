@@ -37,6 +37,17 @@ describe('Stack', () => {
     expect(stack.size()).toBe(3)
   })
 
+  it('finds out if list contains element', () => {
+    expect(stack.contains(1)).toBe(false)
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+
+    expect(stack.contains(1)).toBe(true)
+    expect(stack.contains(3)).toBe(true)
+    expect(stack.contains(8)).toBe(false)
+  })
+
   it('pops', () => {
     stack.push(1)
     stack.push(2)
@@ -58,6 +69,22 @@ describe('Stack', () => {
 
     stack.push(2)
     expect(stack.peek()).toBe(2)
+  })
+
+  it('clears the stack', () => {
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    stack.clear()
+    expect(stack.isEmpty()).toBe(true)
+
+    stack.push(1)
+    stack.clear()
+    expect(stack.isEmpty()).toBe(true)
+
+    stack.clear()
+    expect(stack.isEmpty()).toBe(true)
   })
 
   it('is iterable', () => {
