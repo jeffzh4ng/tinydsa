@@ -28,7 +28,7 @@
     "lint-staged": "10.2.7",
     "prettier": "2.0.5",
     "semantic-release": "17.0.8",
-    "ts-jest": "26.0.0",
+    "ts-jest": "26.1.0",
     "typescript": "3.9.3"
   },
   "dependencies": {},
