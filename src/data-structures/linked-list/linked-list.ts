@@ -1,9 +1,10 @@
 import LinkedListNode from './linked-list-node'
 import { EqualsFunction, defaultEquals } from '../utils'
-
-export const OUT_OF_BOUNDS_ERROR = 'Index is out of bounds.'
-export const EMPTY_LIST_ERROR = 'List is empty.'
-export const VALUE_DOES_NOT_EXIST_ERROR = 'No node found with specified value.'
+import {
+  EMPTY_LIST_ERROR,
+  OUT_OF_BOUNDS_ERROR,
+  VALUE_DOES_NOT_EXIST_ERROR,
+} from '../utils'
 
 interface List<T> {
   head: LinkedListNode<T>
@@ -320,7 +321,7 @@ class LinkedList<T> implements Iterable<T> {
     return this
   }
 
-  *[Symbol.iterator]() {
+  *[Symbol.iterator](): Iterator<T> {
     if (!this.list) return
 
     let cur: LinkedListNode<T> | null
