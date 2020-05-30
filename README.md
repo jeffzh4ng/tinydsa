@@ -12,6 +12,20 @@ production use.
 ## Data Structures
 
 - [x] Linked List
+- [x] Stack
+- [ ] Queue
+- [ ] Heap
+- [ ] Hash Map
+- [ ] Hash Set
+- [ ] Binary Search Tree
+- [ ] AVL Tree
+- [ ] Red Black Tree
+- [ ] Segment Tree
+- [ ] Fenwick Tree
+- [ ] Trie
+- [ ] Graph
+- [ ] Disjoint Set
+- [ ] Bloom Filter
 
 ## License
 
