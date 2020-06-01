@@ -1,5 +1,5 @@
 import Stack from '../src/data-structures/stack'
-import { EMPTY_LIST_ERROR } from '../src/data-structures/utils'
+import { EMPTY_ERROR } from '../src/data-structures/utils'
 
 describe('Stack', () => {
   let stack: Stack<number>
@@ -12,13 +12,13 @@ describe('Stack', () => {
     it('throws when pop() is called on empty stack', () => {
       expect(() => {
         stack.pop()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when peek() is called on empty stack', () => {
       expect(() => {
         stack.peek()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
   })
 

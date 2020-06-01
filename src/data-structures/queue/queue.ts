@@ -8,6 +8,9 @@ class Queue<T> implements Iterable<T> {
     this.list = new LinkedList()
   }
 
+  /*****************************************************************************
+                                  NICETIES
+  *****************************************************************************/
   /**
    * Returns size of queue - O(1)
    */
@@ -20,7 +23,16 @@ class Queue<T> implements Iterable<T> {
   isEmpty(): boolean {
     return this.list.isEmpty()
   }
+  /**
+   * Deletes all elements in queue - O(1)
+   */
+  clear(): void {
+    this.list.clear()
+  }
 
+  /*****************************************************************************
+                                  INSERTION/DELETION
+  *****************************************************************************/
   /**
    * Enqueues element into queue - O(1)
    * @param {T} element - element to be enqueued
@@ -31,11 +43,35 @@ class Queue<T> implements Iterable<T> {
   /**
    * Dequeues element from queue - O(1)
    * @returns {T}
+   * @throws {EMPTY_LIST_ERROR}
    */
   dequeue(): T {
     return this.list.removeBack()
   }
 
+  /*****************************************************************************
+                                  ACCESSING
+  *****************************************************************************/
+  /**
+   * Peeks at the element at the front of the queue - O(1)
+   * @returns {T} - Frontmost element
+   * @throws {EMPTY_LIST_ERROR}
+   */
+  peekFront(): T {
+    return this.list.peekBack()
+  }
+  /**
+   * Peeks at the element at the back of the queue - O(1)
+   * @returns {T} - Backmost element
+   * @throws {EMPTY_LIST_ERROR}
+   */
+  peekBack(): T {
+    return this.list.peekFront()
+  }
+
+  /*****************************************************************************
+                                  SEARCHING
+  *****************************************************************************/
   /**
    * Checks if value is in queue
    * Equals function must be supplied for non-primitive values.
@@ -48,28 +84,9 @@ class Queue<T> implements Iterable<T> {
     return this.list.contains(element, equalsFunction)
   }
 
-  /**
-   * Peeks at the element at the front of the queue - O(1)
-   * @returns {T} - Frontmost element
-   */
-  peekFront(): T {
-    return this.list.peekBack()
-  }
-  /**
-   * Peeks at the element at the back of the queue - O(1)
-   * @returns {T} - Backmost element
-   */
-  peekBack(): T {
-    return this.list.peekFront()
-  }
-
-  /**
-   * Deletes all elements in queue - O(1)
-   */
-  clear(): void {
-    this.list.clear()
-  }
-
+  /*****************************************************************************
+                                  HELPERS
+  *****************************************************************************/
   [Symbol.iterator](): Iterator<T> {
     return this.list[Symbol.iterator]()
   }

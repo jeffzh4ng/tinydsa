@@ -1,6 +1,6 @@
 import LinkedList from '../src/data-structures/linked-list'
 import {
-  EMPTY_LIST_ERROR,
+  EMPTY_ERROR,
   OUT_OF_BOUNDS_ERROR,
   VALUE_DOES_NOT_EXIST_ERROR,
 } from '../src/data-structures/utils'
@@ -20,31 +20,31 @@ describe('Linked List - simple number', () => {
     it('throws when peekFirst() is called on an empty list', () => {
       expect(() => {
         list.peekFront()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when peekLast() is called on an empty list', () => {
       expect(() => {
         list.peekBack()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when removeFirst() is called on an empty list', () => {
       expect(() => {
         list.removeFront()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when removeFirst() is called on an empty list', () => {
       expect(() => {
         list.removeBack()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when removeAt() is called on an empty list', () => {
       expect(() => {
         list.removeAt(0)
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
 
       list.addBack(1)
       expect(() => {

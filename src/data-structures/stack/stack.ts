@@ -8,6 +8,9 @@ class Stack<T> implements Iterable<T> {
     this.list = new LinkedList()
   }
 
+  /*****************************************************************************
+                                  NICETIES
+  *****************************************************************************/
   /**
    * Returns size of stack - O(1)
    * @returns {number}
@@ -15,7 +18,6 @@ class Stack<T> implements Iterable<T> {
   size(): number {
     return this.list.size()
   }
-
   /**
    * Returns true if stack is empty, false otherwise - O(1)
    * @returns {number}
@@ -23,15 +25,47 @@ class Stack<T> implements Iterable<T> {
   isEmpty(): boolean {
     return this.list.isEmpty()
   }
+  /**
+   * Deletes all elements in queue - O(1)
+   */
+  clear(): void {
+    this.list.clear()
+  }
 
+  /*****************************************************************************
+                                  INSERTION/DELETION
+  *****************************************************************************/
   /**
    * Pushes element onto the stack - O(1)
    * @param {T} element - element to push on stack
+   * @throws {EMPTY_LIST_ERROR}
    */
   push(element: T): void {
     this.list.addBack(element)
   }
+  /**
+   * Pops an element off the stack - O(1)
+   * @returns {T} - Element which was popped off
+   */
+  pop(): T {
+    return this.list.removeBack()
+  }
 
+  /*****************************************************************************
+                                  ACCESSING
+  *****************************************************************************/
+  /**
+   * Peeks at the top most element on the stack - O(1)
+   * @returns {T} - Topmost element
+   * @throws {EMPTY_LIST_ERROR}
+   */
+  peek(): T {
+    return this.list.peekBack()
+  }
+
+  /*****************************************************************************
+                                  SEARCHING
+  *****************************************************************************/
   /**
    * Checks if value is in queue
    * Equals function must be supplied for non-primitive values.
@@ -44,29 +78,9 @@ class Stack<T> implements Iterable<T> {
     return this.list.contains(element, equalsFunction)
   }
 
-  /**
-   * Pops an element off the stack - O(1)
-   * @returns {T} - Element which was popped off
-   */
-  pop(): T {
-    return this.list.removeBack()
-  }
-
-  /**
-   * Peeks at the top most element on the stack - O(1)
-   * @returns {T} - Topmost element
-   */
-  peek(): T {
-    return this.list.peekBack()
-  }
-
-  /**
-   * Deletes all elements in queue - O(1)
-   */
-  clear(): void {
-    this.list.clear()
-  }
-
+  /*****************************************************************************
+                                  HELPERS
+  *****************************************************************************/
   [Symbol.iterator](): Iterator<T> {
     return this.list[Symbol.iterator]()
   }
