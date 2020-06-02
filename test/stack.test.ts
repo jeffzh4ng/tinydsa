@@ -101,3 +101,42 @@ describe('Stack', () => {
     }
   })
 })
+
+describe('Stack - complex object', () => {
+  class Hero {
+    heroId: number
+    hunger: number
+    health: number
+
+    constructor(id: number) {
+      this.heroId = id
+      this.hunger = 100
+      this.health = 100
+    }
+  }
+
+  const sameHeroF = (a: Hero, b: Hero) => a.heroId === b.heroId
+
+  let stack: Stack<Hero>
+
+  beforeAll(() => {
+    const knight = new Hero(123)
+    const archer = new Hero(456)
+    const mage = new Hero(789)
+
+    stack = new Stack(sameHeroF)
+
+    stack.push(knight)
+    stack.push(archer)
+    stack.push(mage)
+  })
+
+  it('checks if stack contains hero', () => {
+    const knight = new Hero(123)
+    const mage = new Hero(789)
+
+    expect(stack.contains(knight)).toBe(true)
+    expect(stack.contains(mage)).toBe(true)
+    expect(stack.contains(new Hero(246))).toBe(false)
+  })
+})

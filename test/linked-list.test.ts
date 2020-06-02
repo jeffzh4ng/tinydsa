@@ -322,7 +322,8 @@ describe('Linked list - complex object', () => {
     const archer = new Hero(456)
     const mage = new Hero(789)
 
-    list = new LinkedList()
+    list = new LinkedList(sameHeroF)
+
     list.addBack(knight)
     list.addBack(archer)
     list.addBack(mage)
@@ -332,16 +333,16 @@ describe('Linked list - complex object', () => {
     const knight = new Hero(123)
     const mage = new Hero(789)
 
-    expect(list.indexOf(knight, sameHeroF)).toBe(0)
-    expect(list.indexOf(mage, sameHeroF)).toBe(2)
+    expect(list.indexOf(knight)).toBe(0)
+    expect(list.indexOf(mage)).toBe(2)
   })
 
   it('checks if list contains hero', () => {
     const knight = new Hero(123)
     const mage = new Hero(789)
 
-    expect(list.contains(knight, sameHeroF)).toBe(true)
-    expect(list.contains(mage, sameHeroF)).toBe(true)
-    expect(list.contains(new Hero(246), sameHeroF)).toBe(false)
+    expect(list.contains(knight)).toBe(true)
+    expect(list.contains(mage)).toBe(true)
+    expect(list.contains(new Hero(246))).toBe(false)
   })
 })

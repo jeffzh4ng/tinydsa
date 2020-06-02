@@ -1,11 +1,12 @@
 import LinkedList from '../linked-list'
-import { EqualsFunction } from '../utils'
+import * as utils from '../utils'
 
 class Stack<T> implements Iterable<T> {
   private list: LinkedList<T>
 
-  constructor() {
-    this.list = new LinkedList()
+  constructor(equalsFunction?: utils.EqualsFunction<T>) {
+    if (equalsFunction) this.list = new LinkedList(equalsFunction)
+    else this.list = new LinkedList()
   }
 
   /*****************************************************************************
@@ -48,6 +49,7 @@ class Stack<T> implements Iterable<T> {
    * @returns {T} - Element which was popped off
    */
   pop(): T {
+    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
     return this.list.removeBack()
   }
 
@@ -60,6 +62,7 @@ class Stack<T> implements Iterable<T> {
    * @throws {EMPTY_LIST_ERROR}
    */
   peek(): T {
+    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
     return this.list.peekBack()
   }
 
@@ -67,15 +70,12 @@ class Stack<T> implements Iterable<T> {
                                   SEARCHING
   *****************************************************************************/
   /**
-   * Checks if value is in queue
-   * Equals function must be supplied for non-primitive values.
+   * Checks if value is in stack - O(n)
    * @param {T} element  - element to search for
-   * @param {EqualsFunction<T>} equalsFunction - optional
-   * function to check if two items are equal
    * @returns {boolean}
    */
-  contains(element: T, equalsFunction?: EqualsFunction<T>): boolean {
-    return this.list.contains(element, equalsFunction)
+  contains(element: T): boolean {
+    return this.list.contains(element)
   }
 
   /*****************************************************************************

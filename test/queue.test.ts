@@ -110,3 +110,42 @@ describe('Queue', () => {
     }
   })
 })
+
+describe('Queue - complex object', () => {
+  class Hero {
+    heroId: number
+    hunger: number
+    health: number
+
+    constructor(id: number) {
+      this.heroId = id
+      this.hunger = 100
+      this.health = 100
+    }
+  }
+
+  const sameHeroF = (a: Hero, b: Hero) => a.heroId === b.heroId
+
+  let queue: Queue<Hero>
+
+  beforeAll(() => {
+    const knight = new Hero(123)
+    const archer = new Hero(456)
+    const mage = new Hero(789)
+
+    queue = new Queue(sameHeroF)
+
+    queue.enqueue(knight)
+    queue.enqueue(archer)
+    queue.enqueue(mage)
+  })
+
+  it('checks if queue contains hero', () => {
+    const knight = new Hero(123)
+    const mage = new Hero(789)
+
+    expect(queue.contains(knight)).toBe(true)
+    expect(queue.contains(mage)).toBe(true)
+    expect(queue.contains(new Hero(246))).toBe(false)
+  })
+})

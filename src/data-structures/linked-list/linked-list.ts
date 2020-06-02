@@ -1,5 +1,5 @@
 import LinkedListNode from './linked-list-node'
-import { EqualsFunction, defaultEquals } from '../utils'
+import * as utils from '../utils'
 import {
   EMPTY_ERROR,
   OUT_OF_BOUNDS_ERROR,
@@ -14,9 +14,16 @@ interface List<T> {
 
 class LinkedList<T> implements Iterable<T> {
   private list: List<T> | undefined
+  private equalsF: utils.EqualsFunction<T> = utils.defaultEquals
 
-  constructor() {
+  /**
+   * Creates a LinkedList - O(1)
+   * @param equalsFunction equal function for for non-primitive values.
+   */
+  constructor(equalsFunction?: utils.EqualsFunction<T>) {
     this.list = undefined
+
+    if (equalsFunction) this.equalsF = equalsFunction
   }
 
   /*****************************************************************************
@@ -180,23 +187,18 @@ class LinkedList<T> implements Iterable<T> {
   *****************************************************************************/
   /**
    * Removes the first occurrence of the specified item in the linked list.
-   * Equals function must be supplied for non-primitive values - O(n)
    * @param {T} value - value to search for
-   * @param {function(T,T):boolean=} equalsFunction  - optional
-   * function to check if two items are equal
    * @return {number} the index of the first occurence of the element, and -1
    * if the element does not exist.
    */
-  indexOf(value: T, equalsFunction?: EqualsFunction<T>): number {
+  indexOf(value: T): number {
     // list is empty
     if (!this.list) return -1
-
-    const equalsF = equalsFunction || defaultEquals
 
     let i = 0
     let cur = this.list.head
 
-    while (!equalsF(cur.val, value)) {
+    while (!this.equalsF(cur.val, value)) {
       // cur.next === null means we reached end of list without finding element
       if (!cur.next) return -1
 
@@ -208,17 +210,11 @@ class LinkedList<T> implements Iterable<T> {
   }
   /**
    * Checks if value is in linked list.
-   * Equals function must be supplied for non-primitive values.
    * @param {T} value  - value to search for
-   * @param {EqualsFunction<T>} equalsFunction - optional
-   * function to check if two items are equal
    * @returns {boolean}
    */
-  contains(value: T, equalsFunction?: EqualsFunction<T>): boolean {
-    const index = this.indexOf(
-      value,
-      equalsFunction ? equalsFunction : undefined
-    )
+  contains(value: T): boolean {
+    const index = this.indexOf(value)
 
     return index !== -1
   }
