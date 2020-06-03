@@ -14,7 +14,12 @@ production use.
 - [x] Linked List
 - [x] Stack
 - [x] Queue
-- [ ] Heap
+- [ ] Priority Queue
+  - [ ] Min Binary Heap
+  - [ ] Min D-Heap
+  - [ ] Min Indexed Binary Heap
+  - [ ] Min Binomial Heap
+  - [ ] Min Fibonnaci Heap
 - [ ] Hash Map
 - [ ] Hash Set
 - [ ] Tree

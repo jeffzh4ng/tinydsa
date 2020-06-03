@@ -77,7 +77,7 @@ class Queue<T> implements Iterable<T> {
                                   SEARCHING
   *****************************************************************************/
   /**
-   * Checks if value is in queue
+   * Checks if value is in queue - O(n)
    * @param {T} element  - element to search for
    * @returns {boolean}
    */
