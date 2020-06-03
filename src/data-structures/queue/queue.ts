@@ -1,13 +1,17 @@
 import LinkedList from '../linked-list'
-import { EqualsFunction } from '../utils'
+import * as utils from '../utils'
 
 class Queue<T> implements Iterable<T> {
   private list: LinkedList<T>
 
-  constructor() {
-    this.list = new LinkedList()
+  constructor(equalsFunction?: utils.EqualsFunction<T>) {
+    if (equalsFunction) this.list = new LinkedList(equalsFunction)
+    else this.list = new LinkedList()
   }
 
+  /*****************************************************************************
+                                  NICETIES
+  *****************************************************************************/
   /**
    * Returns size of queue - O(1)
    */
@@ -20,7 +24,16 @@ class Queue<T> implements Iterable<T> {
   isEmpty(): boolean {
     return this.list.isEmpty()
   }
+  /**
+   * Deletes all elements in queue - O(1)
+   */
+  clear(): void {
+    this.list.clear()
+  }
 
+  /*****************************************************************************
+                                  INSERTION/DELETION
+  *****************************************************************************/
   /**
    * Enqueues element into queue - O(1)
    * @param {T} element - element to be enqueued
@@ -31,45 +44,50 @@ class Queue<T> implements Iterable<T> {
   /**
    * Dequeues element from queue - O(1)
    * @returns {T}
+   * @throws {EMPTY_LIST_ERROR}
    */
   dequeue(): T {
+    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
     return this.list.removeBack()
   }
 
-  /**
-   * Checks if value is in queue
-   * Equals function must be supplied for non-primitive values.
-   * @param {T} element  - element to search for
-   * @param {EqualsFunction<T>} equalsFunction - optional
-   * function to check if two items are equal
-   * @returns {boolean}
-   */
-  contains(element: T, equalsFunction?: EqualsFunction<T>): boolean {
-    return this.list.contains(element, equalsFunction)
-  }
-
+  /*****************************************************************************
+                                  ACCESSING
+  *****************************************************************************/
   /**
    * Peeks at the element at the front of the queue - O(1)
    * @returns {T} - Frontmost element
+   * @throws {EMPTY_LIST_ERROR}
    */
   peekFront(): T {
+    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
     return this.list.peekBack()
   }
   /**
    * Peeks at the element at the back of the queue - O(1)
    * @returns {T} - Backmost element
+   * @throws {EMPTY_LIST_ERROR}
    */
   peekBack(): T {
+    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
     return this.list.peekFront()
   }
 
+  /*****************************************************************************
+                                  SEARCHING
+  *****************************************************************************/
   /**
-   * Deletes all elements in queue - O(1)
+   * Checks if value is in queue
+   * @param {T} element  - element to search for
+   * @returns {boolean}
    */
-  clear(): void {
-    this.list.clear()
+  contains(element: T): boolean {
+    return this.list.contains(element)
   }
 
+  /*****************************************************************************
+                                  HELPERS
+  *****************************************************************************/
   [Symbol.iterator](): Iterator<T> {
     return this.list[Symbol.iterator]()
   }

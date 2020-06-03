@@ -1,5 +1,5 @@
 import Queue from '../src/data-structures/queue'
-import { EMPTY_LIST_ERROR } from '../src/data-structures/utils'
+import { EMPTY_ERROR } from '../src/data-structures/utils'
 
 describe('Queue', () => {
   let queue: Queue<number>
@@ -12,17 +12,17 @@ describe('Queue', () => {
     it('throws when pop() is called on empty stack', () => {
       expect(() => {
         queue.dequeue()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when peek() is called on empty stack', () => {
       expect(() => {
         queue.peekFront()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
 
       expect(() => {
         queue.peekBack()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
   })
 
@@ -108,5 +108,44 @@ describe('Queue', () => {
       expect(n).toBe(nums[i])
       i -= 1
     }
+  })
+})
+
+describe('Queue - complex object', () => {
+  class Hero {
+    heroId: number
+    hunger: number
+    health: number
+
+    constructor(id: number) {
+      this.heroId = id
+      this.hunger = 100
+      this.health = 100
+    }
+  }
+
+  const sameHeroF = (a: Hero, b: Hero) => a.heroId === b.heroId
+
+  let queue: Queue<Hero>
+
+  beforeAll(() => {
+    const knight = new Hero(123)
+    const archer = new Hero(456)
+    const mage = new Hero(789)
+
+    queue = new Queue(sameHeroF)
+
+    queue.enqueue(knight)
+    queue.enqueue(archer)
+    queue.enqueue(mage)
+  })
+
+  it('checks if queue contains hero', () => {
+    const knight = new Hero(123)
+    const mage = new Hero(789)
+
+    expect(queue.contains(knight)).toBe(true)
+    expect(queue.contains(mage)).toBe(true)
+    expect(queue.contains(new Hero(246))).toBe(false)
   })
 })

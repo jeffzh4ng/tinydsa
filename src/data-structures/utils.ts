@@ -6,6 +6,16 @@ export interface EqualsFunction<T> {
 }
 
 /**
+ * Function signature for comparing
+ * > 0 => a is larger than b
+ * = 0 => a equals b
+ * < 0 => a is smaller than b
+ */
+export interface CompareFunction<T> {
+  (a: T, b: T): number
+}
+
+/**
  * Default function to test equality.
  * @function
  */
@@ -14,6 +24,20 @@ export const defaultEquals = <T>(a: T, b: T): boolean => {
 }
 
 export const OUT_OF_BOUNDS_ERROR = 'Index is out of bounds.'
-export const EMPTY_LIST_ERROR = 'Structure is empty.'
+export const EMPTY_ERROR = 'Structure is empty.'
 export const VALUE_DOES_NOT_EXIST_ERROR =
   'No element found with specified value.'
+
+/**
+ * Default function to compare element order.
+ * @function
+ */
+export function defaultCompare<T>(a: T, b: T): number {
+  if (a < b) {
+    return -1
+  } else if (a === b) {
+    return 0
+  } else {
+    return 1
+  }
+}

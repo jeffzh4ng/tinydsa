@@ -1,7 +1,7 @@
 import LinkedListNode from './linked-list-node'
-import { EqualsFunction, defaultEquals } from '../utils'
+import * as utils from '../utils'
 import {
-  EMPTY_LIST_ERROR,
+  EMPTY_ERROR,
   OUT_OF_BOUNDS_ERROR,
   VALUE_DOES_NOT_EXIST_ERROR,
 } from '../utils'
@@ -14,11 +14,21 @@ interface List<T> {
 
 class LinkedList<T> implements Iterable<T> {
   private list: List<T> | undefined
+  private equalsF: utils.EqualsFunction<T> = utils.defaultEquals
 
-  constructor() {
+  /**
+   * Creates a LinkedList - O(1)
+   * @param equalsFunction equal function for for non-primitive values.
+   */
+  constructor(equalsFunction?: utils.EqualsFunction<T>) {
     this.list = undefined
+
+    if (equalsFunction) this.equalsF = equalsFunction
   }
 
+  /*****************************************************************************
+                                  NICETIES
+  *****************************************************************************/
   /**
    * Returns size - O(1)
    * @return {number}
@@ -36,6 +46,9 @@ class LinkedList<T> implements Iterable<T> {
     return !this.list
   }
 
+  /*****************************************************************************
+                                  INSERTION
+  *****************************************************************************/
   /**
    * Adds node to the head of the linked list - O(1)
    * @param {T} val - value to add to list
@@ -91,6 +104,7 @@ class LinkedList<T> implements Iterable<T> {
    * @param {number} i - index
    * @param {T} val - value to add to list
    * @return {void}
+   * @throws {OUT_OF_BOUNDS_ERROR}
    */
   addAt(i: number, val: T): void {
     if (i === 0) {
@@ -126,27 +140,32 @@ class LinkedList<T> implements Iterable<T> {
     this.list.size += 1
   }
 
+  /*****************************************************************************
+                                  ACCESSING
+  *****************************************************************************/
   /**
    * Gets the value of head - O(1)
    * @returns {T} value of head
+   * @throws {EMPTY_ERROR}
    */
   peekFront(): T {
-    if (!this.list) throw new Error(EMPTY_LIST_ERROR)
+    if (!this.list) throw new Error(EMPTY_ERROR)
     return this.list.head.val
   }
   /**
    * Gets the value of tail - O(1)
    * @returns {T} value of tail
+   * @throws {EMPTY_ERROR}
    */
   peekBack(): T {
-    if (!this.list) throw new Error(EMPTY_LIST_ERROR)
+    if (!this.list) throw new Error(EMPTY_ERROR)
     return this.list.tail.val
   }
-
   /**
    * Gets the element at index i - O(n)
    * @param {number} i - index of element
    * @returns {T} value of element at index i
+   * @throws {OUT_OF_BOUNDS_ERROR}
    */
   get(i: number): T {
     if (i < 0 || i >= this.size() || !this.list) {
@@ -162,25 +181,24 @@ class LinkedList<T> implements Iterable<T> {
 
     return cur.val
   }
+
+  /*****************************************************************************
+                                  SEARCHING
+  *****************************************************************************/
   /**
    * Removes the first occurrence of the specified item in the linked list.
-   * Equals function must be supplied for non-primitive values - O(n)
    * @param {T} value - value to search for
-   * @param {function(T,T):boolean=} equalsFunction  - optional
-   * function to check if two items are equal
    * @return {number} the index of the first occurence of the element, and -1
    * if the element does not exist.
    */
-  indexOf(value: T, equalsFunction?: EqualsFunction<T>): number {
+  indexOf(value: T): number {
     // list is empty
     if (!this.list) return -1
-
-    const equalsF = equalsFunction || defaultEquals
 
     let i = 0
     let cur = this.list.head
 
-    while (!equalsF(cur.val, value)) {
+    while (!this.equalsF(cur.val, value)) {
       // cur.next === null means we reached end of list without finding element
       if (!cur.next) return -1
 
@@ -190,30 +208,27 @@ class LinkedList<T> implements Iterable<T> {
 
     return i
   }
-
   /**
    * Checks if value is in linked list.
-   * Equals function must be supplied for non-primitive values.
    * @param {T} value  - value to search for
-   * @param {EqualsFunction<T>} equalsFunction - optional
-   * function to check if two items are equal
    * @returns {boolean}
    */
-  contains(value: T, equalsFunction?: EqualsFunction<T>): boolean {
-    const index = this.indexOf(
-      value,
-      equalsFunction ? equalsFunction : undefined
-    )
+  contains(value: T): boolean {
+    const index = this.indexOf(value)
 
     return index !== -1
   }
 
+  /*****************************************************************************
+                                  DELETION
+  *****************************************************************************/
   /**
    * Removes head - O(1)
    * @return {T} - value of removed head
+   * @throws {EMPTY_ERROR}
    */
   removeFront(): T {
-    if (!this.list) throw new Error(EMPTY_LIST_ERROR)
+    if (!this.list) throw new Error(EMPTY_ERROR)
 
     // extract val of head so we can return it later
     const val = this.list.head.val
@@ -236,9 +251,10 @@ class LinkedList<T> implements Iterable<T> {
   /**
    * Removes tail - O(1)
    * @return {T} - value of removed head
+   * @throws {EMPTY_ERROR}
    */
   removeBack(): T {
-    if (!this.list) throw new Error(EMPTY_LIST_ERROR)
+    if (!this.list) throw new Error(EMPTY_ERROR)
 
     // extract the val of tail so we can return it later
     const val = this.list.tail.val
@@ -262,6 +278,7 @@ class LinkedList<T> implements Iterable<T> {
    * removal was successful, and false otherwise. - O(n)
    * @param {T} val - value to remove
    * @returns {T} - value of removed node
+   * @throws {VALUE_DOES_NOT_EXIST_ERROR}
    */
   remove(val: T): T {
     const index = this.indexOf(val) // O(n)
@@ -273,9 +290,10 @@ class LinkedList<T> implements Iterable<T> {
    * Removes node at specified index- O(n)
    * @param {number} i - index to remove
    * @return {T} - value of removed node
+   * @throws {EMPTY_ERROR, OUT_OF_BOUNDS_ERROR}
    */
   removeAt(i: number): T {
-    if (!this.list) throw new Error(EMPTY_LIST_ERROR)
+    if (!this.list) throw new Error(EMPTY_ERROR)
 
     if (i === 0) {
       return this.removeFront()
@@ -311,6 +329,9 @@ class LinkedList<T> implements Iterable<T> {
     this.list = undefined
   }
 
+  /*****************************************************************************
+                                  HELPERS
+  *****************************************************************************/
   /**
    * Appends values from an array to list - O(k)
    */
@@ -321,7 +342,6 @@ class LinkedList<T> implements Iterable<T> {
 
     return this
   }
-
   *[Symbol.iterator](): Iterator<T> {
     if (!this.list) return
 

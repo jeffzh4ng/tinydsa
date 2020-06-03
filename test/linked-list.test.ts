@@ -1,6 +1,6 @@
 import LinkedList from '../src/data-structures/linked-list'
 import {
-  EMPTY_LIST_ERROR,
+  EMPTY_ERROR,
   OUT_OF_BOUNDS_ERROR,
   VALUE_DOES_NOT_EXIST_ERROR,
 } from '../src/data-structures/utils'
@@ -20,31 +20,31 @@ describe('Linked List - simple number', () => {
     it('throws when peekFirst() is called on an empty list', () => {
       expect(() => {
         list.peekFront()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when peekLast() is called on an empty list', () => {
       expect(() => {
         list.peekBack()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when removeFirst() is called on an empty list', () => {
       expect(() => {
         list.removeFront()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when removeFirst() is called on an empty list', () => {
       expect(() => {
         list.removeBack()
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
     })
 
     it('throws when removeAt() is called on an empty list', () => {
       expect(() => {
         list.removeAt(0)
-      }).toThrow(EMPTY_LIST_ERROR)
+      }).toThrow(EMPTY_ERROR)
 
       list.addBack(1)
       expect(() => {
@@ -322,7 +322,8 @@ describe('Linked list - complex object', () => {
     const archer = new Hero(456)
     const mage = new Hero(789)
 
-    list = new LinkedList()
+    list = new LinkedList(sameHeroF)
+
     list.addBack(knight)
     list.addBack(archer)
     list.addBack(mage)
@@ -332,16 +333,16 @@ describe('Linked list - complex object', () => {
     const knight = new Hero(123)
     const mage = new Hero(789)
 
-    expect(list.indexOf(knight, sameHeroF)).toBe(0)
-    expect(list.indexOf(mage, sameHeroF)).toBe(2)
+    expect(list.indexOf(knight)).toBe(0)
+    expect(list.indexOf(mage)).toBe(2)
   })
 
   it('checks if list contains hero', () => {
     const knight = new Hero(123)
     const mage = new Hero(789)
 
-    expect(list.contains(knight, sameHeroF)).toBe(true)
-    expect(list.contains(mage, sameHeroF)).toBe(true)
-    expect(list.contains(new Hero(246), sameHeroF)).toBe(false)
+    expect(list.contains(knight)).toBe(true)
+    expect(list.contains(mage)).toBe(true)
+    expect(list.contains(new Hero(246))).toBe(false)
   })
 })
