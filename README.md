@@ -15,9 +15,9 @@ production use.
 - [x] Stack
 - [x] Queue
 - [ ] Priority Queue
-  - [ ] Min Binary Heap
-  - [ ] Min D-Heap
-  - [ ] Min Indexed Binary Heap
+  - [x] Min Binary Heap
+  - [x] Min D-Heap
+  - [x] Min Indexed Binary Heap
   - [ ] Min Binomial Heap
   - [ ] Min Fibonnaci Heap
 - [ ] Hash Map
