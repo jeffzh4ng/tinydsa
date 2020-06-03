@@ -1,10 +1,6 @@
 import LinkedListNode from './linked-list-node'
 import * as utils from '../utils'
-import {
-  EMPTY_ERROR,
-  OUT_OF_BOUNDS_ERROR,
-  VALUE_DOES_NOT_EXIST_ERROR,
-} from '../utils'
+import { EMPTY_ERROR, OUT_OF_BOUNDS_ERROR, VALUE_DOES_NOT_EXIST_ERROR } from '../utils'
 
 interface List<T> {
   head: LinkedListNode<T>

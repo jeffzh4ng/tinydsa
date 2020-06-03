@@ -25,17 +25,11 @@ class MinDHeap<T> {
   private heap: T[]
   private d: number
 
-  private child: number[]
-  private parent: number[]
-
   private compare: utils.CompareFunction<T>
 
   constructor(degree: number, compareFunction?: utils.CompareFunction<T>) {
     this.heap = []
-    this.d = degree
-
-    this.child = []
-    this.parent = []
+    this.d = Math.max(2, degree) // degree must be at least 2
 
     this.compare = compareFunction || utils.defaultCompare
   }
@@ -203,7 +197,7 @@ class MinDHeap<T> {
       this.swap(parentIndex, k)
       k = parentIndex // move k pointer up
 
-      parentIndex = this.parent[k]
+      parentIndex = this.getParentIndex(k)
     }
   }
 
