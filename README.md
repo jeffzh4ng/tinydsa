@@ -10,12 +10,13 @@ A collection of algorithms and data structures implemented in Typescript for
 production use.
 
 ## Data Structures
-- [ ] Sequences
+
+- [x] Sequences
   - [x] Linked List
   - [x] Stack
   - [x] Queue
-  - [ ] Double-ended Queue
-  - [ ] Circular Buffer
+  - [x] Double-ended Queue
+  - [x] Circular Buffer
 - [ ] Priority Queues
   - [x] Binary Heap
   - [x] D-Heap
@@ -59,6 +60,7 @@ production use.
 - [ ] Persistent and Retroactive Data Structures
 
 ## Algorithms
+
 - [ ] Sorting
 - [ ] Searching
 - [ ] Backtracking

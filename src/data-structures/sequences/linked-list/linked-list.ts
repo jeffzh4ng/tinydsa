@@ -118,13 +118,13 @@ class LinkedList<T> implements Iterable<T> {
     let cur = this.list.head
     // traverse to index
     for (let j = 0; j < i - 1; j++) {
-      cur = cur.next!
+      cur = cur.next! // eslint-disable-line
     }
 
     const newNode = new LinkedListNode(val)
 
     // link next node
-    cur.next!.prev = newNode
+    cur.next!.prev = newNode // eslint-disable-line
     newNode.next = cur.next
 
     // link prev node
@@ -168,7 +168,7 @@ class LinkedList<T> implements Iterable<T> {
     let j = 0
     let cur = this.list.head
     while (j < i) {
-      cur = cur.next!
+      cur = cur.next! // eslint-disable-line
       j++
     }
 
@@ -297,13 +297,13 @@ class LinkedList<T> implements Iterable<T> {
 
     // traverse to node to be deleted
     while (j < i) {
-      cur = cur.next!
+      cur = cur.next! // eslint-disable-line
       j += 1
     }
 
     // delete node
-    cur.prev!.next = cur.next
-    cur.next!.prev = cur.prev
+    cur.prev!.next = cur.next // eslint-disable-line
+    cur.next!.prev = cur.prev // eslint-disable-line
 
     this.list.size -= 1
 

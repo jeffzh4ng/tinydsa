@@ -160,6 +160,7 @@ class MinDHeap<T> {
    * @returns {void}
    */
   private sink(k: number): void {
+    // eslint-disable-next-line
     while (true) {
       const childrenIndices = this.getChildrenIndices(k)
 

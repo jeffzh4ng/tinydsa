@@ -1,5 +1,4 @@
 import MinBinaryHeap from '../../src/data-structures/priority-queues/min-binary-heap'
-import * as utils from '../../src/data-structures/utils'
 
 describe('MinBinaryHeap', () => {
   let heap: MinBinaryHeap<number>
