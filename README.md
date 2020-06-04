@@ -34,15 +34,14 @@ production use.
   - [ ] Disjoint-set
   - [ ] Partition Refinement
 - [ ] Trees
-  - [ ] Binary Search Tree
-    - [ ] Self-balancing
-      - [ ] AVL Tree
-      - [ ] WAVL Tree
-      - [ ] B-tree
-      - [ ] B+ Tree
-      - [ ] Red-black Tree
-      - [ ] Splay Tree
-      - [ ] Scapegoat Tree
+  - [ ] Self-balancing BSTs
+    - [ ] AVL Tree
+    - [ ] WAVL Tree
+    - [ ] B-tree
+    - [ ] B+ Tree
+    - [ ] Red-black Tree
+    - [ ] Splay Tree
+    - [ ] Scapegoat Tree
   - [ ] Space Partioning
     - [ ] Segment Tree
     - [ ] Interval Tree
