@@ -10,29 +10,55 @@ A collection of algorithms and data structures implemented in Typescript for
 production use.
 
 ## Data Structures
-
-- [x] Linked List
-- [x] Stack
-- [x] Queue
-- [ ] Priority Queue
-  - [x] Min Binary Heap
-  - [x] Min D-Heap
-  - [x] Min Indexed Binary Heap
-  - [ ] Min Binomial Heap
-  - [ ] Min Fibonnaci Heap
-- [ ] Hash Map
-- [ ] Hash Set
-- [ ] Tree
+- [ ] Sequences
+  - [x] Linked List
+  - [x] Stack
+  - [x] Queue
+  - [ ] Double-ended Queue
+  - [ ] Circular Buffer
+- [ ] Priority Queues
+  - [x] Binary Heap
+  - [x] D-Heap
+  - [x] Indexed Binary Heap
+  - [ ] Mergeable Heaps
+    - [ ] Binomial Heap
+    - [ ] Fibonnaci Heap
+    - [ ] Pairing Heap
+    - [ ] Double-ended Priority Queue
+    - [ ] Soft Heap
+- [ ] Dictionaries
+- [ ] Sets
+  - [ ] Bit Array
+  - [ ] Bloom Filter
+  - [ ] Min Hash
+  - [ ] Disjoint-set
+  - [ ] Partition Refinement
+- [ ] Trees
   - [ ] Binary Search Tree
-  - [ ] AVL Tree
-  - [ ] Red Black Tree
-  - [ ] Segment Tree
-  - [ ] Fenwick Tree
-  - [ ] Trie
+    - [ ] Self-balancing
+      - [ ] AVL Tree
+      - [ ] WAVL Tree
+      - [ ] B-tree
+      - [ ] B+ Tree
+      - [ ] Red-black Tree
+      - [ ] Splay Tree
+      - [ ] Scapegoat Tree
+    - [ ] Space Partioning
+      - [ ] Segment Tree
+      - [ ] Interval Tree
+    - [ ] Multiway
+      - [ ] Fegment Tree
+    - [ ] Tries
+      - [ ] Trie
+      - [ ] Radix Tree
+      - [ ] Suffix Tree
+    - [ ] Fusion Tree
+    - [ ] Treap
+    - [ ] Van Emde Boas Tree (Flat Tree)
+- [ ] Tries
 - [ ] Graph
-- [ ] Disjoint Set
-- [ ] Bloom Filter
 - [ ] LRU Cache
+- [ ] Persistent and Retroactive Data Structures
 
 ## License
 
