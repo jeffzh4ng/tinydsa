@@ -1,5 +1,5 @@
-import Stack from '../src/data-structures/stack'
-import { EMPTY_ERROR } from '../src/data-structures/utils'
+import Stack from '../../src/data-structures/stack'
+import { EMPTY_ERROR } from '../../src/data-structures/utils'
 
 describe('Stack', () => {
   let stack: Stack<number>

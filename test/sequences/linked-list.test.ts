@@ -1,9 +1,5 @@
-import LinkedList from '../src/data-structures/linked-list'
-import {
-  EMPTY_ERROR,
-  OUT_OF_BOUNDS_ERROR,
-  VALUE_DOES_NOT_EXIST_ERROR,
-} from '../src/data-structures/utils'
+import LinkedList from '../../src/data-structures/linked-list'
+import { EMPTY_ERROR, OUT_OF_BOUNDS_ERROR, VALUE_DOES_NOT_EXIST_ERROR } from '../../src/data-structures/utils'
 
 describe('Linked List - simple number', () => {
   let list: LinkedList<number>

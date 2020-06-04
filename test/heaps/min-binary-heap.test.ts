@@ -1,17 +1,25 @@
-import MinDHeap from '../src/data-structures/priority-queue/min-d-heap'
-import * as utils from '../src/data-structures/utils'
+import MinBinaryHeap from '../../src/data-structures/priority-queue/min-binary-heap'
+import * as utils from '../../src/data-structures/utils'
 
-describe('MinDHeap', () => {
-  let heap: MinDHeap<number>
+describe('MinBinaryHeap', () => {
+  let heap: MinBinaryHeap<number>
 
   beforeEach(() => {
-    heap = new MinDHeap(3)
+    heap = new MinBinaryHeap()
   })
 
   describe('Niceties', () => {
     it('is empty', () => {
       expect(heap.size()).toBe(0)
       expect(heap.isEmpty()).toBe(true)
+    })
+  })
+
+  describe('Creation', () => {
+    it('heapifies', () => {
+      heap = new MinBinaryHeap([8, 3, 10])
+      expect(heap.size()).toBe(3)
+      expect(heap.peek()).toBe(3)
     })
   })
 
@@ -111,12 +119,11 @@ describe('MinDHeap', () => {
 
     expect(heap.peek()).toBe(3)
     expect(heap.poll()).toBe(3)
-    expect(heap.peek()).toBe(8)
 
+    heap.add(9)
     heap.add(2)
     heap.add(-5)
     heap.add(20)
-    heap.add(9)
 
     expect(heap.peek()).toBe(-5)
     expect(heap.poll()).toBe(-5)

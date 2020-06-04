@@ -1,5 +1,5 @@
-import Queue from '../src/data-structures/queue'
-import { EMPTY_ERROR } from '../src/data-structures/utils'
+import { Queue } from '../../src/data-structures/queue'
+import { EMPTY_ERROR } from '../../src/data-structures/utils'
 
 describe('Queue', () => {
   let queue: Queue<number>
