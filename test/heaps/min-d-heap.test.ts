@@ -1,5 +1,4 @@
-import MinDHeap from '../../src/data-structures/priority-queue/min-d-heap'
-import * as utils from '../../src/data-structures/utils'
+import MinDHeap from '../../src/data-structures/priority-queues/min-d-heap'
 
 describe('MinDHeap', () => {
   let heap: MinDHeap<number>

@@ -1,4 +1,4 @@
-import MinIndexedDHeap from '../../src/data-structures/priority-queue/min-indexed-d-heap'
+import MinIndexedDHeap from '../../src/data-structures/priority-queues/min-indexed-d-heap'
 
 describe('MinIndexedDHeap', () => {
   let heap: MinIndexedDHeap<number>

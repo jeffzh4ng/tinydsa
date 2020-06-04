@@ -1,37 +1,34 @@
 import * as utils from '../utils'
 
 /*******************************************************************************
- * A D-ary implements the Priority Queue ADT, just like the binary heap.
- * What's different is that it has d children.
+ * A min binary heap implements the Priority Queue ADT. It has constant access
+ * to the min element of the heap in O(1).
  *
- * D-ary heaps are better for decreaseKey operations because decreaseKey()
- * means we must swim the node up (min heap). Since d > 2, log_d(n) < log_2(n),
- * meaning we swim up fewer levels.
- *
- * This is preferred for algorithms with heavy decreaseKey() calls like
- * Djikstra's shortest path and Prim's minimum spanning tree.
- *
- *
- * add(element) - O(log_dn) no comparisons needed for swimming up
- * poll() - O(dlog_dn) (d child comparisons when sinking to find min child)
- * decreaseKey() - O(log_dn) bc we swim up
+ * add(element) - O(logn)
+ * poll() - O(logn)
  * peek() - O(1)
- *
- * More info can be found here: https://www.geeksforgeeks.org/k-ary-heap/
  ******************************************************************************/
-
-class MinDHeap<T> {
+class MinBinaryHeap<T> {
   // a dynamic array to hold our elements
   private heap: T[]
-  private d: number
-
   private compare: utils.CompareFunction<T>
 
-  constructor(degree: number, compareFunction?: utils.CompareFunction<T>) {
+  constructor(elements?: Iterable<T>, compareFunction?: utils.CompareFunction<T>) {
     this.heap = []
-    this.d = Math.max(2, degree) // degree must be at least 2
-
     this.compare = compareFunction || utils.defaultCompare
+
+    if (elements) {
+      this.heap = Array.from(elements)
+      this.heapify()
+    }
+  }
+
+  // O(n)
+  private heapify(): void {
+    let i = Math.max(0, Math.floor(this.size() / 2) - 1)
+    for (; i >= 0; i--) {
+      this.sink(i)
+    }
   }
 
   /*****************************************************************************
@@ -56,14 +53,14 @@ class MinDHeap<T> {
                                   INSERTION
   *****************************************************************************/
   /**
-   * Adds an element to the heap, while maintaing the heap invariant - O(log_d(n))
+   * Adds an element to the heap, while maintaing the heap invariant - O(log(n))
    * @param {T} element
    * @returns {void}
    */
   add(element: T): void {
     this.heap.push(element)
     const indexOfLastElement = this.size() - 1
-    this.swim(indexOfLastElement) // O(log_d(n))
+    this.swim(indexOfLastElement)
   }
 
   /*****************************************************************************
@@ -95,7 +92,7 @@ class MinDHeap<T> {
                                   DELETION
   *****************************************************************************/
   /**
-   * Removes and returns top most element of heap - O(log_d(n))
+   * Removes and returns top most element of heap - O(log(n))
    * @returns {T}
    */
   poll(): T | null {
@@ -129,17 +126,16 @@ class MinDHeap<T> {
                                   HELPERS
   *****************************************************************************/
   // O(1)
-  private getChildrenIndices(parentIndex: number): number[] {
-    const indices = []
-    for (let i = 1; i <= this.d; i++) {
-      indices.push(parentIndex * this.d + i)
-    }
-
-    return indices
+  private getLeftChildIndex(parentIndex: number): number {
+    return parentIndex * 2 + 1
+  }
+  // O(1)
+  private getRightChildIndex(parentIndex: number): number {
+    return parentIndex * 2 + 2
   }
   // O(1)
   private getParentIndex(childIndex: number): number {
-    return Math.floor((childIndex - 1) / this.d)
+    return Math.floor((childIndex - 1) / 2)
   }
 
   /**
@@ -152,26 +148,24 @@ class MinDHeap<T> {
   }
 
   /**
-   * Sinks element with index k until heap invariant is satisfied - O(dlog(n))
-   * O(dlog(n)) because in the worst case we sink the element down the entire
-   * height of the tree. At each level, we have to do d comparisons to find
-   * smallest child to swim down.
+   * Sinks element with index k until heap invariant is satisfied - O(log(n))
+   * O(log(n)) because in the worst case we sink the element down the entire
+   * height of the tree
    * @param {number} k
    * @returns {void}
    */
   private sink(k: number): void {
+    // eslint-disable-next-line
     while (true) {
-      const childrenIndices = this.getChildrenIndices(k)
+      const leftChildIndex = this.getLeftChildIndex(k)
+      const rightChildIndex = this.getRightChildIndex(k)
 
-      // get smallest index O(d)
-      let smallestIndex = childrenIndices[0] // assume left most child is smallest at first
-      for (const childIndex of childrenIndices) {
-        if (childIndex < this.size() && this.less(childIndex, smallestIndex)) {
-          smallestIndex = childIndex
-        }
-      }
+      // get smallest index
+      let smallestIndex = leftChildIndex
+      const rightChildIsSmallerThanLeft = rightChildIndex < this.size() && this.less(rightChildIndex, leftChildIndex)
+      if (rightChildIsSmallerThanLeft) smallestIndex = rightChildIndex
 
-      const indexOutOfBounds = smallestIndex >= this.size()
+      const indexOutOfBounds = leftChildIndex >= this.size()
       const elementIsLessThanChild = this.less(k, smallestIndex)
       if (indexOutOfBounds || elementIsLessThanChild) break
 
@@ -181,8 +175,8 @@ class MinDHeap<T> {
   }
 
   /**
-   * Swims an element with index k until heap invariant is satisfied - O(log_d(n))
-   * O(logd(n)) because in the worst case we swim the element up the entire tree
+   * Swims an element with index k until heap invariant is satisfied - O(log(n))
+   * O(log(n)) because in the worst case we swim the element up the entire tree
    * @param {number} k
    * @returns {void}
    */
@@ -191,7 +185,7 @@ class MinDHeap<T> {
 
     while (k > 0 && this.less(k, parentIndex)) {
       this.swap(parentIndex, k)
-      k = parentIndex // move k pointer up
+      k = parentIndex
 
       parentIndex = this.getParentIndex(k)
     }
@@ -207,13 +201,11 @@ class MinDHeap<T> {
 
   /**
    * Removes element at provided index by swapping it with last element, and
-   * heapifying the swapped element by sinking/swimming it - O(dlog(n)).
+   * heapifying the swapped element by sinking/swimming it - O(log(n)).
    *
-   * O(dlog(n)) because in worst case we have to sink element throughout entire
-   * tree
+   * O(log(n)) because in worst case we swink/swim element throughout the entire tree
    * @param {number} indexToRemove
    * @returns {T}
-   * @throws {OUT_OF_BOUNDS_ERROR, EMPTY_ERROR}
    */
   private removeAt(indexToRemove: number): T {
     // Following these 3 loc never execute. removeAt() is only called with
@@ -221,7 +213,7 @@ class MinDHeap<T> {
 
     // const indexOutOfBounds = indexToRemove < 0 || indexToRemove > this.size()
     // if (indexOutOfBounds) throw new Error(utils.OUT_OF_BOUNDS_ERROR)
-    // if (this.isEmpty()) return null
+    // if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
 
     const indexOfLastElement = this.size() - 1
     // save the removed element so we can return it after heapifying
@@ -232,7 +224,7 @@ class MinDHeap<T> {
     // delete the removed element!
     this.heap.pop()
 
-    // if last element is being removed, no need to heapify
+    // if last element is being removed, no need to heapify (sink/swim)
     const lastElementIsBeingRemoved = indexToRemove === indexOfLastElement
     if (lastElementIsBeingRemoved) return removedElement
 
@@ -241,12 +233,14 @@ class MinDHeap<T> {
     const elementToBeHeapified = this.heap[indexToBeHeapified]
     this.sink(indexToBeHeapified)
 
-    const elementDidNotMove = this.heap[indexToBeHeapified] === elementToBeHeapified
-    if (elementDidNotMove) this.swim(indexToBeHeapified) // swim if sinking didn't work
+    // if sinking did not work try swimming
+    if (this.heap[indexToBeHeapified] === elementToBeHeapified) {
+      this.swim(indexToBeHeapified)
+    }
 
     // return saved value from before
     return removedElement
   }
 }
 
-export default MinDHeap
+export default MinBinaryHeap

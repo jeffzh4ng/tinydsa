@@ -40,12 +40,12 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && yarn test",
-      "pre-push": "lint-staged && yarn build"
+      "pre-push": "lint-staged && yarn test"
     }
   },
   "lint-staged": {
     "*": [
-      "yarn prettier --write",
+      "yarn prettier --write '**/*.ts'",
       "yarn eslint . --ext .ts"
     ]
   }

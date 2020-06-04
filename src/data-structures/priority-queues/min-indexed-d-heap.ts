@@ -289,6 +289,7 @@ class MinIndexedDHeap<T> {
    * @returns {void}
    */
   private sink(k: number): void {
+    // eslint-disable-next-line
     while (true) {
       const childrenPositions = this.getChildrenPositions(k)
 

@@ -1,4 +1,4 @@
-import LinkedList from '../../src/data-structures/linked-list'
+import LinkedList from '../../src/data-structures/sequences/linked-list'
 
 describe('Linked List - simple number', () => {
   let list: LinkedList<number>
@@ -238,6 +238,8 @@ describe('Linked List - simple number', () => {
 
     it('does not iterate over an empty list', () => {
       let count = 0
+
+      // eslint-disable-next-line
       for (const n of list) {
         count += 1
       }
