@@ -1,5 +1,4 @@
 import { Queue } from '../../src/data-structures/queue'
-import { EMPTY_ERROR } from '../../src/data-structures/utils'
 
 describe('Queue', () => {
   let queue: Queue<number>
@@ -8,21 +7,14 @@ describe('Queue', () => {
     queue = new Queue()
   })
 
-  describe('throwing', () => {
-    it('throws when pop() is called on empty stack', () => {
-      expect(() => {
-        queue.dequeue()
-      }).toThrow(EMPTY_ERROR)
+  describe('empty queue', () => {
+    it('returns null when pop() is called on empty stack', () => {
+      expect(queue.dequeue()).toBe(null)
     })
 
-    it('throws when peek() is called on empty stack', () => {
-      expect(() => {
-        queue.peekFront()
-      }).toThrow(EMPTY_ERROR)
-
-      expect(() => {
-        queue.peekBack()
-      }).toThrow(EMPTY_ERROR)
+    it('returns null when peek() is called on empty stack', () => {
+      expect(queue.peekFront()).toBe(null)
+      expect(queue.peekBack()).toBe(null)
     })
   })
 

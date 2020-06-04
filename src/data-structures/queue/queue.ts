@@ -44,10 +44,9 @@ class Queue<T> implements Iterable<T> {
   /**
    * Dequeues element from queue - O(1)
    * @returns {T}
-   * @throws {EMPTY_LIST_ERROR}
    */
-  dequeue(): T {
-    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
+  dequeue(): T | null {
+    if (this.isEmpty()) return null
     return this.list.removeBack()
   }
 
@@ -57,19 +56,17 @@ class Queue<T> implements Iterable<T> {
   /**
    * Peeks at the element at the front of the queue - O(1)
    * @returns {T} - Frontmost element
-   * @throws {EMPTY_LIST_ERROR}
    */
-  peekFront(): T {
-    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
+  peekFront(): T | null {
+    if (this.isEmpty()) return null
     return this.list.peekBack()
   }
   /**
    * Peeks at the element at the back of the queue - O(1)
    * @returns {T} - Backmost element
-   * @throws {EMPTY_LIST_ERROR}
    */
-  peekBack(): T {
-    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
+  peekBack(): T | null {
+    if (this.isEmpty()) return null
     return this.list.peekFront()
   }
 

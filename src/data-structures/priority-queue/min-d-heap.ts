@@ -72,10 +72,9 @@ class MinDHeap<T> {
   /**
    * Peeks at the top most element in the heap - O(1)
    * @returns {T}
-   * @throws {EMPTY_ERROR}
    */
-  peek(): T {
-    if (this.isEmpty()) throw utils.EMPTY_ERROR
+  peek(): T | null {
+    if (this.isEmpty()) return null
 
     return this.heap[0]
   }
@@ -98,10 +97,9 @@ class MinDHeap<T> {
   /**
    * Removes and returns top most element of heap - O(log_d(n))
    * @returns {T}
-   * @throws {EMPTY_ERROR}
    */
-  poll(): T {
-    if (this.isEmpty()) throw utils.EMPTY_ERROR
+  poll(): T | null {
+    if (this.isEmpty()) return null
 
     return this.removeAt(0) // O(log(n))
   }
@@ -112,9 +110,7 @@ class MinDHeap<T> {
    */
   remove(element: T): boolean {
     // O(n), linear scan to find elementIndex
-    const elementIndex = this.heap.findIndex(
-      (h: T) => this.compare(element, h) === 0
-    )
+    const elementIndex = this.heap.findIndex((h: T) => this.compare(element, h) === 0)
 
     if (elementIndex === -1) return false
 
@@ -225,7 +221,7 @@ class MinDHeap<T> {
 
     // const indexOutOfBounds = indexToRemove < 0 || indexToRemove > this.size()
     // if (indexOutOfBounds) throw new Error(utils.OUT_OF_BOUNDS_ERROR)
-    // if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
+    // if (this.isEmpty()) return null
 
     const indexOfLastElement = this.size() - 1
     // save the removed element so we can return it after heapifying
@@ -245,8 +241,7 @@ class MinDHeap<T> {
     const elementToBeHeapified = this.heap[indexToBeHeapified]
     this.sink(indexToBeHeapified)
 
-    const elementDidNotMove =
-      this.heap[indexToBeHeapified] === elementToBeHeapified
+    const elementDidNotMove = this.heap[indexToBeHeapified] === elementToBeHeapified
     if (elementDidNotMove) this.swim(indexToBeHeapified) // swim if sinking didn't work
 
     // return saved value from before

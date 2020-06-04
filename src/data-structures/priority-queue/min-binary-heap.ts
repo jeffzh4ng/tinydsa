@@ -13,10 +13,7 @@ class MinBinaryHeap<T> {
   private heap: T[]
   private compare: utils.CompareFunction<T>
 
-  constructor(
-    elements?: Iterable<T>,
-    compareFunction?: utils.CompareFunction<T>
-  ) {
+  constructor(elements?: Iterable<T>, compareFunction?: utils.CompareFunction<T>) {
     this.heap = []
     this.compare = compareFunction || utils.defaultCompare
 
@@ -72,10 +69,9 @@ class MinBinaryHeap<T> {
   /**
    * Peeks at the top most element in the heap - O(1)
    * @returns {T}
-   * @throws {EMPTY_ERROR}
    */
-  peek(): T {
-    if (this.isEmpty()) throw utils.EMPTY_ERROR
+  peek(): T | null {
+    if (this.isEmpty()) return null
 
     return this.heap[0]
   }
@@ -98,10 +94,9 @@ class MinBinaryHeap<T> {
   /**
    * Removes and returns top most element of heap - O(log(n))
    * @returns {T}
-   * @throws {EMPTY_ERROR}
    */
-  poll(): T {
-    if (this.isEmpty()) throw utils.EMPTY_ERROR
+  poll(): T | null {
+    if (this.isEmpty()) return null
 
     return this.removeAt(0) // O(log(n))
   }
@@ -112,9 +107,7 @@ class MinBinaryHeap<T> {
    */
   remove(element: T): boolean {
     // O(n), linear scan to find elementIndex
-    const elementIndex = this.heap.findIndex(
-      (h: T) => this.compare(element, h) === 0
-    )
+    const elementIndex = this.heap.findIndex((h: T) => this.compare(element, h) === 0)
 
     if (elementIndex === -1) return false
 
@@ -168,9 +161,7 @@ class MinBinaryHeap<T> {
 
       // get smallest index
       let smallestIndex = leftChildIndex
-      const rightChildIsSmallerThanLeft =
-        rightChildIndex < this.size() &&
-        this.less(rightChildIndex, leftChildIndex)
+      const rightChildIsSmallerThanLeft = rightChildIndex < this.size() && this.less(rightChildIndex, leftChildIndex)
       if (rightChildIsSmallerThanLeft) smallestIndex = rightChildIndex
 
       const indexOutOfBounds = leftChildIndex >= this.size()
@@ -214,7 +205,6 @@ class MinBinaryHeap<T> {
    * O(log(n)) because in worst case we swink/swim element throughout the entire tree
    * @param {number} indexToRemove
    * @returns {T}
-   * @throws {OUT_OF_BOUNDS_ERROR, EMPTY_ERROR}
    */
   private removeAt(indexToRemove: number): T {
     // Following these 3 loc never execute. removeAt() is only called with

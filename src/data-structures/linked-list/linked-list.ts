@@ -1,6 +1,5 @@
 import LinkedListNode from './linked-list-node'
 import * as utils from '../utils'
-import { EMPTY_ERROR, OUT_OF_BOUNDS_ERROR, VALUE_DOES_NOT_EXIST_ERROR } from '../utils'
 
 interface List<T> {
   head: LinkedListNode<T>
@@ -50,7 +49,7 @@ class LinkedList<T> implements Iterable<T> {
    * @param {T} val - value to add to list
    * @return {void}
    */
-  addFront(val: T): void {
+  addFront(val: T): boolean {
     const newNode = new LinkedListNode(val)
 
     if (this.list) {
@@ -69,13 +68,15 @@ class LinkedList<T> implements Iterable<T> {
         size: 1,
       }
     }
+
+    return true
   }
   /**
    * Adds node to the tail of the linked list - O(1)
    * @param {T} - value to add to list
    * @return {void}
    */
-  addBack(val: T): void {
+  addBack(val: T): boolean {
     const newNode = new LinkedListNode(val)
 
     if (this.list) {
@@ -94,28 +95,25 @@ class LinkedList<T> implements Iterable<T> {
         size: 1,
       }
     }
+
+    return true
   }
   /**
    * Adds a node at specified index - O(n)
    * @param {number} i - index
    * @param {T} val - value to add to list
    * @return {void}
-   * @throws {OUT_OF_BOUNDS_ERROR}
    */
-  addAt(i: number, val: T): void {
+  addAt(i: number, val: T): boolean {
     if (i === 0) {
-      this.addFront(val)
-      return
+      return this.addFront(val)
     }
 
     if (i === this.size()) {
-      this.addBack(val)
-      return
+      return this.addBack(val)
     }
 
-    if (i < 0 || i >= this.size() || !this.list) {
-      throw new Error(OUT_OF_BOUNDS_ERROR)
-    }
+    if (i < 0 || i >= this.size() || !this.list) return false
 
     let cur = this.list.head
     // traverse to index
@@ -134,6 +132,8 @@ class LinkedList<T> implements Iterable<T> {
     cur.next = newNode
 
     this.list.size += 1
+
+    return true
   }
 
   /*****************************************************************************
@@ -142,30 +142,27 @@ class LinkedList<T> implements Iterable<T> {
   /**
    * Gets the value of head - O(1)
    * @returns {T} value of head
-   * @throws {EMPTY_ERROR}
    */
-  peekFront(): T {
-    if (!this.list) throw new Error(EMPTY_ERROR)
+  peekFront(): T | null {
+    if (!this.list) return null
     return this.list.head.val
   }
   /**
    * Gets the value of tail - O(1)
    * @returns {T} value of tail
-   * @throws {EMPTY_ERROR}
    */
-  peekBack(): T {
-    if (!this.list) throw new Error(EMPTY_ERROR)
+  peekBack(): T | null {
+    if (!this.list) return null
     return this.list.tail.val
   }
   /**
    * Gets the element at index i - O(n)
    * @param {number} i - index of element
    * @returns {T} value of element at index i
-   * @throws {OUT_OF_BOUNDS_ERROR}
    */
-  get(i: number): T {
+  get(i: number): T | null {
     if (i < 0 || i >= this.size() || !this.list) {
-      throw new Error(OUT_OF_BOUNDS_ERROR)
+      return null
     }
 
     let j = 0
@@ -221,10 +218,9 @@ class LinkedList<T> implements Iterable<T> {
   /**
    * Removes head - O(1)
    * @return {T} - value of removed head
-   * @throws {EMPTY_ERROR}
    */
-  removeFront(): T {
-    if (!this.list) throw new Error(EMPTY_ERROR)
+  removeFront(): T | null {
+    if (!this.list) return null
 
     // extract val of head so we can return it later
     const val = this.list.head.val
@@ -247,10 +243,9 @@ class LinkedList<T> implements Iterable<T> {
   /**
    * Removes tail - O(1)
    * @return {T} - value of removed head
-   * @throws {EMPTY_ERROR}
    */
-  removeBack(): T {
-    if (!this.list) throw new Error(EMPTY_ERROR)
+  removeBack(): T | null {
+    if (!this.list) return null
 
     // extract the val of tail so we can return it later
     const val = this.list.tail.val
@@ -274,11 +269,10 @@ class LinkedList<T> implements Iterable<T> {
    * removal was successful, and false otherwise. - O(n)
    * @param {T} val - value to remove
    * @returns {T} - value of removed node
-   * @throws {VALUE_DOES_NOT_EXIST_ERROR}
    */
-  remove(val: T): T {
+  remove(val: T): T | null {
     const index = this.indexOf(val) // O(n)
-    if (index === -1) throw new Error(VALUE_DOES_NOT_EXIST_ERROR)
+    if (index === -1) return null
 
     return this.removeAt(index) // O(n)
   }
@@ -286,10 +280,9 @@ class LinkedList<T> implements Iterable<T> {
    * Removes node at specified index- O(n)
    * @param {number} i - index to remove
    * @return {T} - value of removed node
-   * @throws {EMPTY_ERROR, OUT_OF_BOUNDS_ERROR}
    */
-  removeAt(i: number): T {
-    if (!this.list) throw new Error(EMPTY_ERROR)
+  removeAt(i: number): T | null {
+    if (!this.list) return null
 
     if (i === 0) {
       return this.removeFront()
@@ -297,9 +290,7 @@ class LinkedList<T> implements Iterable<T> {
       return this.removeBack()
     }
 
-    if (i < 0 || i >= this.list.size) {
-      throw new Error(OUT_OF_BOUNDS_ERROR)
-    }
+    if (i < 0 || i >= this.list.size) return null
 
     let j = 0
     let cur = this.list.head

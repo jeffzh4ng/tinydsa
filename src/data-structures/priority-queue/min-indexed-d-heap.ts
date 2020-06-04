@@ -96,7 +96,6 @@ class MinIndexedDHeap<T> {
   /**
    * Peeks at the top most element in the heap - O(1)
    * @returns {T}
-   * @throws {EMPTY_ERROR}
    */
   peek(): T | null {
     if (this.isEmpty()) return null
@@ -176,7 +175,6 @@ class MinIndexedDHeap<T> {
    * Returns true if key is in heap, false otherwise - O(1)
    * @param {number} key
    * @returns {boolean}
-   * @throws {OUT_OF_BOUNDS_ERROR}
    */
   contains(key: number): boolean {
     // position map tells us if key exists in heap
@@ -189,7 +187,6 @@ class MinIndexedDHeap<T> {
   /**
    * Removes and returns top most element of heap - O(log_d(n))
    * @returns {T}
-   * @throws {EMPTY_ERROR}
    */
   poll(): T | null {
     if (this.isEmpty()) return null

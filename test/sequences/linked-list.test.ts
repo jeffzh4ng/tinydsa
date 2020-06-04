@@ -1,5 +1,4 @@
 import LinkedList from '../../src/data-structures/linked-list'
-import { EMPTY_ERROR, OUT_OF_BOUNDS_ERROR, VALUE_DOES_NOT_EXIST_ERROR } from '../../src/data-structures/utils'
 
 describe('Linked List - simple number', () => {
   let list: LinkedList<number>
@@ -12,62 +11,16 @@ describe('Linked List - simple number', () => {
     expect(list.isEmpty()).toBe(true)
   })
 
-  describe('throwing', () => {
-    it('throws when peekFirst() is called on an empty list', () => {
-      expect(() => {
-        list.peekFront()
-      }).toThrow(EMPTY_ERROR)
-    })
-
-    it('throws when peekLast() is called on an empty list', () => {
-      expect(() => {
-        list.peekBack()
-      }).toThrow(EMPTY_ERROR)
-    })
-
-    it('throws when removeFirst() is called on an empty list', () => {
-      expect(() => {
-        list.removeFront()
-      }).toThrow(EMPTY_ERROR)
-    })
-
-    it('throws when removeFirst() is called on an empty list', () => {
-      expect(() => {
-        list.removeBack()
-      }).toThrow(EMPTY_ERROR)
-    })
-
-    it('throws when removeAt() is called on an empty list', () => {
-      expect(() => {
-        list.removeAt(0)
-      }).toThrow(EMPTY_ERROR)
-
-      list.addBack(1)
-      expect(() => {
-        list.removeAt(2)
-      }).toThrow(OUT_OF_BOUNDS_ERROR)
-    })
-
-    it('throws when remove() is called on an empty list', () => {
-      expect(() => {
-        list.remove(1)
-      }).toThrow(VALUE_DOES_NOT_EXIST_ERROR)
-    })
-
-    it('throws when get() is called on an empty list', () => {
-      expect(() => {
-        list.get(0)
-      }).toThrow(OUT_OF_BOUNDS_ERROR)
-
-      expect(() => {
-        list.get(-1)
-      }).toThrow(OUT_OF_BOUNDS_ERROR)
-
-      list.addBack(1)
-
-      expect(() => {
-        list.get(2)
-      }).toThrow(OUT_OF_BOUNDS_ERROR)
+  describe('empty lists', () => {
+    it('retruns null on empty lists', () => {
+      expect(list.peekFront()).toBe(null)
+      expect(list.peekBack()).toBe(null)
+      expect(list.removeFront()).toBe(null)
+      expect(list.removeBack()).toBe(null)
+      expect(list.remove(3)).toBe(null)
+      expect(list.removeAt(3)).toBe(null)
+      expect(list.removeAt(-1)).toBe(null)
+      expect(list.get(1)).toBe(null)
     })
   })
 
@@ -105,11 +58,9 @@ describe('Linked List - simple number', () => {
       expect(list.size()).toBe(5)
     })
 
-    it('throws when adding at index out of bounds', () => {
+    it('returns false when adding at index out of bounds', () => {
       list.addAt(0, 1)
-      expect(() => {
-        list.addAt(3, 2)
-      }).toThrow(OUT_OF_BOUNDS_ERROR)
+      expect(list.addAt(3, 2)).toBe(false)
     })
   })
 

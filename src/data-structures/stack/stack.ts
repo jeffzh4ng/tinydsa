@@ -19,6 +19,7 @@ class Stack<T> implements Iterable<T> {
   size(): number {
     return this.list.size()
   }
+
   /**
    * Returns true if stack is empty, false otherwise - O(1)
    * @returns {number}
@@ -26,6 +27,7 @@ class Stack<T> implements Iterable<T> {
   isEmpty(): boolean {
     return this.list.isEmpty()
   }
+
   /**
    * Deletes all elements in queue - O(1)
    */
@@ -39,17 +41,17 @@ class Stack<T> implements Iterable<T> {
   /**
    * Pushes element onto the stack - O(1)
    * @param {T} element - element to push on stack
-   * @throws {EMPTY_LIST_ERROR}
    */
   push(element: T): void {
     this.list.addBack(element)
   }
+
   /**
    * Pops an element off the stack - O(1)
    * @returns {T} - Element which was popped off
    */
-  pop(): T {
-    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
+  pop(): T | null {
+    if (this.isEmpty()) return null
     return this.list.removeBack()
   }
 
@@ -59,10 +61,9 @@ class Stack<T> implements Iterable<T> {
   /**
    * Peeks at the top most element on the stack - O(1)
    * @returns {T} - Topmost element
-   * @throws {EMPTY_LIST_ERROR}
    */
-  peek(): T {
-    if (this.isEmpty()) throw new Error(utils.EMPTY_ERROR)
+  peek(): T | null {
+    if (this.isEmpty()) return null
     return this.list.peekBack()
   }
 

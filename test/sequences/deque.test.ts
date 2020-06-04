@@ -1,5 +1,4 @@
 import { Deque } from '../../src/data-structures/queue'
-import { EMPTY_ERROR } from '../../src/data-structures/utils'
 
 describe('Deque', () => {
   let deque: Deque<number>
@@ -11,6 +10,7 @@ describe('Deque', () => {
   describe('empty deque', () => {
     it('returns null when pop() is called on empty stack', () => {
       expect(deque.popFront()).toBe(null)
+      expect(deque.popBack()).toBe(null)
     })
 
     it('returns null when peek() is called on empty stack', () => {
@@ -23,33 +23,66 @@ describe('Deque', () => {
     expect(deque.isEmpty()).toBe(true)
   })
 
-  it('enqueues', () => {
-    deque.pushBack(1)
-    expect(deque.size()).toBe(1)
+  describe('enqueues', () => {
+    it('pushes front', () => {
+      deque.pushFront(1)
+      expect(deque.size()).toBe(1)
 
-    deque.pushBack(2)
-    expect(deque.size()).toBe(2)
+      deque.pushFront(2)
+      expect(deque.size()).toBe(2)
 
-    deque.pushBack(3)
-    expect(deque.size()).toBe(3)
+      deque.pushFront(3)
+      expect(deque.size()).toBe(3)
+    })
+
+    it('pushes back', () => {
+      deque.pushBack(1)
+      expect(deque.size()).toBe(1)
+
+      deque.pushBack(2)
+      expect(deque.size()).toBe(2)
+
+      deque.pushBack(3)
+      expect(deque.size()).toBe(3)
+    })
   })
 
-  it('popFront()', () => {
-    deque.pushBack(1)
-    deque.pushBack(2)
-    deque.pushBack(3)
+  describe('dequeues', () => {
+    it('pops front', () => {
+      deque.pushBack(1)
+      deque.pushBack(2)
+      deque.pushBack(3)
 
-    const val1 = deque.popFront()
-    expect(val1).toBe(1)
-    expect(deque.size()).toBe(2)
+      const val1 = deque.popFront()
+      expect(val1).toBe(1)
+      expect(deque.size()).toBe(2)
 
-    const val2 = deque.popFront()
-    expect(val2).toBe(2)
-    expect(deque.size()).toBe(1)
+      const val2 = deque.popFront()
+      expect(val2).toBe(2)
+      expect(deque.size()).toBe(1)
 
-    const val3 = deque.popFront()
-    expect(val3).toBe(3)
-    expect(deque.size()).toBe(0)
+      const val3 = deque.popFront()
+      expect(val3).toBe(3)
+      expect(deque.size()).toBe(0)
+    })
+
+    it('pops back', () => {
+      deque.pushBack(1)
+      deque.pushBack(2)
+      deque.pushBack(3)
+
+      const val1 = deque.popBack()
+      expect(val1).toBe(3)
+      expect(deque.size()).toBe(2)
+
+      const val2 = deque.popBack()
+      expect(val2).toBe(2)
+      expect(deque.size()).toBe(1)
+
+      const val3 = deque.popBack()
+      expect(val3).toBe(1)
+      expect(deque.size()).toBe(0)
+    })
   })
 
   it('finds out if list contains element', () => {

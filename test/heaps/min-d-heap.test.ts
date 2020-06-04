@@ -40,10 +40,8 @@ describe('MinDHeap', () => {
       expect(heap.peek()).toBe(3)
     })
 
-    it('throws when empty heap is peeked', () => {
-      expect(() => {
-        heap.peek()
-      }).toThrow(utils.EMPTY_ERROR)
+    it('returns null when empty heap is peeked', () => {
+      expect(heap.peek()).toBe(null)
     })
   })
 
@@ -73,10 +71,8 @@ describe('MinDHeap', () => {
       expect(heap.size()).toBe(0)
     })
 
-    it('throws when empty heap is polled', () => {
-      expect(() => {
-        heap.poll()
-      }).toThrow(utils.EMPTY_ERROR)
+    it('returns null when empty heap is polled', () => {
+      expect(heap.poll()).toBe(null)
     })
 
     it('removes a specified element', () => {
