@@ -29,7 +29,7 @@
     "prettier": "2.0.5",
     "semantic-release": "17.0.8",
     "ts-jest": "26.1.0",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "dependencies": {},
   "config": {
