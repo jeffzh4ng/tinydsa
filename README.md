@@ -43,18 +43,18 @@ production use.
       - [ ] Red-black Tree
       - [ ] Splay Tree
       - [ ] Scapegoat Tree
-    - [ ] Space Partioning
-      - [ ] Segment Tree
-      - [ ] Interval Tree
-    - [ ] Multiway
-      - [ ] Fegment Tree
-    - [ ] Tries
-      - [ ] Trie
-      - [ ] Radix Tree
-      - [ ] Suffix Tree
-    - [ ] Fusion Tree
-    - [ ] Treap
-    - [ ] Van Emde Boas Tree (Flat Tree)
+  - [ ] Space Partioning
+    - [ ] Segment Tree
+    - [ ] Interval Tree
+  - [ ] Multiway
+    - [ ] Fegment Tree
+  - [ ] Tries
+    - [ ] Trie
+    - [ ] Radix Tree
+    - [ ] Suffix Tree
+  - [ ] Fusion Tree
+  - [ ] Treap
+  - [ ] Van Emde Boas Tree (Flat Tree)
 - [ ] Tries
 - [ ] Graph
 - [ ] LRU Cache
