@@ -1,5 +1,5 @@
 import LinkedList from '../linked-list'
-import * as utils from '../utils'
+import * as utils from '../../utils'
 
 class Queue<T> implements Iterable<T> {
   private list: LinkedList<T>
