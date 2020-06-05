@@ -8,7 +8,7 @@
 ![](https://img.shields.io/codecov/c/github/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/github/license/jeffzh4ng/dsa-ts)
 
-A collection of classical data structures and algorithms implemented in Typescript. Click the 📹 emoji for tutorials. [You can view the entire series in order as well](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
+A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#data-structures) and [algorithms](https://github.com/jeffzh4ng/dsa-ts#algorithms) implemented in Typescript. Click the 📹 emoji for tutorials. [View the entire series in order here](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
 
 The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader.
 
