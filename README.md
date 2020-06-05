@@ -1,26 +1,38 @@
 # Typescript Data Structures and Algorithms
 
+![](https://miro.medium.com/proxy/1*_gg1Te-7SJfk9E2D-mORfw.png)
+
 ![](https://img.shields.io/github/v/release/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/npm/v/dsa-ts)
 [![Tests](https://github.com/jeffzh4ng/dsa-ts/workflows/Tests/badge.svg)](https://github.com/jeffzh4ng/dsa-ts/actions?query=branch%3Amaster++)
 ![](https://img.shields.io/codecov/c/github/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/github/license/jeffzh4ng/dsa-ts)
 
-A collection of algorithms and data structures implemented in Typescript for
-production use.
+A collection of classical data structures and algorithms implemented in Typescript. Click the 📹 emoji for tutorials. [You can view the entire series in order as well](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
+
+The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader.
+
+You can use this package in your projects if you so wish. Test coverage will be kept at 100%. To install the package, use npm or yarn:
+```
+npm install dsa-ts --save
+```
+
+```
+yarn add dsa-ts
+```
 
 ## Data Structures
 
 - [x] Sequences
-  - [x] Linked List
-  - [x] Stack
-  - [x] Queue
+  - [x] [📹](https://www.youtube.com/watch?v=oXXLFvtG6-Q&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=5) Linked List
+  - [x] [📹](https://www.youtube.com/watch?v=7l4YHzc3iXU&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=7) Stack
+  - [x] [📹](https://www.youtube.com/watch?v=E1I8IcKv_cQ&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=9) Queue
   - [x] Double-ended Queue
-  - [x] Circular Buffer
+  - [x] [📹](https://www.youtube.com/watch?v=39HHWATPcwY&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=11) Circular Buffer
 - [ ] Priority Queues
-  - [x] Binary Heap
+  - [x] (Video coming soon) Binary Heap
   - [x] D-Heap
-  - [x] Indexed Binary Heap
+  - [x] (Video coming soon) Indexed Binary Heap
   - [ ] Mergeable Heaps
     - [ ] Binomial Heap
     - [ ] Fibonnaci Heap
@@ -76,4 +88,4 @@ production use.
 
 ## License
 
-This repository is released under the MIT license. In short, this means you are free to use this software in any personal, open-source or commercial projects. Attribution is optional but appreciated.
+This repository is released under the MIT license. In short, this means you are free to use this software in any personal, open-source or commercial projects
