@@ -2,7 +2,6 @@
 
 ![](https://miro.medium.com/proxy/1*_gg1Te-7SJfk9E2D-mORfw.png)
 
-![](https://img.shields.io/github/v/release/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/npm/v/dsa-ts)
 [![Tests](https://github.com/jeffzh4ng/dsa-ts/workflows/Tests/badge.svg)](https://github.com/jeffzh4ng/dsa-ts/actions?query=branch%3Amaster++)
 ![](https://img.shields.io/codecov/c/github/jeffzh4ng/dsa-ts)
@@ -30,14 +29,13 @@ yarn add dsa-ts
   - [x] [Double-ended Queue](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/sequences/queue/deque.ts)
   - [x] [📹](https://www.youtube.com/watch?v=39HHWATPcwY&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=11) [Circular Buffer](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/sequences/circular-buffer/circular-buffer.ts)
 - [ ] Priority Queues
-  - [x] [📹](https://www.youtube.com/watch?v=xpSa8YOqeWQ) [Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-binary-heap.ts)
+  - [x] [📹](https://www.youtube.com/watch?v=xpSa8YOqeWQ&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=13) [Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-binary-heap.ts)
   - [x] [D-Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-d-heap.ts)
   - [x] (Video incoming) [Indexed Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-indexed-d-heap.ts)
   - [ ] Mergeable Heaps
     - [ ] Binomial Heap
     - [ ] Fibonnaci Heap
     - [ ] Pairing Heap
-    - [ ] Double-ended Priority Queue
     - [ ] Soft Heap
 - [ ] Dictionaries
 - [ ] Sets
