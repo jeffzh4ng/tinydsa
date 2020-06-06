@@ -84,6 +84,14 @@ yarn add dsa-ts
 - [ ] Randomization
 - [ ] Linear Programming
 
+## References
+- [Fundamental Data Structures](https://en.wikipedia.org/wiki/Book:Fundamental_Data_Structures)
+- [Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein](https://en.wikipedia.org/wiki/Introduction_to_Algorithms)
+- [Algorithm Design by Jon Kleinberg and Éva Tardos](https://www.amazon.ca/Algorithm-Design-Jon-Kleinberg/dp/0321295358)
+- [Algorithms by William Fiset](https://github.com/williamfiset/Algorithms)
+- [Stanford CS 166](https://web.stanford.edu/class/cs166/)
+- [Harvard CS 224](https://www.youtube.com/playlist?list=PL2SOU6wwxB0uP4rJgf5ayhHWgw7akUWSf)
+
 ## License
 
 This repository is released under the MIT license. In short, this means you are free to use this software in any personal, open-source or commercial projects
