@@ -31,12 +31,10 @@ yarn add dsa-ts
 - [ ] Priority Queues
   - [x] [📹](https://www.youtube.com/watch?v=xpSa8YOqeWQ&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=13) [Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-binary-heap.ts)
   - [x] [D-Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-d-heap.ts)
-  - [x] (Video incoming) [Indexed Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-indexed-d-heap.ts)
+  - [x] [📹](https://www.youtube.com/watch?v=TlYPo28sw9E) [Indexed Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-indexed-d-heap.ts)
   - [ ] Mergeable Heaps
     - [ ] Binomial Heap
     - [ ] Fibonnaci Heap
-    - [ ] Pairing Heap
-    - [ ] Soft Heap
 - [ ] Dictionaries
 - [ ] Sets
   - [ ] Bit Array
