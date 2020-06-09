@@ -4,7 +4,7 @@
 
 ![](https://img.shields.io/npm/v/dsa-ts)
 [![Tests](https://github.com/jeffzh4ng/dsa-ts/workflows/Tests/badge.svg)](https://github.com/jeffzh4ng/algorithms-and-data-structures/actions?query=branch%3Amaster++)
-![](https://img.shields.io/codecov/c/github/jeffzh4ng/algorithms-and-data-structures)
+![](https://img.shields.io/codecov/c/github/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/github/license/jeffzh4ng/algorithms-and-data-structures)
 
 A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#data-structures) and [algorithms](https://github.com/jeffzh4ng/dsa-ts#algorithms) implemented in Typescript. Click the 📹 emoji for tutorials. [View the entire series in order here](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
