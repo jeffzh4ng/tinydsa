@@ -297,7 +297,10 @@ class MinIndexedDHeap<T> {
       let smallestChildPosition = childrenPositions[0] // assume left most child is smallest at first
       for (const childPosition of childrenPositions) {
         const childPositionIsInBounds = childPosition < this.size()
-        const currentChildIsSmallerThanCurrentMin = this.lessForPositions(childPosition, smallestChildPosition)
+        const currentChildIsSmallerThanCurrentMin = this.lessForPositions(
+          childPosition,
+          smallestChildPosition
+        )
 
         if (childPositionIsInBounds && currentChildIsSmallerThanCurrentMin) {
           smallestChildPosition = childPosition

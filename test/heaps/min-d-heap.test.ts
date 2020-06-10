@@ -7,7 +7,7 @@ describe('MinDHeap', () => {
     heap = new MinDHeap(3)
   })
 
-  describe('Niceties', () => {
+  describe('INSPECTION', () => {
     it('is empty', () => {
       expect(heap.size()).toBe(0)
       expect(heap.isEmpty()).toBe(true)

@@ -7,7 +7,7 @@ describe('MinBinaryHeap', () => {
     heap = new MinBinaryHeap()
   })
 
-  describe('Niceties', () => {
+  describe('INSPECTION', () => {
     it('is empty', () => {
       expect(heap.size()).toBe(0)
       expect(heap.isEmpty()).toBe(true)

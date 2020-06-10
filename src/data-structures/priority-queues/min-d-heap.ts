@@ -17,7 +17,7 @@ import * as utils from '../utils'
  * decreaseKey() - O(log_dn) bc we swim up
  * peek() - O(1)
  *
- * More info can be found here: https://www.geeksforgeeks.org/k-ary-heap/
+ * More info can be found here: https://en.wikipedia.org/wiki/D-ary_heap
  ******************************************************************************/
 
 class MinDHeap<T> {
@@ -35,7 +35,7 @@ class MinDHeap<T> {
   }
 
   /*****************************************************************************
-                                  NICETIES
+                                  INSPECTION
   *****************************************************************************/
   /**
    * Returns the size of the heap - O(1)
