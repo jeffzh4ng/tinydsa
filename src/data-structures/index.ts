@@ -2,7 +2,7 @@ import LinkedList from './sequences/linked-list'
 import Stack from './sequences/stack'
 import { Queue, Deque } from './sequences/queue'
 import CircularBuffer from './sequences/circular-buffer'
-import { MinBinaryHeap, MinDHeap, MinIndexedDHeap } from './priority-queues'
+import { MinBinaryHeap, MinDHeap, MinIndexedDHeap, MinBinomialHeap } from './priority-queues'
 
 const Collections = {
   LinkedList,
@@ -13,6 +13,7 @@ const Collections = {
   MinBinaryHeap,
   MinDHeap,
   MinIndexedDHeap,
+  MinBinomialHeap,
 }
 
 export default Collections

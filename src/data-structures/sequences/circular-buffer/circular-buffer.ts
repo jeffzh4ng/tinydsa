@@ -8,7 +8,7 @@ class CircularBuffer<T> {
   private readIndex: number
   private writeIndex: number
 
-  private equalsF: utils.EqualsFunction<T> = utils.defaultEquals
+  private equalsF: utils.EqualsFunction<T>
 
   constructor(capacity: number, equalsFunction?: utils.EqualsFunction<T>) {
     this.list = new Array(capacity)
@@ -18,14 +18,14 @@ class CircularBuffer<T> {
     this.readIndex = 0
     this.writeIndex = 0
 
-    if (equalsFunction) this.equalsF = equalsFunction
+    this.equalsF = equalsFunction || utils.defaultEquals
   }
 
   /*****************************************************************************
-                                  NICETIES
+                                  INSPECTION
   *****************************************************************************/
   /**
-   * Returns size of queue - O(1)
+   * Returns size of circular buffer - O(1)
    */
   size(): number {
     return this.sz
@@ -35,7 +35,7 @@ class CircularBuffer<T> {
    * Returns true if buffer is empty, false otherwise - O(1)
    */
   isEmpty(): boolean {
-    return this.sz === 0
+    return this.size() === 0
   }
 
   /**
@@ -57,7 +57,9 @@ class CircularBuffer<T> {
     this.list[this.writeIndex] = element
 
     const elementIsOverWritten = this.sz !== 0 && this.writeIndex === this.readIndex
-    if (elementIsOverWritten) this.readIndex = (this.readIndex + 1) % this.capacity
+    if (elementIsOverWritten) {
+      this.readIndex = (this.readIndex + 1) % this.capacity
+    }
 
     this.writeIndex = (this.writeIndex + 1) % this.capacity
 
@@ -72,9 +74,10 @@ class CircularBuffer<T> {
     if (this.isEmpty()) return null
 
     const removedVal = this.list[this.readIndex]
-    this.readIndex += 1
+    this.readIndex = (this.readIndex + 1) % this.capacity
 
     this.sz -= 1
+
     return removedVal
   }
 
@@ -87,6 +90,7 @@ class CircularBuffer<T> {
    */
   peekFront(): T | null {
     if (this.isEmpty()) return null
+
     return this.list[this.readIndex]
   }
 
@@ -96,10 +100,11 @@ class CircularBuffer<T> {
    */
   peekBack(): T | null {
     if (this.isEmpty()) return null
-    let readIndex = this.writeIndex - 1
-    if (readIndex < 0) readIndex = this.sz - 1
 
-    return this.list[readIndex]
+    let i = this.writeIndex - 1
+    if (i < 0) i = this.capacity - 1
+
+    return this.list[i]
   }
 
   /*****************************************************************************
