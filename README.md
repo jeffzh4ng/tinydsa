@@ -33,7 +33,7 @@ yarn add dsa-ts
   - [x] [D-Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-d-heap.ts)
   - [x] [📹](https://www.youtube.com/watch?v=TlYPo28sw9E) [Indexed Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-indexed-d-heap.ts)
   - [ ] Mergeable Heaps
-    - [ ] Binomial Heap
+    - [ ] [Binomial Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/min-binomial-heap.ts)
     - [ ] Fibonnaci Heap
 - [ ] Dictionaries
 - [ ] Sets
