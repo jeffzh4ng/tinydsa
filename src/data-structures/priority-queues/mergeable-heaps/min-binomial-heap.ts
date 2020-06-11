@@ -37,6 +37,8 @@ class BinomialHeap<T> {
   head: BinomialNode<T> | null
   size: number
 
+  minRoot: BinomialNode<T> | null
+
   // smallestValue for deleteNode(node)
   // deleteNode will decrease the node to the smallest value so it swims up to
   // the root, and then calls dequeue()
@@ -47,6 +49,7 @@ class BinomialHeap<T> {
 
   constructor(smallestValue: T, compareFunction?: utils.CompareFunction<T>) {
     this.head = null
+    this.minRoot = null
 
     this.size = 0
     this.smallestValue = smallestValue
@@ -86,6 +89,8 @@ class BinomialHeap<T> {
     // set the current heap's head pointer to the newHeap's head pointer
     this.head = newHeap.head
 
+    this.recalculateMin()
+
     return insertedElement
   }
 
@@ -110,6 +115,8 @@ class BinomialHeap<T> {
       const newHeap = this.union(reversedChildren) // O(logn)
       this.head = newHeap.head
     }
+
+    this.recalculateMin()
 
     // return the removed root
     return smallestRoot
@@ -178,6 +185,19 @@ class BinomialHeap<T> {
     return prev!
   }
 
+  private recalculateMin(): void {
+    if (!this.head) return
+    let cur = this.head.sibling
+    let min = this.head
+
+    while (cur) {
+      if (cur.value < min.value) min = cur
+      cur = cur.sibling
+    }
+
+    this.minRoot = min
+  }
+
   /*****************************************************************************
                                   READING
   *****************************************************************************/
@@ -188,22 +208,7 @@ class BinomialHeap<T> {
   peek(): BinomialNode<T> | null {
     if (!this.head) return null
 
-    let cur: BinomialNode<T> | null = this.head
-    // eslint-disable-next-line
-    let prev: BinomialNode<T> | null = null
-
-    let min = cur
-
-    // O(logn) since we traverse entire forest
-    while (cur) {
-      const currentIsLessThanMin = this.compare(cur.value, min.value) < 0
-      if (currentIsLessThanMin) min = cur
-
-      prev = cur
-      cur = cur.sibling
-    }
-
-    return min
+    return this.minRoot
   }
 
   /*****************************************************************************
