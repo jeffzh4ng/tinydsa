@@ -220,23 +220,16 @@ class BinomialHeap<T> {
    * @returns {BinomialHeap<T>}
    */
   union(otherHeap: BinomialHeap<T>): BinomialHeap<T> {
-    // initialize new heap
-    const newHeap = new BinomialHeap<T>(this.smallestValue)
-
     // FIRST PHASE
     // =========================================================================
 
-    // this.mergeTrees() merges the root lists of otherHeap (H1) and thisHeap (H2)
+    // this.mergeForests() merges the root lists of otherHeap (H1) and thisHeap (H2)
     // into a single root list H that is sorted by monotonically increasing
     // degree
 
-    // this.mergeTrees() runs in O(m) times where m = n1 + n2
+    // this.mergeForests() runs in O(m) times where m = n1 + n2
     // by applying the merge step in merge sort to the two linked lists of roots
-    newHeap.head = this.mergeForests(this, otherHeap) // O(n + m)
-    newHeap.size = otherHeap.size + this.size
-
-    // clear otherHeap's forest
-    otherHeap.head = null
+    const newHeap = this.mergeForests(this, otherHeap) // O(n + m)
 
     if (newHeap.head === null) return newHeap // return null if both H1 and H2 were null
 
@@ -314,9 +307,9 @@ class BinomialHeap<T> {
 
   // Merges two forests and returns one forest sorted by degree in O(t)
   // time where t is the total number of trees in both forests.
-  private mergeForests(heapA: BinomialHeap<T>, heapB: BinomialHeap<T>): BinomialNode<T> | null {
-    if (!heapA.head) return heapB.head
-    if (!heapB.head) return heapA.head
+  private mergeForests(heapA: BinomialHeap<T>, heapB: BinomialHeap<T>): BinomialHeap<T> {
+    if (!heapA.head) return heapB
+    if (!heapB.head) return heapA
 
     let head = null
 
@@ -353,7 +346,11 @@ class BinomialHeap<T> {
       cur.sibling = b
     }
 
-    return head
+    const mergedHeap = new BinomialHeap<T>(this.smallestValue)
+    mergedHeap.head = head
+    mergedHeap.size = heapA.size + heapB.size
+
+    return mergedHeap
   }
 
   /**
