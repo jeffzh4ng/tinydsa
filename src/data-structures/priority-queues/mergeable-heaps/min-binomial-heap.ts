@@ -33,7 +33,7 @@ import * as utils from '../../utils'
  * The Implementation belowbased off Binomial Heap pseudocode from CLRS ed 2 (Chapter 19)
  ******************************************************************************/
 
-class BinomialHeap<T> {
+class MinBinomialHeap<T> {
   head: BinomialNode<T> | null
   size: number
 
@@ -78,8 +78,8 @@ class BinomialHeap<T> {
    */
   enqueue(element: T): BinomialNode<T> {
     // create a heap containing the single new element, hPrime
-    const heapWithElement = new BinomialHeap<T>(this.smallestValue)
-    const insertedElement = new BinomialNode(element, 1)
+    const heapWithElement = new MinBinomialHeap<T>(this.smallestValue)
+    const insertedElement = new BinomialNode(element)
     heapWithElement.head = insertedElement
 
     // union that heap with our current heap
@@ -108,7 +108,7 @@ class BinomialHeap<T> {
 
     if (smallestRoot.child) {
       // make a new heap out of the reversed linked list of B_k's children
-      const reversedChildren = new BinomialHeap<T>(this.smallestValue)
+      const reversedChildren = new MinBinomialHeap<T>(this.smallestValue)
       reversedChildren.head = this.reverseListOfRoots(smallestRoot.child) // O(???)
 
       // union the reversedChildren heap with the current heap to form the new heap
@@ -202,7 +202,7 @@ class BinomialHeap<T> {
                                   READING
   *****************************************************************************/
   /**
-   * Returns the smallest node in the heap, null if the heap is empty O(logn)
+   * Returns the smallest node in the heap, null if the heap is empty O(1)
    * @returns {BinomialNode<T> | null}
    */
   peek(): BinomialNode<T> | null {
@@ -215,11 +215,11 @@ class BinomialHeap<T> {
                                   UPDATING
   *****************************************************************************/
   /**
-   * Merges supplied heap with current heap - O(logn + logm)
-   * @param {BinomialHeap<T>} otherHeap
-   * @returns {BinomialHeap<T>}
+   * Unions supplied heap with current heap - O(logn + logm)
+   * @param {MinBinomialHeap<T>} otherHeap
+   * @returns {MinBinomialHeap<T>}
    */
-  union(otherHeap: BinomialHeap<T>): BinomialHeap<T> {
+  union(otherHeap: MinBinomialHeap<T>): MinBinomialHeap<T> {
     // FIRST PHASE
     // =========================================================================
 
@@ -307,7 +307,7 @@ class BinomialHeap<T> {
 
   // Merges two forests and returns one forest sorted by degree in O(t)
   // time where t is the total number of trees in both forests.
-  private mergeForests(heapA: BinomialHeap<T>, heapB: BinomialHeap<T>): BinomialHeap<T> {
+  private mergeForests(heapA: MinBinomialHeap<T>, heapB: MinBinomialHeap<T>): MinBinomialHeap<T> {
     if (!heapA.head) return heapB
     if (!heapB.head) return heapA
 
@@ -346,7 +346,7 @@ class BinomialHeap<T> {
       cur.sibling = b
     }
 
-    const mergedHeap = new BinomialHeap<T>(this.smallestValue)
+    const mergedHeap = new MinBinomialHeap<T>(this.smallestValue)
     mergedHeap.head = head
     mergedHeap.size = heapA.size + heapB.size
 
@@ -383,4 +383,4 @@ class BinomialHeap<T> {
   }
 }
 
-export default BinomialHeap
+export default MinBinomialHeap
