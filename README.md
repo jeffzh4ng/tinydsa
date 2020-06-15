@@ -36,7 +36,7 @@ yarn add dsa-ts
   - [ ] Mergeable Heaps
     - [ ] [📹](https://www.youtube.com/watch?v=m8rsw3KfDKs) [Binomial Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/min-binomial-heap.ts)
     - [ ] [Lazy Binomial Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/lazy-min-binomial-heap.ts)
-    - [ ] Fibonnaci Heap
+    - [ ] [Fibonnaci Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/min-fibonacci-heap.ts)
 - [ ] Dictionaries
 - [ ] Sets
   - [ ] Bit Array

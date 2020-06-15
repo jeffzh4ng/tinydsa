@@ -1,44 +1,59 @@
-import BinomialNode from './binomial-node'
+import FibonacciNode from './fibonacci-node'
 import * as utils from '../../utils'
 
 /*******************************************************************************
- * A binomial heap is a forest of binomial trees.
+ * A fibonacci heap is a lazy binomial heap with lazy decreaseKey(). Some important
+ * algorithms heavily rely on decreaseKey(). Dijkstra's shortest path, Prim's
+ * minimum spanning tree. Fibonacci heaps give the theoretically optimal implementation
+ * of Prim's and Dijkstra's algorithms.
  *
- * A binomial tree of degree 0 is a single node.
- * A binomial tree of degree k has a root node with k children. The degrees of those
- * children are k-1, k-2,..., 2, 1, 0.
+ * decreaseKey() is implemented as follows:
  *
- * A binomial tree of degree k has 2^k nodes.
+ * If a node's value gets decreased such that it's value is less than it's parents,
+ * (violating heap invariant), we don't swim it up. Instead, we cut the child off
+ * from it's parent and make it a root in our list of roots.
  *
- * A binomial heap is a forest of binomial trees that satisfy the heap invariant.
- * There can be only 0 or 1 binomial tree of degree k in the forest.
+ * However, if we're allowed to cut off any number of nodes from a tree, than
+ * our trees will degenerate into trees into shapes we don't want. A tree of
+ * degree k will only have k + 1 nodes. Then, the number of nodes in the tree
+ * is no longer exponential (2^k). This in turn makes decreaseKey() inefficient,
+ * running in O(n) time.
  *
- * The two key features of binomial heaps are:
+ * The problem is that a rank k tree thinks they're big. But the'yre losing all their
+ * descendants. We need to convey to them that they're losing all their
+ * children/descendants.
  *
- * 1. The roots of the forest are <= log(n)
- * 2. Merging two heaps is binary addition
+ * We want the tree's to only become somewhat imbalanced, slowly propagating this
+ * information to the root.
  *
- * This brings merge() from O(n + m) to O(logn + logm)!!!
+ * Here's the solution:
+ * ===================
+ * Rule 1. Lose one child, you’re a loser.
+ * Rule 2. Lose two, and you're dumped into the root list.
  *
- * But because we now have a forest instead of one single tree, findMin() now
- * takes O(logn) to traverse the entire forest :( Check out the lazy binomial heap
- * to see how we can bring this back down to O(1)
+ * If a node loses two children, we'll cut it from IT'S parent and move it to
+ * our main root list.
  *
- * enqueue() - O(1) ~~ down from O(logn) due to being lazy
- * extractMin() - O(logn) ~~ ammortized
+ * Then, a tree can only become "maximally damaged". The number of nodes in the
+ * sequence of maximally damaged trees is the fibonacci sequence, hence the name
+ * of the data structure.
+ *
+ * enqueue() - O(1)
+ * extractMin() - O(logn)
  * findMin() - O(1)
- * merge() - O(1) ~~ down from O(logn + logm) due to being lazy
- * decreaseKey() - O(logn)
+ * merge() - O(1)
+ * decreaseKey() - O(1) ~~ down from O(logn) due to being lazy :)
  *
- * More info can be found here: https://en.wikipedia.org/wiki/Binomial_heap
- * The Implementation belowbased off Binomial Heap pseudocode from CLRS ed 2 (Chapter 19)
+ * More info can be found here: https://en.wikipedia.org/wiki/Fibonacci_heap
+ *
+ * The implementation below is based off the Fibonacci Heap pseudocode from CLRS Chapter 20
  ******************************************************************************/
 
-class LazyMinBinomialHeap<T> {
-  head: BinomialNode<T> | null
+class MinFibonacciHeap<T> {
+  head: FibonacciNode<T> | null
   size: number
 
-  minRoot: BinomialNode<T> | null
+  minRoot: FibonacciNode<T> | null
 
   // smallestValue for deleteNode(node)
   // deleteNode will decrease the node to the smallest value so it swims up to
@@ -77,11 +92,15 @@ class LazyMinBinomialHeap<T> {
    * @param {T} element
    * @returns {void}
    */
-  enqueue(element: T): BinomialNode<T> {
-    const newRoot = new BinomialNode(element)
+  enqueue(element: T): FibonacciNode<T> {
+    const newRoot = new FibonacciNode(element)
 
     // lazily enqueue the element to the forest
-    if (this.head) newRoot.sibling = this.head
+    if (this.head) {
+      newRoot.sibling = this.head
+      this.head.prevSibling = newRoot
+    }
+
     this.head = newRoot
 
     this.size += 1
@@ -98,7 +117,7 @@ class LazyMinBinomialHeap<T> {
    * @param {T} element
    * @returns {void}
    */
-  dequeue(): BinomialNode<T> | null {
+  dequeue(): FibonacciNode<T> | null {
     // remove smallest root of smallest tree B_k from heap
     const smallestRoot = this.removeSmallestRoot() // O(logn)
     this.size -= 1
@@ -107,10 +126,10 @@ class LazyMinBinomialHeap<T> {
 
     // if the root has children, add it to the forest
     if (smallestRoot.child) {
-      // delete all parent pointers in children
-      let child: BinomialNode<T> | null = smallestRoot.child
-      let lastChild: BinomialNode<T> | null = null
+      let child: FibonacciNode<T> | null = smallestRoot.child
+      let lastChild: FibonacciNode<T> | null = null
 
+      // delete all parent pointers in children while traversing to the last child
       while (child) {
         lastChild = child
         child.parent = null
@@ -119,6 +138,7 @@ class LazyMinBinomialHeap<T> {
 
       if (this.head) {
         lastChild!.sibling = this.head
+        this.head.prevSibling = lastChild
       }
 
       this.head = smallestRoot.child
@@ -133,31 +153,18 @@ class LazyMinBinomialHeap<T> {
     return smallestRoot
   }
 
-  /**
-   * Deletes the given node - O(logn)
-   * @param {BinomialNode<T>} node
-   * @returns {void}
-   */
-  deleteNode(node: BinomialNode<T>): BinomialNode<T> | null {
-    // make it the smallest node in the heap so it swims up
-    this.decreaseKey(node, this.smallestValue) // O(logn)
-
-    // dequeue the smallest node from the heap
-    return this.dequeue() // O(logn)
-  }
-
   // O(logn)
-  private removeSmallestRoot(): BinomialNode<T> | null {
+  private removeSmallestRoot(): FibonacciNode<T> | null {
     if (!this.head) return null
 
-    let cur: BinomialNode<T> | null = this.head
+    let cur: FibonacciNode<T> | null = this.head
     let prev = cur
 
     let min = cur
     let prevMin = null
     cur = cur.sibling
 
-    // O(logn) since we traverse entire forest
+    // find the min root in O(logn)
     while (cur) {
       const currentIsLessThanMin = this.compare(cur.value, min.value) < 0
       if (currentIsLessThanMin) {
@@ -172,9 +179,12 @@ class LazyMinBinomialHeap<T> {
     // if smallest root is head, then move heap.head pointer one root forwards
     if (prev === null || prevMin === null) {
       this.head = this.head.sibling
+
+      if (this.head) this.head.prevSibling = null
     } else {
       // otherwise link prev root with min's right root
       prevMin.sibling = min.sibling
+      if (min.sibling) min.sibling.prevSibling = prevMin
     }
 
     return min
@@ -194,14 +204,27 @@ class LazyMinBinomialHeap<T> {
     this.minRoot = min
   }
 
+  /**
+   * Deletes the given node - O(logn)
+   * @param {FibonacciNode<T>} node
+   * @returns {void}
+   */
+  deleteNode(node: FibonacciNode<T>): FibonacciNode<T> | null {
+    // make it the smallest node in the heap so it swims up
+    this.decreaseKey(node, this.smallestValue) // O(logn)
+
+    // dequeue the smallest node from the heap
+    return this.dequeue() // O(logn)
+  }
+
   /*****************************************************************************
                                   READING
   *****************************************************************************/
   /**
    * Returns the smallest node in the heap, null if the heap is empty O(1)
-   * @returns {BinomialNode<T> | null}
+   * @returns {FibonacciNode<T> | null}
    */
-  peek(): BinomialNode<T> | null {
+  peek(): FibonacciNode<T> | null {
     if (!this.head) return null
 
     return this.minRoot
@@ -213,11 +236,11 @@ class LazyMinBinomialHeap<T> {
   /**
    * Unions supplied heap with current heap - O(1). Current implementation
    * is destructive.
-   * @param {BinomialHeap<T>} otherHeap
-   * @returns {BinomialHeap<T>}
+   * @param {FibonacciHeap<T>} otherHeap
+   * @returns {FibonacciHeap<T>}
    */
-  union(otherHeap: LazyMinBinomialHeap<T>): LazyMinBinomialHeap<T> {
-    const unionedHeap = new LazyMinBinomialHeap<T>(this.smallestValue)
+  union(otherHeap: MinFibonacciHeap<T>): MinFibonacciHeap<T> {
+    const unionedHeap = new MinFibonacciHeap<T>(this.smallestValue)
     unionedHeap.head = this.head
 
     let cur = unionedHeap.head
@@ -227,6 +250,7 @@ class LazyMinBinomialHeap<T> {
     }
 
     cur!.sibling = otherHeap.head
+    if (otherHeap.head) otherHeap.head.prevSibling = cur
 
     unionedHeap.size = this.size + otherHeap.size
 
@@ -236,9 +260,9 @@ class LazyMinBinomialHeap<T> {
   /**
    * Consolidates the current state of the heap such that only one tree exists
    * for degree k - O(t + logn)
-   * @returns {LazyMinBinomialHeap<T>}
+   * @returns {MinFibonacciHeap<T>}
    */
-  private consolidate(): BinomialNode<T> | null {
+  private consolidate(): FibonacciNode<T> | null {
     // 1. sort the trees according to degree with bucket sort O(t + logn)
     const sortedTrees = this.sortForest() // O(t + logn)
 
@@ -277,6 +301,7 @@ class LazyMinBinomialHeap<T> {
         head = cur
       } else {
         cur.sibling = tree
+        tree.prevSibling = cur
         cur = cur.sibling
       }
     }
@@ -287,14 +312,18 @@ class LazyMinBinomialHeap<T> {
   // Links two trees with degree k-1, B_(k-1), and makes one tree with degree
   // k, B_k, where nodeA becomes the root of the new tree.
   // It does this by making treeB the new head of treeA's children in O(1)
-  private linkTrees(treeA: BinomialNode<T>, treeB: BinomialNode<T>): BinomialNode<T> {
+  private linkTrees(treeA: FibonacciNode<T>, treeB: FibonacciNode<T>): FibonacciNode<T> {
     treeB.parent = treeA
     treeB.sibling = treeA.child
+    if (treeA.child) treeA.child.prevSibling = treeB
+    treeB.prevSibling = null
+    treeB.mark = false // important
 
     treeA.child = treeB
     treeA.degree += 1
 
     treeA.sibling = null
+    treeB.prevSibling = null
 
     return treeA
   }
@@ -302,9 +331,9 @@ class LazyMinBinomialHeap<T> {
   // Sorts the list of trees (forest) in O(t + logn) time using bucket sort.
   // Bucket sort is used because we have a cap on the degrees of our tree - logt.
   // Using a traditional sorting algorithm would take O(tlogt).
-  private sortForest(): Array<Array<BinomialNode<T>>> {
+  private sortForest(): Array<Array<FibonacciNode<T>>> {
     // Initialize an array of size logn - O(logn)
-    const sortedTrees = new Array<Array<BinomialNode<T>>>(Math.ceil(Math.log2(this.size + 1)))
+    const sortedTrees = new Array<Array<FibonacciNode<T>>>(Math.ceil(Math.log2(this.size + 1)))
 
     // intialize buckets in sortedTrees
     for (let i = 0; i < sortedTrees.length; i++) {
@@ -316,7 +345,9 @@ class LazyMinBinomialHeap<T> {
     // distribute the trees into buckets - O(t)
     while (cur) {
       const nextCur = cur.sibling
+      cur.parent = null
       cur.sibling = null
+      cur.prevSibling = null
 
       const index = cur.degree
 
@@ -328,33 +359,76 @@ class LazyMinBinomialHeap<T> {
   }
 
   /**
-   * Decreases the value of the given node to the new value. Returns true if
-   * successful, and false otherwise - O(logn)
-   * @param {BinomialNode<T>} node
+   * Decreases the value of the given node to the new value. If the new value is
+   * smaller than it's parent, it lazily promotes the node to become a root of
+   * the forest instead of swimming it up. Returns true if successful, and false
+   * otherwise - O(1)
+   * @param {FibonacciNode<T>} node
    * @param {T} newValue
    * @returns {boolean}
    */
-  decreaseKey(node: BinomialNode<T>, newValue: T): boolean {
+  decreaseKey(node: FibonacciNode<T>, newValue: T): boolean {
     // if newKey >= key, don't update
     if (this.compare(node.value, newValue) < 0) return false
 
     node.value = newValue
 
-    let cur = node
-    let parent = cur.parent
-
-    // swim in O(logn)
-    while (parent && cur.value < parent.value) {
-      const temp = parent.value
-      parent.value = cur.value
-      cur.value = temp
-
-      cur = parent
-      parent = cur.parent
+    if (node.parent && node.value < node.parent.value) {
+      this.cut(node.parent, node)
+      this.cascadingCut(node.parent)
     }
+
+    const nodeIsSmallestNode = !this.minRoot || node.value < this.minRoot.value
+    if (nodeIsSmallestNode) this.minRoot = node
 
     return true
   }
+
+  // Cuts child from parent in O(1) time
+  private cut(parent: FibonacciNode<T>, child: FibonacciNode<T>): void {
+    // remove the node from the parent's list of children
+    if (parent.child === child) {
+      parent.child = child.sibling
+      child.prevSibling = null
+    } else {
+      if (!child.prevSibling) {
+        console.log(child)
+        throw new Error()
+      }
+      child.prevSibling.sibling = child.sibling
+    }
+
+    // decrement parents degree
+    parent.degree -= 1
+
+    // prepare child to become a root
+    child.parent = null
+    child.mark = false
+
+    // promote child to a root of a new tree
+    if (this.head) {
+      child.sibling = this.head
+      child.prevSibling = null
+      this.head.prevSibling = child
+    }
+    this.head = child
+  }
+
+  private cascadingCut(parent: FibonacciNode<T>): void {
+    if (!parent || !parent.parent) return
+
+    // if the parent.mark is false, it's first child was just removed
+    // so let's set parent.mark to true now
+    if (parent.mark === false) {
+      parent.mark = true
+    } else {
+      // O/w, parent.mark is true. This means it's second child was just removed,
+      // so we have to cut the current node, and cascade
+
+      this.cut(parent.parent, parent)
+      this.cascadingCut(parent.parent)
+    }
+  }
 }
 
-export default LazyMinBinomialHeap
+export default MinFibonacciHeap

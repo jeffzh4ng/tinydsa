@@ -26,7 +26,7 @@ import * as utils from '../../utils'
  *
  * enqueue() - O(logn)
  * extractMin() - O(logn)
- * findMin() - O(logn) ~~~got worse from O(1) :(
+ * findMin() - O(1)
  * merge() - O(logn + logm) ~~~improved from O(n+m)!
  *
  * More info can be found here: https://en.wikipedia.org/wiki/Binomial_heap
