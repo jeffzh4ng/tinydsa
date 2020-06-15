@@ -12,6 +12,7 @@ A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#
 The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader.
 
 You can use this package in your projects if you so wish. Test coverage will be kept at 100%. To install the package, use npm or yarn:
+
 ```
 npm install dsa-ts --save
 ```
@@ -34,7 +35,7 @@ yarn add dsa-ts
   - [x] [📹](https://www.youtube.com/watch?v=TlYPo28sw9E) [Indexed Binary Heap](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/priority-queues/min-indexed-d-heap.ts)
   - [ ] Mergeable Heaps
     - [ ] [📹](https://www.youtube.com/watch?v=m8rsw3KfDKs) [Binomial Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/min-binomial-heap.ts)
-    - [ ] Lazy Binomial Heap
+    - [ ] [Lazy Binomial Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/lazy-min-binomial-heap.ts)
     - [ ] Fibonnaci Heap
 - [ ] Dictionaries
 - [ ] Sets
@@ -84,6 +85,7 @@ yarn add dsa-ts
 - [ ] Linear Programming
 
 ## References
+
 - [Fundamental Data Structures](https://en.wikipedia.org/wiki/Book:Fundamental_Data_Structures)
 - [Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein](https://en.wikipedia.org/wiki/Introduction_to_Algorithms)
 - [Algorithm Design by Jon Kleinberg and Éva Tardos](https://www.amazon.ca/Algorithm-Design-Jon-Kleinberg/dp/0321295358)
