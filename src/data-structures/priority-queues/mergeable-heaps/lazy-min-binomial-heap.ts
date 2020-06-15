@@ -1,5 +1,6 @@
 import BinomialNode from './binomial-node'
 import * as utils from '../../utils'
+import * as util from 'util'
 
 /*******************************************************************************
  * A binomial heap is a forest of binomial trees.
@@ -33,7 +34,7 @@ import * as utils from '../../utils'
  * The Implementation belowbased off Binomial Heap pseudocode from CLRS ed 2 (Chapter 19)
  ******************************************************************************/
 
-class MinBinomialHeap<T> {
+class LazyMinBinomialHeap<T> {
   head: BinomialNode<T> | null
   size: number
 
@@ -72,26 +73,24 @@ class MinBinomialHeap<T> {
                                   INSERTION/DELETION
   *****************************************************************************/
   /**
-   * Enqueues element onto the heap.
+   * Enqueues element onto the heap - O(1)
    * @param {T} element
    * @returns {void}
    */
   enqueue(element: T): BinomialNode<T> {
-    // create a heap containing the single new element, hPrime
-    const heapWithElement = new MinBinomialHeap<T>(this.smallestValue)
-    const insertedElement = new BinomialNode(element)
-    heapWithElement.head = insertedElement
+    const newRoot = new BinomialNode(element)
 
-    // union that heap with our current heap
-    const newHeap = this.union(heapWithElement) // O(logn)! not O(n)
+    // lazily enqueue the element to the forest
+    if (this.head) newRoot.sibling = this.head
+    this.head = newRoot
+
     this.size += 1
 
-    // set the current heap's head pointer to the newHeap's head pointer
-    this.head = newHeap.head
+    // set minRoot pointer
+    if (!this.minRoot) this.minRoot = this.head
+    if (this.compare(this.head.value, this.minRoot.value) < 0) this.minRoot = this.head
 
-    this.recalculateMin()
-
-    return insertedElement
+    return this.head
   }
 
   /**
@@ -106,17 +105,33 @@ class MinBinomialHeap<T> {
 
     if (!smallestRoot) return smallestRoot
 
+    // if the root has children, add it to the forest
     if (smallestRoot.child) {
-      // make a new heap out of the reversed linked list of B_k's children
-      const reversedChildren = new MinBinomialHeap<T>(this.smallestValue)
-      reversedChildren.head = this.reverseListOfRoots(smallestRoot.child) // O(???)
+      // delete all parent pointers in children
+      let child: BinomialNode<T> | null = smallestRoot.child
+      let lastChild: BinomialNode<T> | null = null
 
-      // union the reversedChildren heap with the current heap to form the new heap
-      const newHeap = this.union(reversedChildren) // O(logn)
-      this.head = newHeap.head
+      while (child) {
+        lastChild = child
+        child.parent = null
+        child = child.sibling
+      }
+
+      if (this.head) {
+        lastChild!.sibling = this.head
+      }
+
+      this.head = smallestRoot.child
     }
 
-    this.recalculateMin()
+    // console.log('before consolidating')
+    // console.log(util.inspect(this.head, { depth: null }))
+    this.head = this.consolidate()
+    // console.log('after consolidating')
+    // console.log(util.inspect(this.head, { depth: null }))
+
+    // if we removed the smallest root, recalculate the minRoot pointer
+    if (this.minRoot === smallestRoot) this.recalculateMin()
 
     // return the removed root
     return smallestRoot
@@ -135,6 +150,7 @@ class MinBinomialHeap<T> {
     return this.dequeue() // O(logn)
   }
 
+  // O(logn)
   private removeSmallestRoot(): BinomialNode<T> | null {
     if (!this.head) return null
 
@@ -168,23 +184,7 @@ class MinBinomialHeap<T> {
     return min
   }
 
-  // reverses linked list of trees in O(t) time where t is the number of trees/roots
-  private reverseListOfRoots(head: BinomialNode<T>): BinomialNode<T> {
-    let cur: BinomialNode<T> | null = head
-    let prev: BinomialNode<T> | null = null
-    let next: BinomialNode<T> | null = null
-
-    while (cur) {
-      next = cur.sibling
-      cur.sibling = prev
-      prev = cur
-      cur = next
-    }
-
-    // eslint-disable-next-line
-    return prev!
-  }
-
+  // O(logn)
   private recalculateMin(): void {
     if (!this.head) return
     let cur = this.head.sibling
@@ -215,142 +215,120 @@ class MinBinomialHeap<T> {
                                   UPDATING
   *****************************************************************************/
   /**
-   * Unions supplied heap with current heap - O(logn + logm)
-   * @param {MinBinomialHeap<T>} otherHeap
-   * @returns {MinBinomialHeap<T>}
+   * Unions supplied heap with current heap - O(1). Current implementation
+   * is destructive.
+   * @param {BinomialHeap<T>} otherHeap
+   * @returns {BinomialHeap<T>}
    */
-  union(otherHeap: MinBinomialHeap<T>): MinBinomialHeap<T> {
-    // FIRST PHASE
-    // =========================================================================
+  union(otherHeap: LazyMinBinomialHeap<T>): LazyMinBinomialHeap<T> {
+    const unionedHeap = new LazyMinBinomialHeap<T>(this.smallestValue)
+    unionedHeap.head = this.head
 
-    // this.mergeForests() merges the root lists of otherHeap (H1) and thisHeap (H2)
-    // into a single root list H that is sorted by monotonically increasing
-    // degree
+    let cur = unionedHeap.head
 
-    // this.mergeForests() runs in O(m) times where m = n1 + n2
-    // by applying the merge step in merge sort to the two linked lists of roots
-    const newHeap = this.mergeForests(this, otherHeap) // O(n + m)
-
-    if (newHeap.head === null) return newHeap // return null if both H1 and H2 were null
-
-    // SECOND PHASE
-    // =========================================================================
-
-    // From the merge, there might now be two roots (but no more) of some degree k.
-    // Second phase links roots of equal degree until at most one root remains of each degree.
-
-    let prevRoot: BinomialNode<T> | null = null
-    let root = newHeap.head
-    let nextRoot = root.sibling
-
-    while (nextRoot !== null) {
-      const currentTwoRootsAreNotEqual = root.degree !== nextRoot.degree
-      const nextTwoRootsAreEqual =
-        nextRoot.sibling !== null && nextRoot.sibling.degree === nextRoot.degree
-
-      const movePointers = currentTwoRootsAreNotEqual || nextTwoRootsAreEqual
-
-      // nextTwoRootsAreEqual only gets evaluated if currentTwoRootsAreNotEqual is false
-      // this ==> that the next three roots are equal
-      // this occurs after linking two  B_(k-1) trees to B_k, but the next two
-      // roots are B_k as well
-
-      // degree[root] = degree[root.sibling] = degree[root.sibling.sibling]
-
-      if (movePointers) {
-        prevRoot = root
-        root = nextRoot
-
-        // we don't update nextRoot in this branch
-        // we do it outside  the if/else bc it's common to all cases
-      } else {
-        // the smaller root becomes the new root when linking to maintain the
-        // heap invariant
-        if (root.value <= nextRoot.value) {
-          root.sibling = nextRoot.sibling // removes nextRoot from list
-
-          this.linkTrees(root, nextRoot)
-        } else {
-          // then nextRoot.value < root.value
-          if (prevRoot === null) {
-            // if root is the head, point newHeap.head to nextRoot
-            newHeap.head = nextRoot
-          } else {
-            // otherwise, just remove current root by linking prevRoot.sibling to nextRoot
-            prevRoot.sibling = nextRoot
-          }
-
-          this.linkTrees(nextRoot, root)
-          root = nextRoot
-        }
-      }
-
-      // root now points to a binomial tree that is now the first of one, two,
-      // or three B_(k+1) trees on newHeap linked list of roots
-
-      nextRoot = root.sibling
+    while (cur && cur.sibling) {
+      cur = cur.sibling
     }
 
-    return newHeap
+    cur!.sibling = otherHeap.head
+
+    unionedHeap.size = this.size + otherHeap.size
+
+    return unionedHeap
+  }
+
+  /**
+   * Consolidates the current state of the heap such that only one tree exists
+   * for degree k - O(t + logn)
+   * @returns {LazyMinBinomialHeap<T>}
+   */
+  private consolidate(): BinomialNode<T> | null {
+    // 1. sort the trees according to degree with bucket sort O(t + logn)
+    const sortedTrees = this.sortForest() // O(t + logn)
+
+    // 2. link trees until at most one tree remains for a specific degree k - O(t)
+    for (let k = 0; k < sortedTrees.length; k++) {
+      const degreeKTrees = sortedTrees[k]
+
+      if (!degreeKTrees) continue
+
+      let numberOfDegreeKTrees = degreeKTrees.length
+
+      while (numberOfDegreeKTrees >= 2) {
+        const treeA = degreeKTrees.pop()!
+        const treeB = degreeKTrees.pop()!
+
+        const linkedTree =
+          treeA.value < treeB.value ? this.linkTrees(treeA, treeB) : this.linkTrees(treeB, treeA)
+
+        sortedTrees[k + 1].push(linkedTree)
+
+        numberOfDegreeKTrees -= 2
+      }
+    }
+
+    let cur = null
+    let head = null
+
+    for (let i = sortedTrees.length - 1; i >= 0; i--) {
+      const trees = sortedTrees[i]
+      if (trees.length === 0) continue
+
+      const tree = trees[0]
+
+      if (!cur) {
+        cur = tree
+        head = cur
+      } else {
+        cur.sibling = tree
+        cur = cur.sibling
+      }
+    }
+
+    return head
   }
 
   // Links two trees with degree k-1, B_(k-1), and makes one tree with degree
   // k, B_k, where nodeA becomes the root of the new tree.
   // It does this by making treeB the new head of treeA's children in O(1)
-  private linkTrees(treeA: BinomialNode<T>, treeB: BinomialNode<T>): void {
+  private linkTrees(treeA: BinomialNode<T>, treeB: BinomialNode<T>): BinomialNode<T> {
     treeB.parent = treeA
     treeB.sibling = treeA.child
 
     treeA.child = treeB
     treeA.degree += 1
+
+    treeA.sibling = null
+
+    return treeA
   }
 
-  // Merges two forests and returns one forest sorted by degree in O(t)
-  // time where t is the total number of trees in both forests.
-  private mergeForests(heapA: MinBinomialHeap<T>, heapB: MinBinomialHeap<T>): MinBinomialHeap<T> {
-    if (!heapA.head) return heapB
-    if (!heapB.head) return heapA
+  // Sorts the list of trees (forest) in O(t + logn) time using bucket sort.
+  // Bucket sort is used because we have a cap on the degrees of our tree - logt.
+  // Using a traditional sorting algorithm would take O(tlogt).
+  private sortForest(): Array<Array<BinomialNode<T>>> {
+    // Initialize an array of size logn - O(logn)
+    const sortedTrees = new Array<Array<BinomialNode<T>>>(Math.ceil(Math.log2(this.size + 1)))
 
-    let head = null
-
-    let a: BinomialNode<T> | null = heapA.head
-    let b: BinomialNode<T> | null = heapB.head
-
-    if (a.degree < b.degree) {
-      head = a
-      a = a.sibling
-    } else {
-      head = b
-      b = b.sibling
+    // intialize buckets in sortedTrees
+    for (let i = 0; i < sortedTrees.length; i++) {
+      sortedTrees[i] = []
     }
 
-    let cur: BinomialNode<T> | null = head
+    let cur = this.head
 
-    while (a !== null && b !== null) {
-      if (a.degree < b.degree) {
-        cur.sibling = a
-        a = a.sibling
-      } else {
-        cur.sibling = b
-        b = b.sibling
-      }
+    // distribute the trees into buckets - O(t)
+    while (cur) {
+      const nextCur = cur.sibling
+      cur.sibling = null
 
-      cur = cur.sibling
+      const index = cur.degree
+
+      sortedTrees[index].push(cur)
+      cur = nextCur
     }
 
-    if (a !== null) {
-      cur.sibling = a
-    }
-
-    if (b !== null) {
-      cur.sibling = b
-    }
-
-    const mergedHeap = new MinBinomialHeap<T>(this.smallestValue)
-    mergedHeap.head = head
-    mergedHeap.size = heapA.size + heapB.size
-
-    return mergedHeap
+    return sortedTrees
   }
 
   /**
@@ -383,4 +361,4 @@ class MinBinomialHeap<T> {
   }
 }
 
-export default MinBinomialHeap
+export default LazyMinBinomialHeap

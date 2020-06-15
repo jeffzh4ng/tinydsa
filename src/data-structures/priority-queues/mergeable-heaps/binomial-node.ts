@@ -9,9 +9,9 @@ class BinomialNode<T> {
   sibling: BinomialNode<T> | null
   child: BinomialNode<T> | null
 
-  constructor(value: T, degree: number) {
+  constructor(value: T) {
     this.value = value
-    this.degree = degree
+    this.degree = 0
 
     this.parent = null
     this.sibling = null
