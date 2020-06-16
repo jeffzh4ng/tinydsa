@@ -144,7 +144,7 @@ describe('MinFibonacciHeap', () => {
       }
     })
 
-    it.only('decreases keys properly', () => {
+    it('decreases keys properly', () => {
       const values = [8, 32, 72, 26, 16, 48, 5, 11]
       const nodes = []
 
