@@ -39,7 +39,7 @@ import * as utils from '../../utils'
  * of the data structure.
  *
  * enqueue() - O(1)
- * extractMin() - O(logn)
+ * extractMin() - O(logn) amortized
  * findMin() - O(1)
  * merge() - O(1)
  * decreaseKey() - O(1) ~~ down from O(logn) due to being lazy :)
@@ -376,10 +376,10 @@ class MinFibonacciHeap<T> {
     if (node.parent && node.value < node.parent.value) {
       this.cut(node.parent, node)
       this.cascadingCut(node.parent)
-    }
 
-    const nodeIsSmallestNode = !this.minRoot || node.value < this.minRoot.value
-    if (nodeIsSmallestNode) this.minRoot = node
+      const nodeIsSmallestNode = !this.minRoot || node.value < this.minRoot.value
+      if (nodeIsSmallestNode) this.minRoot = node
+    }
 
     return true
   }
@@ -391,10 +391,7 @@ class MinFibonacciHeap<T> {
       parent.child = child.sibling
       child.prevSibling = null
     } else {
-      if (!child.prevSibling) {
-        console.log(child)
-        throw new Error()
-      }
+      if (!child.prevSibling) throw new Error()
       child.prevSibling.sibling = child.sibling
     }
 
