@@ -231,6 +231,10 @@ describe('Binary Search Tree', () => {
     treeB.root = a
 
     it('inorder()', () => {
+      for (const _ of tree.inorderTraversal()) {
+        throw new Error()
+      }
+
       const inorderNumbers = [1, 2, 3, 4, 5, 6, 7, 8]
       let i = 0
 
@@ -241,6 +245,10 @@ describe('Binary Search Tree', () => {
     })
 
     it('preorder()', () => {
+      for (const _ of tree.preorderTraversal()) {
+        throw new Error()
+      }
+
       // Tree should look like:
       //        10
       //      5  15
@@ -272,6 +280,10 @@ describe('Binary Search Tree', () => {
     })
 
     it('postorder()', () => {
+      for (const _ of tree.postorderTraversal()) {
+        throw new Error()
+      }
+
       // Tree should look like:
       //        10
       //      5  15
