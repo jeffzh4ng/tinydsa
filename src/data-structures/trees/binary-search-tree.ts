@@ -166,11 +166,11 @@ class BinarySearchTree<T> {
     // if node has two chldren, we replace node with node's successor to maintain BST invariant
 
     if (node.left === null) {
-      // is node has no left child, we replace node with it's right child which may
+      // is node has just a right child, we replace node with it's right child which may
       // or may not be null
       this.transplant(node, node.right)
     } else if (node.right === null) {
-      // if node has one child (left one) then we replace node with the left child
+      // if node has just a left child then we replace node with the left child
       this.transplant(node, node.left)
     } else {
       // otherwise node has two children
@@ -192,18 +192,24 @@ class BinarySearchTree<T> {
 
         // note: sucessor can't be null here. node has two children, so it
         // definitely does have a sucessor
+        if (sucessor === null) throw new Error()
 
-        this.transplant(sucessor!, sucessor!.right)
-        sucessor!.right = node.right
-        sucessor!.right.parent = sucessor
+        // before we transplant node with sucessor, transplant sucessor with IT's
+        // right subtree (sucessor subtree)
+        this.transplant(sucessor, sucessor.right)
+
+        // link node's right subtree with sucessor
+        sucessor.right = node.right
+        sucessor.right.parent = sucessor
 
         this.transplant(node, sucessor)
 
-        // link nodes left subtree with sucessor
-        sucessor!.left = node.left
-        sucessor!.left.parent = sucessor
+        // link node's left subtree with sucessor
+        sucessor.left = node.left
+        sucessor.left.parent = sucessor
       }
     }
+
     this.sz -= 1
   }
 
@@ -263,21 +269,8 @@ class BinarySearchTree<T> {
   preorderTraversal(): { [Symbol.iterator](): Iterator<T> } {
     let root = this.root
 
-    if (root === null) {
-      return {
-        [Symbol.iterator]: (): Iterator<T> => ({
-          next(): IteratorResult<T> {
-            return {
-              value: null,
-              done: true,
-            }
-          },
-        }),
-      }
-    }
-
     const stack = new Stack<TreeNode<T>>()
-    stack.push(root)
+    if (root !== null) stack.push(root)
 
     return {
       [Symbol.iterator]: (): Iterator<T> => ({
@@ -303,19 +296,9 @@ class BinarySearchTree<T> {
   postorderTraversal(): { [Symbol.iterator](): Iterator<T> } {
     let root = this.root
 
-    if (root === null) {
-      return {
-        [Symbol.iterator]: (): Iterator<T> => ({
-          next(): IteratorResult<T> {
-            return { value: null, done: true }
-          },
-        }),
-      }
-    }
-
     const stack1 = new Stack<TreeNode<T>>()
     const stack2 = new Stack<TreeNode<T>>()
-    stack1.push(root)
+    if (root !== null) stack1.push(root)
 
     while (!stack1.isEmpty()) {
       root = stack1.pop()! // non-null bc stack1 is not empty
