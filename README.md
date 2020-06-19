@@ -25,7 +25,7 @@ yarn add dsa-ts
 
 - [x] Sequences
   - [x] [📹](https://www.youtube.com/watch?v=oXXLFvtG6-Q&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=5) [Linked List](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/sequences/linked-list/linked-list.ts)
-  - [x] [📹](https://www.youtube.com/watch?v=7l4YHzc3iXU&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=7) [Stack](https://github.com/jeffzh4ng/dsa-ts/tree/master/src/data-structures/sequences/stack)
+  - [x] [📹](https://www.youtube.com/watch?v=7l4YHzc3iXU&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=7) [Stack](https://github.com/jeffzh4ng/dsa-ts/tree/master/src/data-structures/sequences/stack/stack.ts)
   - [x] [📹](https://www.youtube.com/watch?v=E1I8IcKv_cQ&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=9) [Queue](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/sequences/queue/queue.ts)
   - [x] [Double-ended Queue](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/sequences/queue/deque.ts)
   - [x] [📹](https://www.youtube.com/watch?v=39HHWATPcwY&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=11) [Circular Buffer](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/sequences/circular-buffer/circular-buffer.ts)
@@ -37,6 +37,22 @@ yarn add dsa-ts
     - [x] [📹](https://www.youtube.com/watch?v=m8rsw3KfDKs&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=17) [Binomial Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/min-binomial-heap.ts)
     - [x] [📹](https://www.youtube.com/watch?v=-IOse-LEJtw&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=19) [Lazy Binomial Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/lazy-min-binomial-heap.ts)
     - [x] [📹](https://www.youtube.com/watch?v=E_AgyAI8lsc&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=23) [Fibonnaci Heap](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/priority-queues/mergeable-heaps/min-fibonacci-heap.ts)
+- [ ] Trees
+  - [ ] BSTs
+    - [ ] [Binary Search Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/binary-search-tree.ts)
+    - [ ] [AVL Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/avl-tree.ts)
+    - [ ] Red-black Tree
+    - [ ] B Tree
+  - [ ] Space Partioning
+    - [ ] Segment Tree
+    - [ ] Interval Tree
+  - [ ] Integer and string searching
+    - [ ] Trie
+    - [ ] Radix Tree
+    - [ ] Suffix Tree
+    - [ ] Suffix Array
+    - [ ] Fusion Tree
+    - [ ] Van Emde Boas Tree (Flat Tree)
 - [ ] Dictionaries
 - [ ] Sets
   - [ ] Bit Array
@@ -44,30 +60,6 @@ yarn add dsa-ts
   - [ ] Min Hash
   - [ ] Disjoint-set
   - [ ] Partition Refinement
-- [ ] Trees
-  - [ ] Self-balancing BSTs
-    - [ ] AVL Tree
-    - [ ] WAVL Tree
-    - [ ] B-tree
-    - [ ] B+ Tree
-    - [ ] Red-black Tree
-    - [ ] Splay Tree
-    - [ ] Scapegoat Tree
-  - [ ] Space Partioning
-    - [ ] Segment Tree
-    - [ ] Interval Tree
-  - [ ] Tries
-    - [ ] Trie
-    - [ ] Radix Tree
-    - [ ] Suffix Tree
-  - [ ] Fenwick Tree
-  - [ ] Fusion Tree
-  - [ ] Treap
-  - [ ] Van Emde Boas Tree (Flat Tree)
-- [ ] Tries
-- [ ] Graph
-- [ ] LRU Cache
-- [ ] Persistent and Retroactive Data Structures
 
 ## Algorithms
 
