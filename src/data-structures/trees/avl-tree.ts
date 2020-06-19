@@ -1,9 +1,9 @@
-import TreeNode from './tree-node'
+import AVLTreeNode from './avl-tree-node'
 import Stack from '../sequences/stack'
 import * as utils from '../utils'
 
-class BinarySearchTree<T> {
-  root: TreeNode<T> | null
+class AVLTree<T> {
+  root: AVLTreeNode<T> | null
 
   private sz: number
   private compare: utils.CompareFunction<T>
@@ -26,25 +26,20 @@ class BinarySearchTree<T> {
     return this.size() === 0
   }
 
-  // O(n)
+  // O(1)
   height(): number {
-    return this.heightHelper(this.root)
-  }
+    if (this.root === null) return 0
 
-  // O(n) because we recurse on all nodes in the tree
-  private heightHelper(root: TreeNode<T> | null): number {
-    if (root === null) return 0
-
-    return Math.max(this.heightHelper(root.left), this.heightHelper(root.right)) + 1
+    return this.root.height
   }
 
   /*****************************************************************************
                                   SEARCHING
   *****************************************************************************/
-  // All search operations can be implemented iteratively and in O(h) time.
+  // All search operations can be implemented iteratively and in O(logn) time.
 
-  // O(h) because we're just tracing a path down the tree
-  find(value: T): TreeNode<T> | null {
+  // O(logn) because we're just tracing a path down the tree
+  find(value: T): AVLTreeNode<T> | null {
     let cur = this.root
 
     while (cur !== null && cur.value !== value) {
@@ -55,9 +50,13 @@ class BinarySearchTree<T> {
     return cur
   }
 
+  contains(value: T): boolean {
+    return this.find(value) !== null
+  }
+
   // finds the min node in the subtree rooted at given root, or top-most parent by default
-  // O(h) because we're just tracing a path down the tree
-  findMin(root?: TreeNode<T> | null): TreeNode<T> | null {
+  // O(logn) because we're just tracing a path down the tree
+  findMin(root?: AVLTreeNode<T> | null): AVLTreeNode<T> | null {
     let cur = root || this.root
 
     while (cur && cur.left !== null) {
@@ -68,8 +67,8 @@ class BinarySearchTree<T> {
   }
 
   // finds the max node in the subtree rooted at given root, or top-most parent by default
-  // O(h) because we're just tracing a path down the tree
-  findMax(root?: TreeNode<T> | null): TreeNode<T> | null {
+  // O(logn) because we're just tracing a path down the tree
+  findMax(root?: AVLTreeNode<T> | null): AVLTreeNode<T> | null {
     let cur = root || this.root
 
     while (cur && cur.right !== null) {
@@ -79,8 +78,8 @@ class BinarySearchTree<T> {
     return cur
   }
 
-  // O(h) since we follow a path down the tree or up the tree
-  findSucessor(root: TreeNode<T>): TreeNode<T> | null {
+  // O(logn) since we follow a path down the tree or up the tree
+  findSucessor(root: AVLTreeNode<T>): AVLTreeNode<T> | null {
     // if the right child exists, the successor is the left-most node of the right-child
     const rightChildExists = root.right !== null
     if (rightChildExists) return this.findMin(root.right)
@@ -102,8 +101,8 @@ class BinarySearchTree<T> {
     return parent
   }
 
-  // O(h) since we follow a path down the tree or up the tree
-  findPredecessor(root: TreeNode<T>): TreeNode<T> | null {
+  // O(logn) since we follow a path down the tree or up the tree
+  findPredecessor(root: AVLTreeNode<T>): AVLTreeNode<T> | null {
     // if the left child exists, the successor is the right-most node of the left-child
     const leftChildExists = root.left !== null
     if (leftChildExists) return this.findMax(root.left)
@@ -128,38 +127,191 @@ class BinarySearchTree<T> {
   /*****************************************************************************
                                   INSERTION/DELETION
   *****************************************************************************/
-  // O(h) time since we follow a path down the tree
-  insert(value: T): TreeNode<T> {
-    let parent: TreeNode<T> | null = null
-    let cur = this.root
+  // O(logn) time since we follow a path down the tree
+  insert(value: T): AVLTreeNode<T> | null {
+    if (this.contains(value)) return null
 
-    // walk down our tree until cur pointer is null
-    while (cur !== null) {
-      parent = cur
-
-      if (this.compare(value, cur.value) < 0) cur = cur.left
-      else cur = cur.right
-    }
-
-    const newNode = new TreeNode(value, parent)
-
-    if (parent === null) {
-      // if the root was empty, just set the root pointer to newNode
-      this.root = newNode
-    } else if (newNode.value < parent.value) {
-      parent.left = newNode
-    } else {
-      parent.right = newNode
-    }
-
+    this.root = this.insertHelper(this.root, value, null)
     this.sz += 1
 
-    return newNode
+    return this.root
   }
 
-  // O(h) because in the worst case we have to find the successor of node.
-  // This means calling this.findMin() which takes O(h) time
-  remove(node: TreeNode<T>): void {
+  private insertHelper(
+    root: AVLTreeNode<T> | null,
+    value: T,
+    parent: AVLTreeNode<T> | null
+  ): AVLTreeNode<T> {
+    if (root === null) return new AVLTreeNode(value, parent)
+
+    // regular BST insert first
+    const cmp = this.compare(value, root.value)
+
+    if (cmp < 0) {
+      root.left = this.insertHelper(root.left, value, root)
+    } else {
+      root.right = this.insertHelper(root.right, value, root)
+    }
+
+    // update balance factor and height values in subtree rooted at node
+    this.update(root)
+
+    // re-balance tree to satisfy AVL invariant
+    return this.balance(root)
+  }
+
+  // update node's height and balance factor
+  private update(node: AVLTreeNode<T> | null): void {
+    if (node === null) return
+    const leftNodeHeight = node.left ? node.left.height : 0
+    const rightNodeHeight = node.right ? node.right.height : 0
+
+    node.height = Math.max(leftNodeHeight, rightNodeHeight) + 1
+
+    node.balanceFactor = leftNodeHeight - rightNodeHeight
+
+    this.update(node.parent)
+  }
+
+  // re-balance a node if balance factor is +2 or -2
+  private balance(node: AVLTreeNode<T>): AVLTreeNode<T> {
+    // left heavy since balanceFactor = leftChildHeight - rightChildHeight
+    if (node.balanceFactor === 2) {
+      // if left child has left child, we have three nodes forming a line so
+      // perform a right rotation
+
+      // node.left should be not null bc this method gets called only when node is left heavy ==> node.left is not null
+      if (node.left === null) throw new Error()
+
+      if (node.left.balanceFactor >= 0) {
+        return this.leftLeftCase(node)
+      } else {
+        // o/w left child has a right child so
+
+        // 1. left rotate left child so we now have three nodes forming a line
+        // 2. right rotate the root
+        return this.leftRightCase(node)
+      }
+    } else if (node.balanceFactor === -2) {
+      // if right child has right child, we have three nodes forming a line so
+      // perform a left rotation
+
+      // node.right should be not null bc this method gets called only when node is right heavy ==> node.right is not null
+      if (node.right === null) throw new Error()
+
+      if (node.right.balanceFactor <= 0) {
+        return this.rightRightCase(node)
+      } else {
+        // o/w right child has left child so
+
+        // 1. right rotate right child so we now have three nodes forming a line
+        // 2. left rotate the root
+        return this.rightLeftCase(node)
+      }
+    }
+
+    // o/w, node.balanceFactor is -1, 0, or 1. This is ok.
+
+    return node
+  }
+
+  private leftLeftCase(node: AVLTreeNode<T>): AVLTreeNode<T> {
+    return this.rightRotation(node)
+  }
+
+  private leftRightCase(node: AVLTreeNode<T>): AVLTreeNode<T> {
+    // node.left should be not null bc this method gets called only when node is left heavy ==> node.left is not null
+    if (node.left === null) throw new Error()
+
+    this.leftRotation(node.left)
+
+    return this.leftLeftCase(node)
+  }
+
+  private rightRightCase(node: AVLTreeNode<T>): AVLTreeNode<T> {
+    return this.leftRotation(node)
+  }
+
+  private rightLeftCase(node: AVLTreeNode<T>): AVLTreeNode<T> {
+    // node.right should be not null bc this method gets called only when node is right heavy ==> node.right is not null
+    if (node.right === null) throw new Error()
+
+    this.rightRotation(node.right)
+
+    return this.rightRightCase(node)
+  }
+
+  private leftRotation(A: AVLTreeNode<T>): AVLTreeNode<T> {
+    const P = A.parent // save A's parent for later
+    const B = A.right
+
+    if (B === null) throw new Error()
+
+    A.right = B.left // swing B's predecessors to A since B.left will now be A
+
+    // set B's predecessors parent to A now
+    if (B.left !== null) B.left.parent = A // set BPredecessor.Parent = A
+
+    B.left = A // rotate A left
+
+    // link up parents
+    A.parent = B
+    B.parent = P
+
+    if (P !== null) {
+      if (P.left === A) P.left = B
+      else P.right = B
+    }
+
+    // re-update height and balance factor
+    this.update(A)
+    this.update(B)
+
+    return B
+  }
+
+  private rightRotation(A: AVLTreeNode<T>): AVLTreeNode<T> {
+    const P = A.parent
+    const B = A.left
+
+    if (B === null) throw new Error()
+
+    A.left = B.right // swing B's successors to A since B.right will now be A
+
+    // if B has a sucessor, set it's new parent to A now
+    if (B.right !== null) B.right.parent = A // set BSuccessor.parent = A
+
+    B.right = A // rotate A right
+
+    // link up parents
+    A.parent = B
+    B.parent = P
+
+    if (P !== null) {
+      if (P.left === A) P.left = B
+      else P.right = B
+    }
+
+    // re-update height and balance factor
+    this.update(A)
+    this.update(B)
+
+    return B
+  }
+
+  // O(logn) because in the worst case we have to find the successor of node.
+  // This means calling this.findMin() which takes O(logn) time
+  remove(node: AVLTreeNode<T>): boolean {
+    if (!this.contains(node.value)) return false
+
+    this.removeHelper(node)
+    this.sz -= 1
+    return true
+  }
+
+  // O(logn) because in the worst case we have to find the successor of node.
+  // This means calling this.findMin() which takes O(logn) time
+  private removeHelper(node: AVLTreeNode<T>): void {
     // cases:
     // if node has no children, we simply remove it by modifying node.parent's pointer
     // if node has one child, we promote the child to take node's place
@@ -198,11 +350,11 @@ class BinarySearchTree<T> {
         // right subtree (sucessor subtree)
         this.transplant(sucessor, sucessor.right)
 
+        this.transplant(node, sucessor)
+
         // link node's right subtree with sucessor
         sucessor.right = node.right
         sucessor.right.parent = sucessor
-
-        this.transplant(node, sucessor)
 
         // link node's left subtree with sucessor
         sucessor.left = node.left
@@ -210,13 +362,14 @@ class BinarySearchTree<T> {
       }
     }
 
-    this.sz -= 1
+    this.update(node)
+    this.balance(node)
   }
 
   // Replaces the subtree rooted at u with the subtree rooted at v. Node u's
   // parent now becomes node v's parent. Note that transplant does not update
   // v.left or v.right
-  private transplant(u: TreeNode<T>, v: TreeNode<T> | null) {
+  private transplant(u: AVLTreeNode<T>, v: AVLTreeNode<T> | null) {
     if (u.parent === null) {
       // then u is the root of the tree so set root pointer to point to v
       this.root = v
@@ -235,7 +388,7 @@ class BinarySearchTree<T> {
   *****************************************************************************/
   inorderTraversal(): { [Symbol.iterator](): Iterator<T> } {
     let root = this.root
-    const stack = new Stack<TreeNode<T>>()
+    const stack = new Stack<AVLTreeNode<T>>()
 
     return {
       [Symbol.iterator]: (): Iterator<T> => ({
@@ -269,7 +422,7 @@ class BinarySearchTree<T> {
   preorderTraversal(): { [Symbol.iterator](): Iterator<T> } {
     let root = this.root
 
-    const stack = new Stack<TreeNode<T>>()
+    const stack = new Stack<AVLTreeNode<T>>()
     if (root !== null) stack.push(root)
 
     return {
@@ -296,8 +449,8 @@ class BinarySearchTree<T> {
   postorderTraversal(): { [Symbol.iterator](): Iterator<T> } {
     let root = this.root
 
-    const stack1 = new Stack<TreeNode<T>>()
-    const stack2 = new Stack<TreeNode<T>>()
+    const stack1 = new Stack<AVLTreeNode<T>>()
+    const stack2 = new Stack<AVLTreeNode<T>>()
     if (root !== null) stack1.push(root)
 
     while (!stack1.isEmpty()) {
@@ -325,4 +478,4 @@ class BinarySearchTree<T> {
   }
 }
 
-export default BinarySearchTree
+export default AVLTree

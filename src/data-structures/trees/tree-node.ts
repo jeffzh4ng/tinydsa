@@ -1,5 +1,6 @@
 class TreeNode<T> {
   value: T
+
   left: TreeNode<T> | null
   right: TreeNode<T> | null
   parent: TreeNode<T> | null
