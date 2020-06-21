@@ -5,4 +5,5 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   collectCoverage: true,
+  collectCoverageFrom: ['src/**/{!(b-tree),}.ts'],
 }

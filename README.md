@@ -42,7 +42,7 @@ yarn add dsa-ts
     - [ ] [Binary Search Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/binary-search-tree.ts)
     - [ ] [AVL Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/avl-tree.ts)
     - [ ] Red-black Tree
-    - [ ] B Tree
+    - [ ] B Tree (Deletion is not working properly. Temporarily ignoring B-tree in test coverage.)
   - [ ] Space Partioning
     - [ ] Segment Tree
     - [ ] Interval Tree
