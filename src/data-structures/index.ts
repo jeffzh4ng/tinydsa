@@ -10,7 +10,7 @@ import {
   LazyMinBinomialHeap,
   MinFibonacciHeap,
 } from './priority-queues'
-import { BinarySearchTree, AVLTree, BTree } from './trees'
+import { BinarySearchTree, AVLTree, BTree, RedBlackTree } from './trees'
 
 const Collections = {
   LinkedList,
@@ -27,6 +27,7 @@ const Collections = {
   BinarySearchTree,
   AVLTree,
   BTree,
+  RedBlackTree,
 }
 
 export default Collections
