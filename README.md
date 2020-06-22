@@ -1,4 +1,4 @@
-# Typescript Data Structures and Algorithms
+# Algorithms and Data Structures
 
 ![](https://miro.medium.com/proxy/1*_gg1Te-7SJfk9E2D-mORfw.png)
 
@@ -42,7 +42,7 @@ yarn add dsa-ts
     - [x] [Binary Search Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/binary-search-tree.ts)
     - [x] [AVL Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/avl-tree.ts)
     - [x] [Red-black Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/red-black-tree.ts)
-    - [x] [B Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/b-tree.ts)
+    - [x] [B-Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/trees/b-tree.ts)
   - [ ] Space Partioning
     - [ ] Segment Tree
     - [ ] Interval Tree
