@@ -1,5 +1,5 @@
 import AVLTree from '../../src/data-structures/trees/avl-tree'
-import AVLTreeNode from '../../src/data-structures/trees/avl-tree-node'
+import AVLTreeNode from '../../src/data-structures/trees/avl-tree/avl-tree-node'
 
 describe('AVL Tree', () => {
   let tree: AVLTree<number>

@@ -11,6 +11,12 @@ import {
   MinFibonacciHeap,
 } from './priority-queues'
 import { BinarySearchTree, AVLTree, BTree, RedBlackTree } from './trees'
+import {
+  HashTableSeparateChaining,
+  HashTableLinearProbing,
+  HashTableQuadraticProbing,
+  HashTableDoubleHashing,
+} from './hash-tables'
 
 const Collections = {
   LinkedList,
@@ -28,6 +34,10 @@ const Collections = {
   AVLTree,
   BTree,
   RedBlackTree,
+  HashTableSeparateChaining,
+  HashTableLinearProbing,
+  HashTableQuadraticProbing,
+  HashTableDoubleHashing,
 }
 
 export default Collections

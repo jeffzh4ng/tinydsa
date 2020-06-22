@@ -1,6 +1,6 @@
 import RBTreeNode from './red-black-tree-node'
-import Stack from '../sequences/stack'
-import * as utils from '../utils'
+import Stack from '../../sequences/stack'
+import * as utils from '../../utils'
 
 /***************************************************************************************************
 * A red-black tree is a binary tree that satisfies the red-black properties:

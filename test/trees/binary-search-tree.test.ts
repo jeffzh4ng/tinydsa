@@ -1,5 +1,5 @@
 import BinarySearchTree from '../../src/data-structures/trees/binary-search-tree'
-import TreeNode from '../../src/data-structures/trees/tree-node'
+import TreeNode from '../../src/data-structures/trees/binary-search-tree/tree-node'
 
 describe('Binary Search Tree', () => {
   let tree: BinarySearchTree<number>
