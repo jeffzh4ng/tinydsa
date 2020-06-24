@@ -16,7 +16,7 @@
   "license": "MIT",
   "prepublish": "tsc",
   "devDependencies": {
-    "@types/jest": "26.0.2",
+    "@types/jest": "26.0.3",
     "@typescript-eslint/eslint-plugin": "3.4.0",
     "@typescript-eslint/parser": "3.4.0",
     "codecov": "3.7.0",
