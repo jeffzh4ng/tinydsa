@@ -51,6 +51,11 @@ yarn add dsa-ts
 
 ## Algorithms
 
+Following algoritms/problems compiled from
+  - Grokking the Coding Interview
+  - Elements of Programming Interviews
+  - Top Interview Questions from Leetcode
+
 - [ ] Array
   - [ ] 238. Product of Array Except Self (Medium)
   - [ ] 48. Rotate Image (Medium)
@@ -58,10 +63,15 @@ yarn add dsa-ts
   - [ ] 33. Search in Rotated Sorted Array (Medium)
   - [ ] 34. Find First and Last Position of Element in Sorted Array (Medium)
   - [ ] 189. Rotate Array (Easy)
+  - [ ] 118. Pascal's Triangle (Easy)
   - [ ] 54. Spiral Matrix (Medium)
+  - [ ] 280. Wiggle Sort (Medium)
+  - [ ] 36. Valid Sodoku (Medium)
+  - [ ] 48. Rotate Image (Medium)
   - [ ] 41. First Missing Positive (Hard)
   - [ ] 4. Median of Two Sorted Arrays (Hard)
   - [ ] 84. Largest Rectangle in Histogram (Hard)
+  
 
 - [ ] Sliding Window
   - [ ] 53. Maximum Subarray (Easy)
@@ -126,9 +136,13 @@ yarn add dsa-ts
   - [ ] 373. Find K Pairs with Smallest Sums (Medium)
   
 - [ ] String
+  - [ ] 171 Excel Sheet Column Number (Easy)
   - [ ] 14. Longest Common Prefix (Easy)
   
 - [ ] Linked List
+  - [ ] 21. Merge Two Sorted Lists (Easy)
+  - [ ] 160. Intersection of Two Linked Lists (Easy)
+  - [ ] 83. Remove Duplicates from Sorted List (Easy)
   - [ ] 206. Reverse Linked List (Easy)
   - [ ] 92. Reverse Linked List II (Medium)
   - [ ] 25. Reverse Nodes in k-Group (Hard)
@@ -137,15 +151,23 @@ yarn add dsa-ts
   - [ ] 19. Remove Nth Node from End of List (Medium)
   - [ ] 2. Add Two Numbers (Medium)
   - [ ] 138. Copy List with Random Pointer (Medium)
+  - [ ] 328. Odd Even Linked List (Medium)
+  - [ ] 234. Palindrome Linked List (Easy)
+  - [ ] 86. Partition List (Medium)
   
 - [ ] Hash Table
   - [ ] 739. Daily Temperatures (Medium)
   - [ ] 560. Subarray Sum Equals K (Medium)
   - [ ] 438. Find All Anagrams in a String (Medium)
   
+- [ ] Stack/Queues
+  - [ ] 150. Evaluate Reverse Polish Notation (Medium)
+  
 - [ ] Tree
   - [ ] 617. Merge Two Binary Trees (Easy)
   - [ ] 226. Invert Binary Tree (Easy)
+  - [ ] 110. Balanced Binary Tree (Easy)
+  - [ ] 101. Symmetric Tree (Easy)
   - [ ] 94. Binary Tree Inorder Traversal (Medium)
   - [ ] 144. Binary Tree Preorder Traversal (Medium)
   - [ ] 145. Binary Tree Postorder Traversal (Hard)
@@ -167,12 +189,14 @@ yarn add dsa-ts
 - [ ] Tree Depth First Search
   - [ ] 112. Path Sum (Easy)
   - [ ] 113. Path Sum II (Medium)
+  - [ ] 105. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
   - [ ] 114. Flatten Binary Tree to Linked List (Medium)
   - [ ] 129. Sum Root to Leaf Numbers (Medium)
   - [ ] 437. Path Sum III (Easy)
   - [ ] 543. Diameter of a Binary Tree (Easy)
   - [ ] 124. Binary Tree Maximum Path Sum (Hard)
   - [ ] 98. Validate Binary Search Tree (Medium)
+  - [ ] 1028. Recover a Tree From Preorder Traversal (Hard)
   
 - [ ] General BFS/DFS
   - [ ] 127. Word Ladder (Medium)
@@ -191,6 +215,9 @@ yarn add dsa-ts
   
 - [ ] Design
   - [ ] 146. LRU Cache (Medium)
+  - [ ] 155. Min Stack (Easy)
+  - [ ] 622. Design Circular Queue (Medium)
+  - [ ] 232. Implement Queue using Stacks (Easy)
   
 - [ ] Backtracking
   - [ ] 78. Subsets (Easy)
@@ -254,6 +281,7 @@ yarn add dsa-ts
 - [Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein](https://en.wikipedia.org/wiki/Introduction_to_Algorithms)
 - [Algorithm Design by Jon Kleinberg and Éva Tardos](https://www.amazon.ca/Algorithm-Design-Jon-Kleinberg/dp/0321295358)
 - [Algorithms by William Fiset](https://github.com/williamfiset/Algorithms)
+- [Algorithms by Jeff Erickson](http://jeffe.cs.illinois.edu/teaching/algorithms/)
 - [Stanford CS 166](https://web.stanford.edu/class/cs166/)
 - [Harvard CS 224](https://www.youtube.com/playlist?list=PL2SOU6wwxB0uP4rJgf5ayhHWgw7akUWSf)
 
