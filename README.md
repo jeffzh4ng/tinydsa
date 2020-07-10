@@ -123,7 +123,7 @@ yarn add dsa-ts
 - [ ] K-way Merge
   - [ ] 23. Merge K Sorted Lists (Hard)
   - [ ] 378. Kth Smallest Element in a Sorted Matrix (Medium)
-  - [ ] 373. Find K Pairs with Smallest Sums
+  - [ ] 373. Find K Pairs with Smallest Sums (Medium)
   
 - [ ] String
   - [ ] 14. Longest Common Prefix (Easy)
@@ -229,7 +229,7 @@ yarn add dsa-ts
   - [ ] 714. Best Time to Buy and Sell Stock with Transaction Fee (Medium)
   - [ ] 765. Couples Holding Hands (Hard)
   - [ ] 452. Minimium Number of Arrows to Burst Balloons (Medium)
-  - [ ] 392. Is Subsequence
+  - [ ] 392. Is Subsequence (Easy)
   - [ ] 621. Task Scheduler (Medium)
   - [ ] 767. Reorganize String (Medium)
   - [ ] 435. Non-overlapping Intervals (Medium)
