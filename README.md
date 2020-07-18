@@ -51,12 +51,11 @@ yarn add dsa-ts
 
 ## Algorithms
 
-Following algoritms/problems compiled from
-  - Grokking the Coding Interview
-  - Elements of Programming Interviews
-  - Top Interview Questions from Leetcode
+Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
 
 - [ ] Array
+  - [ ] 509. Fibonacci Number (Easy)
+  - [ ] 896. Monotonic Array (Easy)
   - [ ] 238. Product of Array Except Self (Medium)
   - [ ] 48. Rotate Image (Medium)
   - [ ] 448. Find All Numbers Disappeared in an Array (Easy)
@@ -71,7 +70,7 @@ Following algoritms/problems compiled from
   - [ ] 41. First Missing Positive (Hard)
   - [ ] 4. Median of Two Sorted Arrays (Hard)
   - [ ] 84. Largest Rectangle in Histogram (Hard)
-  
+  - [ ] 1200. Minimum Absolute Difference
 
 - [ ] Sliding Window
   - [ ] 53. Maximum Subarray (Easy)
@@ -86,7 +85,8 @@ Following algoritms/problems compiled from
   - [ ] 239. Sliding Window Maximum (Hard)
   
 - [ ] Two Pointers
-  - [ ] Two Sum II (Easy)
+  - [ ] 167. Two Sum II (Easy)
+  - [ ] 283. Move Zeroes
   - [ ] 26. Remove Duplicates from Sorted Array (Easy)
   - [ ] 977. Squares of a Sorted Array (Easy)
   - [ ] 15. 3Sum (Medium)
@@ -94,8 +94,10 @@ Following algoritms/problems compiled from
   - [ ] 713. Subarray Product Less than K (Medium)
   - [ ] 75. Sort Colors (Medium)
   - [ ] 18. 4Sum (Medium)
+  - [ ] 845. Longest Mountain in Array (Medium)
   - [ ] 844. Backspace String Compare (Easy)
   - [ ] 581. Shortest Unsorted Continuous Subarray (Easy)
+  - [ ] 11. Container With Most Water (Medium)
   
 - [ ] Fast and Slow Pointers
   - [ ] 141. Linked List Cycle (Easy)
@@ -105,6 +107,12 @@ Following algoritms/problems compiled from
   - [ ] 234. Palindrome Linked List (Easy)
   - [ ] 143. Reorder List (Medium)
   - [ ] 457. Circular Array Loop (Medium)
+  
+  
+- [ ] Binary Search
+  - [ ] 74. Search a 2D Matrix (Medium)
+  - [ ] 240. Search a 2D Matrix II (Medium)
+  - [ ] 454. 4Sum II (Medium)
   
 - [ ] Merge Intervals
   - [ ] 56. Merge Intervals (Medium)
@@ -138,6 +146,8 @@ Following algoritms/problems compiled from
 - [ ] String
   - [ ] 171 Excel Sheet Column Number (Easy)
   - [ ] 14. Longest Common Prefix (Easy)
+  - [ ] 49. Group Anagrams (Medium)
+  - [ ] 459. Repeated Substring Pattern (Easy)
   
 - [ ] Linked List
   - [ ] 21. Merge Two Sorted Lists (Easy)
@@ -145,6 +155,7 @@ Following algoritms/problems compiled from
   - [ ] 83. Remove Duplicates from Sorted List (Easy)
   - [ ] 206. Reverse Linked List (Easy)
   - [ ] 92. Reverse Linked List II (Medium)
+  - [ ] 19. Remove Nth Node From End of List (Medium)
   - [ ] 25. Reverse Nodes in k-Group (Hard)
   - [ ] 61. Rotate List (Medium)
   - [ ] 138. Copy List with Random Pointer (Medium)
@@ -202,6 +213,7 @@ Following algoritms/problems compiled from
   
 - [ ] Tree Depth First Search
   - [ ] 112. Path Sum (Easy)
+  - [ ] 100. Same Tree (Easy)
   - [ ] 113. Path Sum II (Medium)
   - [ ] 105. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
   - [ ] 114. Flatten Binary Tree to Linked List (Medium)
@@ -232,6 +244,7 @@ Following algoritms/problems compiled from
   - [ ] 155. Min Stack (Easy)
   - [ ] 622. Design Circular Queue (Medium)
   - [ ] 232. Implement Queue using Stacks (Easy)
+  - [ ] 208. Implement Trie (Prefix Tree) (Medium)
   
 - [ ] Backtracking
   - [ ] 78. Subsets (Easy)
@@ -283,7 +296,24 @@ Following algoritms/problems compiled from
   - [ ] 402. Remove K Digits (Medium)
   
 - [ ] Dynamic Programming
+  - [ ] 5. Longest Palindromic Substring (Medium)
+  - [ ] 300. Longest Increasing Subsequence (Medium)
+  - [ ] 1048. Longest String Chain (Medium)
+  - [ ] 72. Edit Distance (Hard)
+  - [ ] 97. Interleaving String (Hard)
+  - [ ] 188. Best Time to Buy and Sell Stock IV (Hard)
+  - [ ] 787. Cheapest Flights Within K Stops (Medium)
+  
 - [ ] Graph Theory
+
+- [ ] Union Find
+  - [ ] 128. Longest Consecutive Sequence (Hard)
+  
+- [ ] Other
+  - [ ] 731. My Calendar II (Medium)
+  - [ ] 731. My Calendar III (Hard)
+  - [ ] 315. Count of Smaller Numbers After Self (Hard)
+
 - [ ] Minimum Spanning Trees
 - [ ] Shortest Paths
 - [ ] All-Pairs Shortest Paths
