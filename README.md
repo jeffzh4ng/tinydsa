@@ -70,7 +70,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 41. First Missing Positive (Hard)
   - [ ] 4. Median of Two Sorted Arrays (Hard)
   - [ ] 84. Largest Rectangle in Histogram (Hard)
-  - [ ] 1200. Minimum Absolute Difference
+  - [ ] 1200. Minimum Absolute Difference (Easy)
 
 - [ ] Sliding Window
   - [ ] 53. Maximum Subarray (Easy)
@@ -113,6 +113,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 74. Search a 2D Matrix (Medium)
   - [ ] 240. Search a 2D Matrix II (Medium)
   - [ ] 454. 4Sum II (Medium)
+  - [ ] 875. Koko Eating Bananas (Medium)
   
 - [ ] Merge Intervals
   - [ ] 56. Merge Intervals (Medium)
