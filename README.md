@@ -73,7 +73,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 1200. Minimum Absolute Difference (Easy)
 
 - [ ] Sliding Window
-  - [ ] 53. Maximum Subarray (Easy)
   - [ ] 209. Minim Size Subarray Sum (Medium)
   - [ ] 904. Fruit Into Baskets (Medium)
   - [ ] 3. Longest Substring Without Repeating Characters (Medium)
@@ -97,7 +96,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 845. Longest Mountain in Array (Medium)
   - [ ] 844. Backspace String Compare (Easy)
   - [ ] 581. Shortest Unsorted Continuous Subarray (Easy)
-  - [ ] 11. Container With Most Water (Medium)
   
 - [ ] Fast and Slow Pointers
   - [ ] 141. Linked List Cycle (Easy)
