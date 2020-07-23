@@ -116,6 +116,9 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
 - [ ] Merge Intervals
   - [ ] 56. Merge Intervals (Medium)
   - [ ] 57. Insert Interval (Hard)
+  - [ ] 252 Meeting Rooms (Easy)
+  - [ ] 253. Meeting Rooms (Medium)
+  - [ ] 452. Minimum Number of Arrows to Burst Balloons (Medium)
   - [ ] 986. Interval List Intersection (Medium)
   
 - [ ] Cyclic Sort
