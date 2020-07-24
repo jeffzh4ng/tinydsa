@@ -7,7 +7,11 @@
 ![](https://img.shields.io/codecov/c/github/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/github/license/jeffzh4ng/algorithms-and-data-structures)
 
-A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#data-structures) and [algorithms](https://github.com/jeffzh4ng/dsa-ts#algorithms) implemented in Typescript. Click the 📹 emoji for tutorials. [View the entire series in order here](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
+A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#data-structures) and [algorithms](https://github.com/jeffzh4ng/dsa-ts#algorithms) implemented in Typescript. Click the 📹 emoji for tutorials.
+
+Data structure series: [View the entire series in order here](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
+
+Algorithms/leetcode series: [View the entire series in order here](https://www.youtube.com/watch?v=GP1iUOVmAnY&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS)
 
 The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader.
 
