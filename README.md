@@ -53,68 +53,67 @@ yarn add dsa-ts
 
 Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
 
-- [ ] Array
-  - [ ] 509. Fibonacci Number (Easy)
-  - [ ] 896. Monotonic Array (Easy)
-  - [ ] 238. Product of Array Except Self (Medium)
-  - [ ] 48. Rotate Image (Medium)
-  - [ ] 448. Find All Numbers Disappeared in an Array (Easy)
-  - [ ] 33. Search in Rotated Sorted Array (Medium)
-  - [ ] 34. Find First and Last Position of Element in Sorted Array (Medium)
-  - [ ] 189. Rotate Array (Easy)
-  - [ ] 118. Pascal's Triangle (Easy)
-  - [ ] 54. Spiral Matrix (Medium)
-  - [ ] 280. Wiggle Sort (Medium)
-  - [ ] 36. Valid Sodoku (Medium)
-  - [ ] 48. Rotate Image (Medium)
-  - [ ] 41. First Missing Positive (Hard)
-  - [ ] 4. Median of Two Sorted Arrays (Hard)
-  - [ ] 84. Largest Rectangle in Histogram (Hard)
-  - [ ] 1200. Minimum Absolute Difference (Easy)
+### Array
+  - [x] 509. Fibonacci Number (Easy)
+  - [x] 896. Monotonic Array (Easy)
+  - [x] 238. Product of Array Except Self (Medium)
+  - [x] 48. Rotate Image (Medium)
+  - [x] 448. Find All Numbers Disappeared in an Array (Easy)
+  - [x] 33. Search in Rotated Sorted Array (Medium)
+  - [x] 34. Find First and Last Position of Element in Sorted Array (Medium)
+  - [x] 189. Rotate Array (Easy)
+  - [x] 118. Pascal's Triangle (Easy)
+  - [x] 54. Spiral Matrix (Medium)
+  - [x] 280. Wiggle Sort (Medium)
+  - [x] 36. Valid Sodoku (Medium)
+  - [x] 48. Rotate Image (Medium)
+  - [x] 41. First Missing Positive (Hard)
+  - [x] 4. Median of Two Sorted Arrays (Hard)
+  - [x] 84. Largest Rectangle in Histogram (Hard)
+  - [x] 1200. Minimum Absolute Difference (Easy)
 
-- [ ] Sliding Window
-  - [ ] 209. Minim Size Subarray Sum (Medium)
-  - [ ] 904. Fruit Into Baskets (Medium)
-  - [ ] 3. Longest Substring Without Repeating Characters (Medium)
-  - [ ] 1004. Max Consecutive Ones III (Medium)
-  - [ ] 567. Permutation in String (Medium)
-  - [ ] 438. Find All Anagrams in a String (Medium)
-  - [ ] 46. Minimum Window Substring (Hard)
-  - [ ] 76. Minimum Window Substring (Hard)
-  - [ ] 239. Sliding Window Maximum (Hard)
+### Sliding Window
+  - [x] 209. Minim Size Subarray Sum (Medium)
+  - [x] 904. Fruit Into Baskets (Medium)
+  - [x] 3. Longest Substring Without Repeating Characters (Medium)
+  - [x] 1004. Max Consecutive Ones III (Medium)
+  - [x] 567. Permutation in String (Medium)
+  - [x] 438. Find All Anagrams in a String (Medium)
+  - [x] 46. Minimum Window Substring (Hard)
+  - [x] 76. Minimum Window Substring (Hard)
+  - [x] 239. Sliding Window Maximum (Hard)
   
-- [ ] Two Pointers
-  - [ ] 167. Two Sum II (Easy)
-  - [ ] 283. Move Zeroes
-  - [ ] 26. Remove Duplicates from Sorted Array (Easy)
-  - [ ] 977. Squares of a Sorted Array (Easy)
-  - [ ] 15. 3Sum (Medium)
-  - [ ] 16. 3Sum Closest (Medium)
-  - [ ] 713. Subarray Product Less than K (Medium)
-  - [ ] 75. Sort Colors (Medium)
-  - [ ] 18. 4Sum (Medium)
-  - [ ] 845. Longest Mountain in Array (Medium)
-  - [ ] 844. Backspace String Compare (Easy)
-  - [ ] 581. Shortest Unsorted Continuous Subarray (Easy)
+### Two Pointers
+  - [x] 167. Two Sum II (Easy)
+  - [x] 283. Move Zeroes
+  - [x] 26. Remove Duplicates from Sorted Array (Easy)
+  - [x] 977. Squares of a Sorted Array (Easy)
+  - [x] 15. 3Sum (Medium)
+  - [x] 16. 3Sum Closest (Medium)
+  - [x] 713. Subarray Product Less than K (Medium)
+  - [x] 75. Sort Colors (Medium)
+  - [x] 18. 4Sum (Medium)
+  - [x] 845. Longest Mountain in Array (Medium)
+  - [x] 844. Backspace String Compare (Easy)
+  - [x] 581. Shortest Unsorted Continuous Subarray (Easy)
   
-- [ ] Fast and Slow Pointers
-  - [ ] 141. Linked List Cycle (Easy)
-  - [ ] 142. Linked List Cycle II (Easy)
-  - [ ] 202. Happy Number (Easy)
-  - [ ] 876. Middle of the Linked List (Easy)
-  - [ ] 234. Palindrome Linked List (Easy)
-  - [ ] 143. Reorder List (Medium)
-  - [ ] 457. Circular Array Loop (Medium)
+### Fast and Slow Pointers
+  - [x] 141. Linked List Cycle (Easy)
+  - [x] 142. Linked List Cycle II (Easy)
+  - [x] 876. Middle of the Linked List (Easy)
+  - [x] 234. Palindrome Linked List (Easy)
+  - [x] 143. Reorder List (Medium)
+  - [x] 457. Circular Array Loop (Medium)
   
+ 
+### Binary Search
+  - [x] 74. Search a 2D Matrix (Medium)
+  - [x] 240. Search a 2D Matrix II (Medium)
+  - [x] [📹 454. 4Sum II (Medium)](https://www.youtube.com/watch?v=i-tPlqTdLfo&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=2)
+  - [x] [📹 875. Koko Eating Bananas (Medium)](https://www.youtube.com/watch?v=i-eMqfWx5M4&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=3)
   
-- [ ] Binary Search
-  - [ ] 74. Search a 2D Matrix (Medium)
-  - [ ] 240. Search a 2D Matrix II (Medium)
-  - [ ] 454. 4Sum II (Medium)
-  - [ ] 875. Koko Eating Bananas (Medium)
-  
-- [ ] Merge Intervals
-  - [ ] 56. Merge Intervals (Medium)
+### Merge Intervals
+  - [x] [📹 56. Merge Intervals (Medium)](https://www.youtube.com/watch?v=LhBpbPM4Vy8&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=4)
   - [ ] 57. Insert Interval (Hard)
   - [ ] 252 Meeting Rooms (Easy)
   - [ ] 253. Meeting Rooms (Medium)
