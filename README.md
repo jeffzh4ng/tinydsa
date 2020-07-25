@@ -130,44 +130,45 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 41. First Missing Positive (Hard)
   
 ### String
-  - [ ] 171 Excel Sheet Column Number (Easy)
-  - [ ] 14. Longest Common Prefix (Easy)
-  - [ ] 49. Group Anagrams (Medium)
+  - [ ] 20. Valid Parentheses (Easy)
+  - [ ] 680. Valid Palindrome II (Easy)
+  - [ ] 557. Reverse Words in a String III (Easy)
+  - [ ] 929. Unique Email Addresses (Easy)
   - [ ] 459. Repeated Substring Pattern (Easy)
+  - [ ] 415. Add Strings (Easy)
+  - [ ] 14. Longest Common Prefix (Easy)
+  - [ ] 583. Delete Operation for Two Strings (Medium)
+  - [ ] 767. Reorganize String (Medium)
+  - [ ] 856. Score of Parentheses (Medium)
+  - [ ] 1249. Minimum Remove to Make Valid Parentheses (Medium)
+  - [ ] 1268. Search Suggestions System (Medium)
+  - [ ] 791. Custom Sort String (Medium)
+  - [ ] 890. Find and Replace Pattern (Medium)
+  - [ ] 678. Valid Parenthesis String (Medium)
+  - [ ] 227. Basic Calculator II (Medium)
+  - [ ] 49. Group Anagrams (Medium)
+  - [ ] 214. Shortest Palindrome (Hard)
+  - [ ] 632. Smallest Range Covering Elements from K Lists (Hard)
   
 ### Linked List
   - [ ] 21. Merge Two Sorted Lists (Easy)
   - [ ] 160. Intersection of Two Linked Lists (Easy)
   - [ ] 83. Remove Duplicates from Sorted List (Easy)
-  - [ ] 206. Reverse Linked List (Easy)
-  - [ ] 92. Reverse Linked List II (Medium)
   - [ ] 19. Remove Nth Node From End of List (Medium)
-  - [ ] 25. Reverse Nodes in k-Group (Hard)
-  - [ ] 61. Rotate List (Medium)
   - [ ] 138. Copy List with Random Pointer (Medium)
   - [ ] 19. Remove Nth Node from End of List (Medium)
   - [ ] 2. Add Two Numbers (Medium)
   - [ ] 138. Copy List with Random Pointer (Medium)
-  - [ ] 328. Odd Even Linked List (Medium)
   - [ ] 234. Palindrome Linked List (Easy)
   - [ ] 86. Partition List (Medium)
   
-### Stack/Queues/Monotonic Queues
-  - [ ] 150. Evaluate Reverse Polish Notation (Medium)
-  - [ ] 496. Next Greater Element I (Easy)
-  - [ ] 503. Next Greater Element II (Medium)
-  - [ ] 901. Online Stock Span (Medium)
-  - [ ] 581. Shortest Unsorted Continuous Subarray (Easy)
-  - [ ] 42. Trapping Rain Water (Hard)
-  - [ ] 907. Sum of Subarray Minimums (Medium)
-  - [ ] 891. 891. Sum of Subsequence Widths (Hard)
-  - [ ] 828. Count Unique Characters of All Substrings of a Given String (Hard)
-  - [ ] 316. Remove Duplicate Letters (Hard)
-  - [ ] 402. Remove K Digits (Medium)
-  - [ ] 768. Max Chunks To Make Sorted II (Hard)
-  - [ ] 321. Create Maximum Number (Hard)
-  - [ ] 856. Score of Parentheses (Medium)
-  - [ ] 334. Increasing Triplet Subsequence (Medium)
+### Linked List Reversal
+  - [ ] 206. Reverse Linked List (Easy)
+  - [ ] 92. Reverse Linked List II (Medium)
+  - [ ] 61. Rotate List (Medium)
+  - [ ] 24. Swap Nodes in Pairs (Medium)
+  - [ ] 328. Odd Even Linked List (Medium)
+  - [ ] 25. Reverse Nodes in k-Group (Hard)
   
 ### Tree
   - [ ] 617. Merge Two Binary Trees (Easy)
@@ -205,9 +206,22 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 98. Validate Binary Search Tree (Medium)
   - [ ] 1028. Recover a Tree From Preorder Traversal (Hard)
   
-### General BFS/DFS
-  - [ ] 127. Word Ladder (Medium)
-  - [ ] 301. Remove Invalid Parentheses (Hard)
+### Stack/Queues/Monotonic Queues
+  - [ ] 150. Evaluate Reverse Polish Notation (Medium)
+  - [ ] 496. Next Greater Element I (Easy)
+  - [ ] 503. Next Greater Element II (Medium)
+  - [ ] 901. Online Stock Span (Medium)
+  - [ ] 581. Shortest Unsorted Continuous Subarray (Easy)
+  - [ ] 42. Trapping Rain Water (Hard)
+  - [ ] 907. Sum of Subarray Minimums (Medium)
+  - [ ] 891. Sum of Subsequence Widths (Hard)
+  - [ ] 828. Count Unique Characters of All Substrings of a Given String (Hard)
+  - [ ] 316. Remove Duplicate Letters (Hard)
+  - [ ] 402. Remove K Digits (Medium)
+  - [ ] 768. Max Chunks To Make Sorted II (Hard)
+  - [ ] 321. Create Maximum Number (Hard)
+  - [ ] 856. Score of Parentheses (Medium)
+  - [ ] 334. Increasing Triplet Subsequence (Medium)
   
 ### Two Heaps
   - [ ] 295. Find Median from Data Stream (Hard)
@@ -231,18 +245,11 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 378. Kth Smallest Element in a Sorted Matrix (Medium)
   - [ ] 373. Find K Pairs with Smallest Sums (Medium)
   
-### Bitwise XOR
-  - [ ] 136. Single Number (Easy)
-  - [ ] 137. Single Number II (Medium)
-  - [ ] 1109. Complement of Base 10 Integer
-  - [ ] 832. Flipping an Image (Easy)
-  
 ### Design
   - [ ] 146. LRU Cache (Medium)
   - [ ] 155. Min Stack (Easy)
   - [ ] 622. Design Circular Queue (Medium)
   - [ ] 232. Implement Queue using Stacks (Easy)
-  - [ ] 208. Implement Trie (Prefix Tree) (Medium)
   
 ### Backtracking
   - [ ] 78. Subsets (Easy)
@@ -302,10 +309,55 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 188. Best Time to Buy and Sell Stock IV (Hard)
   - [ ] 787. Cheapest Flights Within K Stops (Medium)
   
-### Graph Theory
+### Graph BFS/DFS
+  - [ ] 127. Word Ladder (Medium)
+  - [ ] 301. Remove Invalid Parentheses (Hard)
+
+### Topological Sort
+  - [ ] 207. Course Schedule (Medium)
+  - [ ] 210. Course Schedule II (Medium)
+  - [ ] 269. Alien Dictionary (Hard)
+  - [ ] 444. Sequence Reconstruction (Hard)
+  - [ ] 310. Minimum Height Trees (Medium)
 
 ### Union Find
   - [ ] 128. Longest Consecutive Sequence (Hard)
+  - [ ] 200. Number of Islands (Medium)
+  - [ ] Graph Valid Tree
+  - [ ] Number of Connected Components in an Undirected Graph
+  
+### Tries
+  - [ ] 208. Implement Trie (Prefix Tree) (Medium)
+  - [ ] 676. Implement Magic Dictionary (Medium)
+  - [ ] 677. Map Sum Pairs (Medium)
+  - [ ] 648. Replace Words (Medium)
+  - [ ] 421. Maximum XOR of Two Numbers in an Array (Medium)
+  - [ ] 692. Top K Frequent Words (Medium)
+  - [ ] 1032. Stream of Characters (Hard)
+  - [ ] 211. Add and Search Word - Data structure design (Medium)
+  - [ ] 212. Word Search II (Hard)
+  - [ ] 472. Concatenated Words (Hard)
+  - [ ] 336. Palindrome Pairs (Hard)
+  - [ ] Index Pairs of a String
+  - [ ] Design Search Autocomplete System	
+  - [ ] Word Squares
+  
+### Bit Manipulation
+  - [ ] 231. Power of Two (Easy)
+  - [ ] 201. Bitwise AND of Numbers Range (Easy)
+  - [ ] 461. Hamming Distance (Easy)
+  - [ ] 338. Counting Bits (Medium)
+  - [ ] 136. Single Number (Easy)
+  - [ ] 137. Single Number II (Medium)
+  - [ ] 260. Single Number III (Medium)
+  - [ ] 1109. Complement of Base 10 Integer (Easy)
+  - [ ] 832. Flipping an Image (Easy)
+  - [ ] 476. Number Complement (Easy)
+  - [ ] 784. Letter Case Permutation (Easy)
+  - [ ] 169. Majority Element (Easy)
+  - [ ] 318. Maximum Product of Word Lengths (Medium)
+  - [ ] 477. Total Hamming Distance (Medium)
+  
   
 ### Other
   - [ ] 731. My Calendar II (Medium)
