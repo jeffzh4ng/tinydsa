@@ -62,7 +62,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 896. Monotonic Array (Easy)
   - [x] 238. Product of Array Except Self (Medium)
   - [x] 48. Rotate Image (Medium)
-  - [x] 448. Find All Numbers Disappeared in an Array (Easy)
   - [x] 33. Search in Rotated Sorted Array (Medium)
   - [x] 34. Find First and Last Position of Element in Sorted Array (Medium)
   - [x] 189. Rotate Array (Easy)
@@ -71,7 +70,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 280. Wiggle Sort (Medium)
   - [x] 36. Valid Sodoku (Medium)
   - [x] 48. Rotate Image (Medium)
-  - [x] 41. First Missing Positive (Hard)
   - [x] 4. Median of Two Sorted Arrays (Hard)
   - [x] 84. Largest Rectangle in Histogram (Hard)
   - [x] 1200. Minimum Absolute Difference (Easy)
@@ -118,43 +116,26 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   
 ### Merge Intervals
   - [x] [📹 56. Merge Intervals (Medium)](https://www.youtube.com/watch?v=LhBpbPM4Vy8&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=4)
-  - [ ] 57. Insert Interval (Hard)
-  - [ ] 252 Meeting Rooms (Easy)
-  - [ ] 253. Meeting Rooms (Medium)
-  - [ ] 452. Minimum Number of Arrows to Burst Balloons (Medium)
-  - [ ] 986. Interval List Intersection (Medium)
+  - [x] 57. Insert Interval (Hard)
+  - [x] 252 Meeting Rooms (Easy)
+  - [x] 253. Meeting Rooms (Medium)
+  - [x] 452. Minimum Number of Arrows to Burst Balloons (Medium)
+  - [x] 986. Interval List Intersection (Medium)
   
-- [ ] Cyclic Sort
-  - [ ] 268. Missing Number (Easy)
-  - [ ] 448. Find All Numbers Disappeared in an Array (Easy)
-  - [ ] 287. Find the Duplicate Number (Medium)
-  - [ ] 442. Find All Duplicates in an Array (Medium)
-  - [ ] 41. First Missing Positive (Hard)
+### Cyclic Sort
+  - [x] 268. Missing Number (Easy)
+  - [x] 448. Find All Numbers Disappeared in an Array (Easy)
+  - [x] 287. Find the Duplicate Number (Medium)
+  - [x] 442. Find All Duplicates in an Array (Medium)
+  - [x] 41. First Missing Positive (Hard)
   
-- [ ] Top K Elements
-  - [ ] 215. Kth Largest Element in an Array (Medium)
-  - [ ] 973. K Closest Points to Origin (Meidum)
-  - [ ] 1000. Minimum Cost to Merge Stones (Hard)
-  - [ ] 347. Top K Frequent Elements (Medium)
-  - [ ] 451. Sort Characters by Frequency (Medium)
-  - [ ] 703. Kth Largest Element in a Stream (Easy)
-  - [ ] 658. Find K Closest Elements (Medium)
-  - [ ] 767. Reorganize String (Medium)
-  - [ ] 358. Rearrange String k Distance Apart (Hard)
-  - [ ] 895. Maximum Frequency Stack (Hard)
-  
-- [ ] K-way Merge
-  - [ ] 23. Merge K Sorted Lists (Hard)
-  - [ ] 378. Kth Smallest Element in a Sorted Matrix (Medium)
-  - [ ] 373. Find K Pairs with Smallest Sums (Medium)
-  
-- [ ] String
+### String
   - [ ] 171 Excel Sheet Column Number (Easy)
   - [ ] 14. Longest Common Prefix (Easy)
   - [ ] 49. Group Anagrams (Medium)
   - [ ] 459. Repeated Substring Pattern (Easy)
   
-- [ ] Linked List
+### Linked List
   - [ ] 21. Merge Two Sorted Lists (Easy)
   - [ ] 160. Intersection of Two Linked Lists (Easy)
   - [ ] 83. Remove Duplicates from Sorted List (Easy)
@@ -171,12 +152,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 234. Palindrome Linked List (Easy)
   - [ ] 86. Partition List (Medium)
   
-- [ ] Hash Table
-  - [ ] 739. Daily Temperatures (Medium)
-  - [ ] 560. Subarray Sum Equals K (Medium)
-  - [ ] 438. Find All Anagrams in a String (Medium)
-  
-- [ ] Stack/Queues/Monotonic Queues
+### Stack/Queues/Monotonic Queues
   - [ ] 150. Evaluate Reverse Polish Notation (Medium)
   - [ ] 496. Next Greater Element I (Easy)
   - [ ] 503. Next Greater Element II (Medium)
@@ -193,7 +169,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 856. Score of Parentheses (Medium)
   - [ ] 334. Increasing Triplet Subsequence (Medium)
   
-- [ ] Tree
+### Tree
   - [ ] 617. Merge Two Binary Trees (Easy)
   - [ ] 226. Invert Binary Tree (Easy)
   - [ ] 110. Balanced Binary Tree (Easy)
@@ -205,7 +181,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 297. Serialize and Deserialize Binary Tree (Hard)
   - [ ] 145. Binary Tree Postorder Traversal Tree (Hard)
   
-- [ ] Tree Breadth First Search
+### Tree Breadth First Search
   - [ ] 101. Symmetric Tree (Easy)
   - [ ] 102. Binary Tree Level Order Traversal (Medium)
   - [ ] 107. Binary Tree Level Order Traversal II (Easy)
@@ -216,7 +192,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 116. Populating Next Right Pointers in Each Node (Medium)
   - [ ] 199. Binary Tree Right Side View (Medium)
   
-- [ ] Tree Depth First Search
+### Tree Depth First Search
   - [ ] 112. Path Sum (Easy)
   - [ ] 100. Same Tree (Easy)
   - [ ] 113. Path Sum II (Medium)
@@ -229,29 +205,46 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 98. Validate Binary Search Tree (Medium)
   - [ ] 1028. Recover a Tree From Preorder Traversal (Hard)
   
-- [ ] General BFS/DFS
+### General BFS/DFS
   - [ ] 127. Word Ladder (Medium)
   - [ ] 301. Remove Invalid Parentheses (Hard)
   
-- [ ] Two Heaps
+### Two Heaps
   - [ ] 295. Find Median from Data Stream (Hard)
   - [ ] 480. Sliding Window Median (Hard)
   - [ ] 502. IPO (Hard)
   
-- [ ] Bitwise XOR
+### Top K Elements
+  - [ ] 215. Kth Largest Element in an Array (Medium)
+  - [ ] 973. K Closest Points to Origin (Meidum)
+  - [ ] 1000. Minimum Cost to Merge Stones (Hard)
+  - [ ] 347. Top K Frequent Elements (Medium)
+  - [ ] 451. Sort Characters by Frequency (Medium)
+  - [ ] 703. Kth Largest Element in a Stream (Easy)
+  - [ ] 658. Find K Closest Elements (Medium)
+  - [ ] 767. Reorganize String (Medium)
+  - [ ] 358. Rearrange String k Distance Apart (Hard)
+  - [ ] 895. Maximum Frequency Stack (Hard)
+  
+### K-way Merge
+  - [ ] 23. Merge K Sorted Lists (Hard)
+  - [ ] 378. Kth Smallest Element in a Sorted Matrix (Medium)
+  - [ ] 373. Find K Pairs with Smallest Sums (Medium)
+  
+### Bitwise XOR
   - [ ] 136. Single Number (Easy)
   - [ ] 137. Single Number II (Medium)
   - [ ] 1109. Complement of Base 10 Integer
   - [ ] 832. Flipping an Image (Easy)
   
-- [ ] Design
+### Design
   - [ ] 146. LRU Cache (Medium)
   - [ ] 155. Min Stack (Easy)
   - [ ] 622. Design Circular Queue (Medium)
   - [ ] 232. Implement Queue using Stacks (Easy)
   - [ ] 208. Implement Trie (Prefix Tree) (Medium)
   
-- [ ] Backtracking
+### Backtracking
   - [ ] 78. Subsets (Easy)
   - [ ] 90. Subsets II (Medium)
   - [ ] 46. Permutations (Medium)
@@ -280,7 +273,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 10. Regular Expression Matching (Hard)
   - [ ] 126. World Ladder II (Hard)
  
-- [ ] Greedy
+### Greedy
   - [ ] 763. Partition Labels (Medium)
   - [ ] 407. Queue Reconstruction by Height (Medium)
   - [ ] 1046. Last Stone Weight (Easy)
@@ -300,7 +293,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 135. Candy (Hard)
   - [ ] 402. Remove K Digits (Medium)
   
-- [ ] Dynamic Programming
+### Dynamic Programming
   - [ ] 5. Longest Palindromic Substring (Medium)
   - [ ] 300. Longest Increasing Subsequence (Medium)
   - [ ] 1048. Longest String Chain (Medium)
@@ -309,20 +302,20 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 188. Best Time to Buy and Sell Stock IV (Hard)
   - [ ] 787. Cheapest Flights Within K Stops (Medium)
   
-- [ ] Graph Theory
+### Graph Theory
 
-- [ ] Union Find
+### Union Find
   - [ ] 128. Longest Consecutive Sequence (Hard)
   
-- [ ] Other
+### Other
   - [ ] 731. My Calendar II (Medium)
   - [ ] 731. My Calendar III (Hard)
   - [ ] 315. Count of Smaller Numbers After Self (Hard)
 
-- [ ] Minimum Spanning Trees
-- [ ] Shortest Paths
-- [ ] All-Pairs Shortest Paths
-- [ ] Maximum Flows and Minimum Cuts
+### Minimum Spanning Trees
+### Shortest Paths
+### All-Pairs Shortest Paths
+### Maximum Flows and Minimum Cuts
 
 ## References
 
