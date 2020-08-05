@@ -250,6 +250,8 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 155. Min Stack (Easy)
   - [ ] 622. Design Circular Queue (Medium)
   - [ ] 232. Implement Queue using Stacks (Easy)
+  - [ ] 211. Add and Search Word - Data structure design (Medium)
+  - [ ] 705. Design HashSet (Easy)
   
 ### Backtracking
   - [ ] 78. Subsets (Easy)
@@ -334,7 +336,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 421. Maximum XOR of Two Numbers in an Array (Medium)
   - [ ] 692. Top K Frequent Words (Medium)
   - [ ] 1032. Stream of Characters (Hard)
-  - [ ] 211. Add and Search Word - Data structure design (Medium)
   - [ ] 212. Word Search II (Hard)
   - [ ] 472. Concatenated Words (Hard)
   - [ ] 336. Palindrome Pairs (Hard)
