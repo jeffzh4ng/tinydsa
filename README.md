@@ -252,6 +252,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 232. Implement Queue using Stacks (Easy)
   - [ ] 211. Add and Search Word - Data structure design (Medium)
   - [ ] 705. Design HashSet (Easy)
+  - [ ] 297. Serialize and Deserialize Binary Tree (Hard)
   
 ### Backtracking
   - [ ] 78. Subsets (Easy)
