@@ -366,11 +366,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 731. My Calendar III (Hard)
   - [ ] 315. Count of Smaller Numbers After Self (Hard)
 
-### Minimum Spanning Trees
-### Shortest Paths
-### All-Pairs Shortest Paths
-### Maximum Flows and Minimum Cuts
-
 ## References
 
 - [Fundamental Data Structures](https://en.wikipedia.org/wiki/Book:Fundamental_Data_Structures)
