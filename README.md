@@ -260,7 +260,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 46. Permutations (Medium)
   - [ ] 47. Permutations II (Medium)
   - [ ] 60. Permutation Sequence (Medium)
-  - [ ] 20. Valid Parentheses (Easy)
   - [ ] 22. Generate Parentheses (Hard)
   - [ ] 39. Combination Sum (Medium)
   - [ ] 40. Combinatin Sum II (Medium)
