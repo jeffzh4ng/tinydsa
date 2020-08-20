@@ -222,6 +222,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 321. Create Maximum Number (Hard)
   - [ ] 856. Score of Parentheses (Medium)
   - [ ] 334. Increasing Triplet Subsequence (Medium)
+  - [ ] 224. Basic Calculator (Hard)
   
 ### Two Heaps
   - [ ] 295. Find Median from Data Stream (Hard)
@@ -267,8 +268,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 77. Combinations (Medium)
   - [ ] 526. Beautiful Arrangement (Medium)
   - [ ] 784. Letter Case Permutation (Easy)
-  - [ ] 224. Basic Calculator (Hard)
-  - [ ] 96. Unique Binary Search Trees (Medium)
   - [ ] 980. Unique Paths III (Hard)
   - [ ] 131. Palindrome Partitioning (Medium)
   - [ ] 17. Letter Combinations of a Phone Number (Medium)
