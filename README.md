@@ -259,7 +259,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 90. Subsets II (Medium)
   - [ ] 46. Permutations (Medium)
   - [ ] 47. Permutations II (Medium)
-  - [ ] 60. Permutation Sequence (Medium)
+  - [ ] 60. Permutation Sequence (Hard)
   - [ ] 22. Generate Parentheses (Hard)
   - [ ] 39. Combination Sum (Medium)
   - [ ] 40. Combinatin Sum II (Medium)
