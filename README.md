@@ -272,14 +272,13 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 131. Palindrome Partitioning (Medium)
   - [ ] 17. Letter Combinations of a Phone Number (Medium)
   - [ ] 51. N-Queens (Hard)
-  - [ ] 52. N-Queens II (Hard)
   - [ ] 37. Sudoker Solver (Hard)
   - [ ] 93. Restore IP Addresses (Medium)
   - [ ] 79. Word Search (Medium)
   - [ ] 212. Word Search II (Hard)
   - [ ] 140. Word Break II (Hard)
-  - [ ] 10. Regular Expression Matching (Hard)
   - [ ] 126. World Ladder II (Hard)
+  - [ ] 10. Regular Expression Matching (Hard)
  
 ### Greedy
   - [ ] 763. Partition Labels (Medium)
