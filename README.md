@@ -194,13 +194,13 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 199. Binary Tree Right Side View (Medium)
   
 ### Tree Depth First Search
-  - [ ] 112. Path Sum (Easy)
-  - [ ] 100. Same Tree (Easy)
-  - [ ] 113. Path Sum II (Medium)
+  - [x] 112. Path Sum (Easy)
+  - [x] 100. Same Tree (Easy)
+  - [x] 113. Path Sum II (Medium)
+  - [] 437. Path Sum III (Easy)
   - [ ] 105. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
   - [ ] 114. Flatten Binary Tree to Linked List (Medium)
   - [ ] 129. Sum Root to Leaf Numbers (Medium)
-  - [ ] 437. Path Sum III (Easy)
   - [ ] 543. Diameter of a Binary Tree (Easy)
   - [ ] 124. Binary Tree Maximum Path Sum (Hard)
   - [ ] 98. Validate Binary Search Tree (Medium)
@@ -225,9 +225,8 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 224. Basic Calculator (Hard)
   
 ### Two Heaps
-  - [ ] 295. Find Median from Data Stream (Hard)
-  - [ ] 480. Sliding Window Median (Hard)
-  - [ ] 502. IPO (Hard)
+  - [x] 295. Find Median from Data Stream (Hard)
+  - [x] 502. IPO (Hard)
   
 ### Top K Elements
   - [ ] 215. Kth Largest Element in an Array (Medium)
@@ -256,62 +255,43 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 297. Serialize and Deserialize Binary Tree (Hard)
   
 ### Backtracking
-  - [ ] 78. Subsets (Easy)
-  - [ ] 90. Subsets II (Medium)
-  - [ ] 46. Permutations (Medium)
-  - [ ] 47. Permutations II (Medium)
-  - [ ] 60. Permutation Sequence (Hard)
-  - [ ] 22. Generate Parentheses (Hard)
-  - [ ] 39. Combination Sum (Medium)
-  - [ ] 40. Combinatin Sum II (Medium)
-  - [ ] 216. Combination Sum III (Medium)
-  - [ ] 77. Combinations (Medium)
-  - [ ] 526. Beautiful Arrangement (Medium)
-  - [ ] 784. Letter Case Permutation (Easy)
-  - [ ] 980. Unique Paths III (Hard)
-  - [ ] 131. Palindrome Partitioning (Medium)
-  - [ ] 17. Letter Combinations of a Phone Number (Medium)
-  - [ ] 51. N-Queens (Hard)
+  - [x] 78. Subsets (Easy)
+  - [x] 90. Subsets II (Medium)
+  - [x] 46. Permutations (Medium)
+  - [x] 47. Permutations II (Medium)
+  - [x] 60. Permutation Sequence (Hard)
+  - [x] 22. Generate Parentheses (Hard)
+  - [x] 39. Combination Sum (Medium)
+  - [x] 40. Combinatin Sum II (Medium)
+  - [x] 216. Combination Sum III (Medium)
+  - [x] 77. Combinations (Medium)
+  - [x] 526. Beautiful Arrangement (Medium)
+  - [x] 784. Letter Case Permutation (Easy)
+  - [x] 980. Unique Paths III (Hard)
+  - [x] 131. Palindrome Partitioning (Medium)
+  - [x] 17. Letter Combinations of a Phone Number (Medium)
+  - [x] 51. N-Queens (Hard)
   - [ ] 37. Sudoker Solver (Hard)
   - [ ] 93. Restore IP Addresses (Medium)
   - [ ] 79. Word Search (Medium)
   - [ ] 212. Word Search II (Hard)
-  - [ ] 140. Word Break II (Hard)
-  - [ ] 126. World Ladder II (Hard)
-  - [ ] 10. Regular Expression Matching (Hard)
  
 ### Greedy
   - [ ] 763. Partition Labels (Medium)
   - [ ] 407. Queue Reconstruction by Height (Medium)
   - [ ] 1046. Last Stone Weight (Easy)
   - [ ] 1029. Two City Scheduling (Easy)
-  - [ ] 714. Best Time to Buy and Sell Stock with Transaction Fee (Medium)
-  - [ ] 765. Couples Holding Hands (Hard)
-  - [ ] 452. Minimium Number of Arrows to Burst Balloons (Medium)
-  - [ ] 392. Is Subsequence (Easy)
   - [ ] 621. Task Scheduler (Medium)
   - [ ] 767. Reorganize String (Medium)
   - [ ] 435. Non-overlapping Intervals (Medium)
   - [ ] 134. Gas Station (Medium)
-  - [ ] 314. Remove Duplicate Letters (Medium)
   - [ ] 55. Jump Game (Medium)
   - [ ] 45. Jump Game II (Hard)
   - [ ] 630. Course Schedule III (Hard)
   - [ ] 135. Candy (Hard)
   - [ ] 402. Remove K Digits (Medium)
-  
-### Dynamic Programming
-  - [ ] 5. Longest Palindromic Substring (Medium)
-  - [ ] 300. Longest Increasing Subsequence (Medium)
-  - [ ] 1048. Longest String Chain (Medium)
-  - [ ] 72. Edit Distance (Hard)
-  - [ ] 97. Interleaving String (Hard)
-  - [ ] 188. Best Time to Buy and Sell Stock IV (Hard)
-  - [ ] 787. Cheapest Flights Within K Stops (Medium)
-  
-### Graph BFS/DFS
-  - [ ] 127. Word Ladder (Medium)
-  - [ ] 301. Remove Invalid Parentheses (Hard)
+  - [ ] 314. Remove Duplicate Letters (Hard)
+  - [ ] 765. Couples Holding Hands (Hard)
 
 ### Topological Sort
   - [ ] 207. Course Schedule (Medium)
@@ -356,12 +336,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 169. Majority Element (Easy)
   - [ ] 318. Maximum Product of Word Lengths (Medium)
   - [ ] 477. Total Hamming Distance (Medium)
-  
-  
-### Other
-  - [ ] 731. My Calendar II (Medium)
-  - [ ] 731. My Calendar III (Hard)
-  - [ ] 315. Count of Smaller Numbers After Self (Hard)
 
 ## References
 
