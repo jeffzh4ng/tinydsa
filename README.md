@@ -222,7 +222,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 112. Path Sum (Easy)
   - [x] 100. Same Tree (Easy)
   - [x] 113. Path Sum II (Medium)
-  - [] 437. Path Sum III (Easy)
+  - [ ] 437. Path Sum III (Easy)
   - [ ] 105. Construct Binary Tree from Preorder and Inorder Traversal (Medium)
   - [ ] 114. Flatten Binary Tree to Linked List (Medium)
   - [ ] 129. Sum Root to Leaf Numbers (Medium)
@@ -296,9 +296,9 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 131. Palindrome Partitioning (Medium)
   - [x] 17. Letter Combinations of a Phone Number (Medium)
   - [x] 51. N-Queens (Hard)
-  - [ ] 37. Sudoker Solver (Hard)
-  - [ ] 79. Word Search (Medium)
-  - [ ] 212. Word Search II (Hard)
+  - [x] 37. Sudoker Solver (Hard)
+  - [x] 79. Word Search (Medium)
+  - [x] 212. Word Search II (Hard)
  
 ### Greedy
   - [ ] 763. Partition Labels (Medium)
