@@ -57,6 +57,31 @@ yarn add dsa-ts
 
 Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
 
+- [Array](https://github.com/jeffzh4ng/algorithms-and-data-structures#array)
+- [Sliding Window](https://github.com/jeffzh4ng/algorithms-and-data-structures#sliding-window)
+- [Two Pointers](https://github.com/jeffzh4ng/algorithms-and-data-structures#two-pointers)
+- [Fast and Slow Pointers](https://github.com/jeffzh4ng/algorithms-and-data-structures#fast-and-slow-pointers)
+- [Binary Search](https://github.com/jeffzh4ng/algorithms-and-data-structures#binary-search)
+- [Merge Intervals](https://github.com/jeffzh4ng/algorithms-and-data-structures#merge-intervals)
+- [Cyclic Sort](https://github.com/jeffzh4ng/algorithms-and-data-structures#cyclic-sort)
+- [String](https://github.com/jeffzh4ng/algorithms-and-data-structures#string)
+- [Linked List](https://github.com/jeffzh4ng/algorithms-and-data-structures#linked-list)
+- [Linked List Reversal](https://github.com/jeffzh4ng/algorithms-and-data-structures#linked-list-reversal)
+- [Tree](https://github.com/jeffzh4ng/algorithms-and-data-structures#tree)
+- [Tree BFS](https://github.com/jeffzh4ng/algorithms-and-data-structures#tree-breadth-first-search)
+- [Tree DFS](https://github.com/jeffzh4ng/algorithms-and-data-structures#tree-depth-first-search)
+- [Stacks/Queues/Monotonic Queues](https://github.com/jeffzh4ng/algorithms-and-data-structures#stackqueuesmonotonic-queues)
+- [Two Heaps](https://github.com/jeffzh4ng/algorithms-and-data-structures#two-heaps)
+- [Top K Elements](https://github.com/jeffzh4ng/algorithms-and-data-structures#top-k-elements)
+- [K-way Merge](https://github.com/jeffzh4ng/algorithms-and-data-structures#k-way-merge)
+- [Design](https://github.com/jeffzh4ng/algorithms-and-data-structures#design)
+- [Backtracking](https://github.com/jeffzh4ng/algorithms-and-data-structures#backtracking)
+- [Greedy](https://github.com/jeffzh4ng/algorithms-and-data-structures#greedy)
+- [Topological Sort](https://github.com/jeffzh4ng/algorithms-and-data-structures#topological-sort)
+- [Union Find](https://github.com/jeffzh4ng/algorithms-and-data-structures#union-find)
+- [Tries](https://github.com/jeffzh4ng/algorithms-and-data-structures#tries)
+- [Bit Manipulation](https://github.com/jeffzh4ng/algorithms-and-data-structures#bit-manipulation)
+
 ### Array
   - [x] 509. Fibonacci Number (Easy)
   - [x] 896. Monotonic Array (Easy)
