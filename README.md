@@ -272,7 +272,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 17. Letter Combinations of a Phone Number (Medium)
   - [x] 51. N-Queens (Hard)
   - [ ] 37. Sudoker Solver (Hard)
-  - [ ] 93. Restore IP Addresses (Medium)
   - [ ] 79. Word Search (Medium)
   - [ ] 212. Word Search II (Hard)
  
