@@ -255,15 +255,12 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   
 ### Top K Elements
   - [ ] 215. Kth Largest Element in an Array (Medium)
-  - [ ] 973. K Closest Points to Origin (Meidum)
-  - [ ] 1000. Minimum Cost to Merge Stones (Hard)
   - [ ] 347. Top K Frequent Elements (Medium)
+  - [ ] 973. K Closest Points to Origin (Medium)
   - [ ] 451. Sort Characters by Frequency (Medium)
-  - [ ] 703. Kth Largest Element in a Stream (Easy)
-  - [ ] 658. Find K Closest Elements (Medium)
   - [ ] 767. Reorganize String (Medium)
-  - [ ] 358. Rearrange String k Distance Apart (Hard)
   - [ ] 895. Maximum Frequency Stack (Hard)
+  - [ ] 1000. Minimum Cost to Merge Stones (Hard)
   
 ### K-way Merge
   - [ ] 23. Merge K Sorted Lists (Hard)
