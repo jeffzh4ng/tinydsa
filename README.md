@@ -254,12 +254,14 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 502. IPO (Hard)
   
 ### Top K Elements
-  - [ ] 215. Kth Largest Element in an Array (Medium)
-  - [ ] 347. Top K Frequent Elements (Medium)
-  - [ ] 973. K Closest Points to Origin (Medium)
-  - [ ] 451. Sort Characters by Frequency (Medium)
-  - [ ] 767. Reorganize String (Medium)
-  - [ ] 692. Top K Frequent Words
+  - [x] 215. Kth Largest Element in an Array (Medium)
+  - [x] 347. Top K Frequent Elements (Medium)
+  - [x] 973. K Closest Points to Origin (Medium)
+  - [x] 451. Sort Characters by Frequency (Medium)
+  - [x] 767. Reorganize String (Medium)
+  - [ ] 658. Find K Closest Elements (Medium)
+  - [ ] 692. Top K Frequent Words (Medium)
+  - [ ] 621. Task Scheduler (Medium)
   - [ ] 895. Maximum Frequency Stack (Hard)
   - [ ] 1000. Minimum Cost to Merge Stones (Hard)
   
