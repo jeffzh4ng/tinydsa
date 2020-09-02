@@ -232,13 +232,17 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 1028. Recover a Tree From Preorder Traversal (Hard)
   
 ### Stack/Queues/Monotonic Queues
+  - [ ] 496. Next Greater Element I (Easy)	
+  - [ ] 503. Next Greater Element II (Medium)
   - [ ] 901. Online Stock Span (Medium)
   - [ ] 739. Daily Temperatures (Medium)
   - [ ] 907. Sum of Subarray Minimums (Medium)
+  - [ ] 456. 132 Pattern (Medium)
   - [ ] 42. Trapping Rain Water (Hard)
   - [ ] 862. Shortest Subarray with Sum at Least K (Hard)
   - [ ] 84. Largest Rectangle in Histogram (Hard)
   - [ ] 239. Sliding Window Maximum (Hard)
+  - [ ] 891. Sum of Subsequence Widths (Hard)	
   
 ### Two Heaps
   - [x] 295. Find Median from Data Stream (Hard)
