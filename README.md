@@ -232,22 +232,13 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 1028. Recover a Tree From Preorder Traversal (Hard)
   
 ### Stack/Queues/Monotonic Queues
-  - [ ] 150. Evaluate Reverse Polish Notation (Medium)
-  - [ ] 496. Next Greater Element I (Easy)
-  - [ ] 503. Next Greater Element II (Medium)
   - [ ] 901. Online Stock Span (Medium)
-  - [ ] 581. Shortest Unsorted Continuous Subarray (Easy)
-  - [ ] 42. Trapping Rain Water (Hard)
+  - [ ] 739. Daily Temperatures (Medium)
   - [ ] 907. Sum of Subarray Minimums (Medium)
-  - [ ] 891. Sum of Subsequence Widths (Hard)
-  - [ ] 828. Count Unique Characters of All Substrings of a Given String (Hard)
-  - [ ] 316. Remove Duplicate Letters (Hard)
-  - [ ] 402. Remove K Digits (Medium)
-  - [ ] 768. Max Chunks To Make Sorted II (Hard)
-  - [ ] 321. Create Maximum Number (Hard)
-  - [ ] 856. Score of Parentheses (Medium)
-  - [ ] 334. Increasing Triplet Subsequence (Medium)
-  - [ ] 224. Basic Calculator (Hard)
+  - [ ] 42. Trapping Rain Water (Hard)
+  - [ ] 862. Shortest Subarray with Sum at Least K (Hard)
+  - [ ] 84. Largest Rectangle in Histogram (Hard)
+  - [ ] 239. Sliding Window Maximum (Hard)
   
 ### Two Heaps
   - [x] 295. Find Median from Data Stream (Hard)
@@ -262,7 +253,7 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [ ] 658. Find K Closest Elements (Medium)
   - [ ] 692. Top K Frequent Words (Medium)
   - [ ] 621. Task Scheduler (Medium)
-  - [ ] 895. Maximum Frequency Stack (Hard)
+  - [x] 895. Maximum Frequency Stack (Hard)
   - [ ] 1000. Minimum Cost to Merge Stones (Hard)
   
 ### K-way Merge
