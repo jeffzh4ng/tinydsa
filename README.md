@@ -94,7 +94,6 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
   - [x] 54. Spiral Matrix (Medium)
   - [x] 280. Wiggle Sort (Medium)
   - [x] 36. Valid Sodoku (Medium)
-  - [x] 48. Rotate Image (Medium)
   - [x] 4. Median of Two Sorted Arrays (Hard)
   - [x] 84. Largest Rectangle in Histogram (Hard)
   - [x] 1200. Minimum Absolute Difference (Easy)
