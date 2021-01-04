@@ -1,5 +1,4 @@
-# Algorithms and Data Structures
-
+# dsa-ts
 ![](https://miro.medium.com/proxy/1*_gg1Te-7SJfk9E2D-mORfw.png)
 
 ![](https://img.shields.io/npm/v/dsa-ts)
@@ -10,8 +9,6 @@
 A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#data-structures) and [algorithms](https://github.com/jeffzh4ng/dsa-ts#algorithms) implemented in Typescript. Click the 📹 emoji for tutorials.
 
 Data structure series: [View the entire series in order here](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
-
-Algorithms/leetcode series: [View the entire series in order here](https://www.youtube.com/watch?v=GP1iUOVmAnY&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS)
 
 The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader.
 
@@ -52,10 +49,26 @@ yarn add dsa-ts
     - [x] [Hash Table (Linear Probing)](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/hash-tables/hash-table-linear-probing.ts)
     - [x] [Hash Table (Quadratic Probing)](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/hash-tables/hash-table-quadratic-probing.ts)
     - [x] [Hash Table (Double Hashing)](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/hash-tables/hash-table-double-hashing.ts)
-
+    
 ## Algorithms
+  - [ ] Search
+    - [ ] Binary Search
+    - [ ] Breadth-first Search
+    - [ ] Depth-first Search
+  - [ ] Sorting
+    - [ ] Merge Sort
+    - [ ] Quick Sort
+    - [ ] Heap Sort
+    - [ ] Topological Sort
+    - [ ] Counting Sort
+    - [ ] Bucket Sort
+  - [ ] Graph Theory
+    - [ ] Trees
+    - [ ] Graphs
+    - [ ] Network Flow
 
-Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
+## Leetcode Questions
+A good set of practice problems for interviews. The following algoritms/problems are compiled from Grokking, EPI, and AlgoExpert.
 
 - [Array](https://github.com/jeffzh4ng/algorithms-and-data-structures#array)
 - [Sliding Window](https://github.com/jeffzh4ng/algorithms-and-data-structures#sliding-window)
@@ -135,31 +148,31 @@ Following algoritms/problems compiled from Grokking, EPI, and AlgoExpert
 ### Binary Search
   - [x] 74. Search a 2D Matrix (Medium)
   - [x] 240. Search a 2D Matrix II (Medium)
-  - [x] [📹 454. 4Sum II (Medium)](https://www.youtube.com/watch?v=i-tPlqTdLfo&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=2)
-  - [x] [📹 875. Koko Eating Bananas (Medium)](https://www.youtube.com/watch?v=i-eMqfWx5M4&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=3)
+  - [x] 454. 4Sum II (Medium)
+  - [x] 875. Koko Eating Bananas (Medium)
   
 ### Merge Intervals
-  - [x] [📹 56. Merge Intervals (Medium)](https://www.youtube.com/watch?v=LhBpbPM4Vy8&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=4)
-  - [x] [📹 57. Insert Interval (Hard)](https://www.youtube.com/watch?v=_OJ8rRuFv7Y&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=5)
+  - [x] 56. Merge Intervals (Medium)
+  - [x] 57. Insert Interval (Hard)
   - [x] 252 Meeting Rooms (Easy)
-  - [x] [📹 253. Meeting Rooms II (Medium)](https://www.youtube.com/watch?v=UW8ocElp8nM&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=6)
-  - [x] [📹 452. Minimum Number of Arrows to Burst Balloons (Medium)](https://www.youtube.com/watch?v=lslPyeA3njw&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=7)
-  - [x] [📹 986. Interval List Intersection (Medium)](https://www.youtube.com/watch?v=_Ckxjssi4sg&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=8)
+  - [x] 253. Meeting Rooms II (Medium)
+  - [x] 452. Minimum Number of Arrows to Burst Balloons (Medium)
+  - [x] 986. Interval List Intersection (Medium)
   
 ### Cyclic Sort
-  - [x] [📹 268. Missing Number (Easy)](https://www.youtube.com/watch?v=osFsID7ntNQ&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=9)
+  - [x] 268. Missing Number (Easy)
   - [x] 448. Find All Numbers Disappeared in an Array (Easy)
-  - [x] [📹 287. Find the Duplicate Number (Medium)](https://www.youtube.com/watch?v=qp0KJNVFIEE&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=10)
-  - [x] [📹 442. Find All Duplicates in an Array (Medium)](https://www.youtube.com/watch?v=1g9pY9JAeps&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=11)
+  - [x] 287. Find the Duplicate Number (Medium)
+  - [x] 442. Find All Duplicates in an Array (Medium)
   - [x] 41. First Missing Positive (Hard)
   
 ### String
-  - [x] [📹 20. Valid Parentheses (Easy)](https://www.youtube.com/watch?v=9Vt-gL8xtZY&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=12)
-  - [x] [📹 680. Valid Palindrome II (Easy)](https://www.youtube.com/watch?v=P-o3YmU-kmw&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=13)
-  - [x] [📹 557. Reverse Words in a String III (Easy)](https://www.youtube.com/watch?v=G7OgFehqJ5U&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=15)
-  - [x] [📹 929. Unique Email Addresses (Easy)](https://www.youtube.com/watch?v=vBSanEn25AE&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=17&t=4s)
+  - [x] 20. Valid Parentheses (Easy)
+  - [x] 680. Valid Palindrome II
+  - [x] 557. Reverse Words in a String III
+  - [x] 929. Unique Email Addresses
   - [x] 459. Repeated Substring Pattern (Easy)
-  - [x] [📹 415. Add Strings (Easy)](https://www.youtube.com/watch?v=bhwvkq3ha-I&list=PLn4fTSbSpY5fN2gxiU8VmOKo3255vlDkS&index=17)
+  - [x] 415. Add Strings (Easy)
   - [x] 14. Longest Common Prefix (Easy)
   - [x] 583. Delete Operation for Two Strings (Medium)
   - [x] 767. Reorganize String (Medium)
