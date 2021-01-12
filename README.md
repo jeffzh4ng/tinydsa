@@ -15,15 +15,10 @@ The repository's primary goal is educational. Hence, all implementations include
 You can use this package in your projects if you so wish. Test coverage will be kept at 100%. To install the package, use npm or yarn:
 
 ```
-npm install dsa-ts --save
-```
-
-```
 yarn add dsa-ts
 ```
 
 ## Data Structures
-
 - [x] Sequences
   - [x] [📹](https://www.youtube.com/watch?v=oXXLFvtG6-Q&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=5) [Linked List](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/data-structures/sequences/linked-list/linked-list.ts)
   - [x] [📹](https://www.youtube.com/watch?v=7l4YHzc3iXU&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd&index=7) [Stack](https://github.com/jeffzh4ng/dsa-ts/tree/master/src/data-structures/sequences/stack/stack.ts)
@@ -66,9 +61,8 @@ yarn add dsa-ts
     - [ ] Trees
     - [ ] Graphs
     - [ ] Network Flow
-
+    
 ## References
-
 - [Fundamental Data Structures](https://en.wikipedia.org/wiki/Book:Fundamental_Data_Structures)
 - [Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein](https://en.wikipedia.org/wiki/Introduction_to_Algorithms)
 - [Algorithm Design by Jon Kleinberg and Éva Tardos](https://www.amazon.ca/Algorithm-Design-Jon-Kleinberg/dp/0321295358)
@@ -84,5 +78,4 @@ When contributing to this repository, please first discuss the change you wish t
 The commit process does not directly use git. dsa-ts uses commitizen to ensure we are comitting semantic commits. To commit, use the command `yarn commit`, and follow the citizen cli which prompts you for various metainfo regarding the commit. After the pre-commit tests are run successfully, you are able to push to your development branch with `git push`.
 
 ## License
-
 This repository is released under the MIT license. In short, this means you are free to use this software in any personal, open-source or commercial projects
