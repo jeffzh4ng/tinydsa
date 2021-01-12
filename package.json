@@ -6,7 +6,7 @@
   "types": "lib",
   "scripts": {
     "build": "tsc -p .",
-    "test": "jest --config jest.config.js",
+    "test": "jest --config jest.config.js --maxWorkers=1",
     "semantic-release": "semantic-release",
     "commit": "npx git-cz",
     "report-coverage": "codecov"
@@ -45,8 +45,7 @@
   },
   "lint-staged": {
     "*": [
-      "yarn prettier --write '**/*.ts'",
-      "yarn eslint . --ext .ts"
+      "yarn prettier --write '**/*.ts'"
     ]
   }
 }
