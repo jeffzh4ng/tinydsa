@@ -1,4 +1,4 @@
-import { GraphNode } from './graph-node'
+import { GraphNode } from '../graphs/graph-node'
 
 /**
  * Perform a depth-first search through a directed graph.
@@ -9,24 +9,28 @@ import { GraphNode } from './graph-node'
  * @param startNode - The node to begin the search at
  * @return {Array<GraphNode<T>>}
  */
-export const dfs = <T>(startNode: GraphNode<T>) => {
+export const dfs = <T>(startNode: GraphNode<T>, graph: Map<GraphNode<T>, Array<GraphNode<T>>>) => {
   const output: Array<T> = new Array()
   const visited = new Set<GraphNode<T>>()
 
-  recurse(startNode, visited, output)
+  recurse(startNode, graph, visited, output)
 
   return output
 }
 
 const recurse = <T>(
   startNode: GraphNode<T>,
+  graph: Map<GraphNode<T>, Array<GraphNode<T>>>,
   visited: Set<GraphNode<T>>,
   output: Array<T>
 ): void => {
   output.push(startNode.val)
   visited.add(startNode)
 
-  for (const child of startNode.children) {
-    if (!visited.has(child)) recurse(child, visited, output)
+  const children = graph.get(startNode)
+  if (!children) throw new Error('Children shouldnt be null')
+
+  for (const child of children) {
+    if (!visited.has(child)) recurse(child, graph, visited, output)
   }
 }
