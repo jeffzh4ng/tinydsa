@@ -1,4 +1,4 @@
-import LazyMinBinomialHeap from '../../src/data-structures/priority-queues/mergeable-heaps/lazy-min-binomial-heap'
+import LazyMinBinomialHeap from '../../../src/data-structures/priority-queues/mergeable-heaps/lazy-min-binomial-heap'
 
 describe('MinBinomialHeap', () => {
   let heap: LazyMinBinomialHeap<number>

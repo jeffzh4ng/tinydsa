@@ -1,4 +1,4 @@
-import Stack from '../../src/data-structures/sequences/stack'
+import Stack from '../../../src/data-structures/sequences/stack'
 
 describe('Stack', () => {
   let stack: Stack<number>

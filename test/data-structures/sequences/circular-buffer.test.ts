@@ -1,4 +1,4 @@
-import CircularBuffer from '../../src/data-structures/sequences/circular-buffer'
+import CircularBuffer from '../../../src/data-structures/sequences/circular-buffer'
 
 describe('Circular Buffer', () => {
   let buffer: CircularBuffer<number>

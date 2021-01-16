@@ -1,4 +1,4 @@
-import LinkedList from '../../src/data-structures/sequences/linked-list'
+import LinkedList from '../../../src/data-structures/sequences/linked-list'
 
 describe('Linked List - simple number', () => {
   let list: LinkedList<number>

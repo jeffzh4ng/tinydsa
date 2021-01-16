@@ -17,7 +17,7 @@ export const topologicalSortKahn = <T>(graph: Map<GraphNode<T>, Array<GraphNode<
     inDegree.set(node, 0)
   }
 
-  for (const [node, children] of graph.entries()) {
+  for (const children of graph.values()) {
     for (const child of children) {
       inDegree.set(child, inDegree.get(child)! + 1)
     }

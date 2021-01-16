@@ -1,4 +1,4 @@
-import BTree from '../../src/data-structures/trees/b-tree/b-tree'
+import BTree from '../../../src/data-structures/trees/b-tree/b-tree'
 
 describe('AVL Tree', () => {
   let tree: BTree<number>
