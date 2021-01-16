@@ -1,11 +1,10 @@
-import { MinBinaryHeap } from '../../../data-structures/priority-queues'
 import { GraphNode, PrevVertices, ShortestDistances, WeightedGraph } from '../graph-node'
 
 /**
- * Perform Dijkstra's shortest path algorithm.
+ * Perform Bellman-Ford shortest path algorithm.
  * Find the shortest path between two vertices in a directed graph with positive weights.
  *
- * Time complexity: O[(V+E)logV]
+ * Time complexity: O[VE]
  * Space complexity: O(V+E)
  *
  * @param {WeightedGraph<T>} graph
@@ -18,7 +17,7 @@ export const shortestPath = <T>(
   source: GraphNode<T>,
   end: GraphNode<T>
 ): [Array<T>, number] => {
-  const [dist, prev] = dijkstra(graph, source)
+  const [dist, prev] = bellmanFord(graph, source)
   const shortestPath = new Array<T>()
 
   for (let at = end; at !== null; at = prev.get(at)!) {
@@ -28,46 +27,45 @@ export const shortestPath = <T>(
   return [shortestPath.reverse(), dist.get(end)!]
 }
 
-const dijkstra = <T>(
+const bellmanFord = <T>(
   graph: WeightedGraph<T>,
   source: GraphNode<T>
 ): [ShortestDistances<T>, PrevVertices<T>] => {
-  const visited = new Set<GraphNode<T>>()
   const dist: ShortestDistances<T> = new Map()
   const prev: PrevVertices<T> = new Map()
 
+  // step 1. initialize
   for (const node of graph.keys()) {
     dist.set(node, Number.POSITIVE_INFINITY)
     prev.set(node, null)
   }
   dist.set(source, 0) // dist[source] needs to be 0, not infinity
 
-  const pq = new MinBinaryHeap<[GraphNode<T>, number]>([], (a, b) => a[1] - b[1])
-  pq.add([source, 0])
+  // build edge list
+  const edgeList: Array<[GraphNode<T>, GraphNode<T>, number]> = []
+  for (const [v, vEdges] of graph.entries()) {
+    for (const edge of vEdges) {
+      edgeList.push([v, edge[0], edge[1]])
+    }
+  }
 
-  while (!pq.isEmpty()) {
-    const [u, uDist] = pq.poll()!
-
-    if (!u) throw new Error('This will never happen')
-
-    const uDistStale = uDist > dist.get(u)!
-    if (uDistStale) continue
-
-    visited.add(u)
-
-    const neighborsOfU = graph.get(u)!
-
-    for (const [v, weight] of neighborsOfU) {
-      if (visited.has(v)) continue
-
-      const altDistance = uDist + weight
-
-      if (altDistance < dist.get(v)!) {
-        dist.set(v, altDistance)
+  // step 2. relax edges V-1 time
+  const V = graph.size
+  for (let i = 0; i < V - 1; i++) {
+    for (const edge of edgeList) {
+      const [u, v, weight] = edge
+      if (dist.get(u)! + weight < dist.get(v)!) {
+        dist.set(v, dist.get(u)! + weight)
         prev.set(v, u)
-
-        pq.add([v, altDistance])
       }
+    }
+  }
+
+  // step 3. check for negative cycles
+  for (const edge of edgeList) {
+    const [u, v, weight] = edge
+    if (dist.get(u)! + weight < dist.get(v)!) {
+      throw new Error('Negative-weighted cycle found in graph.')
     }
   }
 
