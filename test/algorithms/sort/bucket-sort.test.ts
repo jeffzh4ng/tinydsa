@@ -31,6 +31,13 @@ describe('bucketSort', () => {
     expect(array).toEqual(soln)
   })
 
+  it('correctly sorts when both posBuckets and negBuckets are specified', () => {
+    const array = [-5, -3, 7, -4, -1, -2, 9, 0]
+    const soln = [...array].sort((a, b) => a - b)
+    bucketSort(array, 5, 3)
+    expect(array).toEqual(soln)
+  })
+
   it('raises error when number of specified buckets <= 0', () => {
     const array = [1, 2, 3]
     bucketSort(array, 0, 1)
