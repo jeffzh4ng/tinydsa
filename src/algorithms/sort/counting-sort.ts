@@ -29,9 +29,9 @@ const countingSort = (arr: number[]): void => {
   const sortedArr: number[] = new Array(arr.length) // final sorted array
 
   // get counts of each number in arr
-  arr.forEach((num: number, idx: number) => {
+  for (const num of arr) {
     counts[num - min]++
-  })
+  }
 
   // modify counts array such that each element is the sum of previous counts
   for (let i = 1; i < counts.length; i++) {
