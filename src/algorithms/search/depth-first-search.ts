@@ -6,7 +6,8 @@ import { GraphNode } from '../graphs/graph-node'
  * Time complexity: O(V+E)
  * Space complexity: O(V)
  *
- * @param startNode - The node to begin the search at
+ * @param {GraphNode<T>} startNode
+ * @param {Map<GraphNode<T>, Array<GraphNode<T>>} graph
  * @return {Array<GraphNode<T>>}
  */
 export const dfs = <T>(startNode: GraphNode<T>, graph: Map<GraphNode<T>, Array<GraphNode<T>>>) => {
