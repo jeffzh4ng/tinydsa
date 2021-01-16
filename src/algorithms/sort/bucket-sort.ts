@@ -13,21 +13,21 @@ const bucketSortPositives = (arr: number[], n: number): void => {
 
   // put array elements in buckets
   const max = Math.max(...arr)
-  arr.forEach((num: number) => {
+  for (const num of arr) {
     let bucketIdx = Math.floor((n * num) / max) // determine bucket index
     bucketIdx = bucketIdx >= n ? n - 1 : bucketIdx // ensure bucket index is a valid array index
     buckets[bucketIdx].push(num)
-  })
+  }
 
   // sort each bucket and put sorted elements into arr
   let arrIdx = 0
-  buckets.forEach((bucket: number[]) => {
+  for (const bucket of buckets) {
     bucket.sort((a, b) => a - b)
-    for (let bucketIdx = 0; bucketIdx < bucket.length; bucketIdx++) {
-      arr[arrIdx] = bucket[bucketIdx]
+    for (const element of bucket) {
+      arr[arrIdx] = element
       arrIdx++
     }
-  })
+  }
 }
 
 /**
@@ -60,13 +60,13 @@ const bucketSort = (arr: number[], posBuckets = arr.length, negBuckets = arr.len
   // separate positive from negative numbers
   const positiveNums: number[] = []
   const negativeNums: number[] = []
-  arr.forEach((num: number) => {
+  for (const num of arr) {
     if (num >= 0) {
       positiveNums.push(num)
     } else {
       negativeNums.push(-1 * num) // convert negative numbers to positive
     }
-  })
+  }
 
   // sort both arrays
   bucketSortPositives(positiveNums, posBuckets)
