@@ -20,17 +20,18 @@ export const dfs = <T>(startNode: GraphNode<T>, graph: Map<GraphNode<T>, Array<G
 }
 
 const recurse = <T>(
-  startNode: GraphNode<T>,
+  root: GraphNode<T>,
   graph: Map<GraphNode<T>, Array<GraphNode<T>>>,
   visited: Set<GraphNode<T>>,
   output: Array<T>
 ): void => {
-  output.push(startNode.val)
-  visited.add(startNode)
+  output.push(root.val)
+  visited.add(root)
 
-  const children = graph.get(startNode)
+  const children = graph.get(root)
   if (!children) throw new Error('Children shouldnt be null')
 
+  // loop through children of root and recurse
   for (const child of children) {
     if (!visited.has(child)) recurse(child, graph, visited, output)
   }

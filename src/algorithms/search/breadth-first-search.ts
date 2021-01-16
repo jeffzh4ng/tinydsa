@@ -7,21 +7,23 @@ import { GraphNode } from '../graphs/graph-node'
  * Time complexity: O(V+E)
  * Space complexity: O(V)
  *
- * @param {GraphNode<T>} startNode
+ * @param {GraphNode<T>} root
  * @param {Map<GraphNode<T>, Array<GraphNode<T>>} graph
  * @return {Array<GraphNode<T>>}
  */
-export const bfs = <T>(startNode: GraphNode<T>, graph: Map<GraphNode<T>, Array<GraphNode<T>>>) => {
+export const bfs = <T>(root: GraphNode<T>, graph: Map<GraphNode<T>, Array<GraphNode<T>>>) => {
   const output: Array<T> = new Array()
   const q: Queue<GraphNode<T>> = new Queue()
   const visited = new Set<GraphNode<T>>()
 
-  q.enqueue(startNode)
-  visited.add(startNode)
+  q.enqueue(root)
+  visited.add(root)
 
+  // loop while q is not empty
   while (!q.isEmpty()) {
     let size = q.size()
 
+    // iterate for every element in the q
     while (size-- > 0) {
       const node = q.dequeue()
       if (!node) throw new Error('Node shouldnt be null.')

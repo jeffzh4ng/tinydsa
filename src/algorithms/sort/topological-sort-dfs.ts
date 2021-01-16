@@ -16,6 +16,7 @@ export const topologicalSortDepthFirst = <T>(
   const output = new LinkedList<T>()
   const visited = new Set<GraphNode<T>>()
 
+  // for every node in the graph, perform a dfs, where the dfs adds the nodes to the output in the correct order
   for (const node of graph.keys()) {
     if (!visited.has(node)) dfs(node, graph, visited, output)
   }

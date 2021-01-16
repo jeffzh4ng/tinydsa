@@ -33,6 +33,8 @@ class MinBinaryHeap<T> {
 
   // See more info on Floyd's heap construction here: https://en.wikipedia.org/wiki/Heapsort#Variations
   private heapify(): void {
+    if (this.heap.length === 0) return
+
     let i = Math.max(0, Math.floor(this.size() / 2) - 1)
     for (; i >= 0; i--) {
       this.sink(i)
@@ -209,8 +211,10 @@ class MinBinaryHeap<T> {
     // delete the removed element!
     this.heap.pop()
 
+    if (this.heap.length === 0) return removedElement
+
     // if last element is being removed, no need to heapify (sink/swim)
-    const lastElementIsBeingRemoved = indexToRemove === indexOfLastElement
+    const lastElementIsBeingRemoved = indexToRemove === indexOfLastElement - 1
     if (lastElementIsBeingRemoved) return removedElement
 
     // try sinking
