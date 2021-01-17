@@ -46,20 +46,25 @@ yarn add dsa-ts
     - [x] [Hash Table (Double Hashing)](https://github.com/jeffzh4ng/algorithms-and-data-structures/blob/master/src/data-structures/hash-tables/hash-table-double-hashing.ts)
     
 ## Algorithms
-  - [ ] Search
-    - [ ] Binary Search
-    - [ ] Breadth-first Search
-    - [ ] Depth-first Search
-  - [ ] Sorting
-    - [ ] Merge Sort
-    - [ ] Quick Sort
-    - [ ] Heap Sort
-    - [ ] Topological Sort
-    - [ ] Counting Sort
-    - [ ] Bucket Sort
-  - [ ] Graph Theory
-    - [ ] Trees
-    - [ ] Graphs
+  - [x] Search
+    - [x] [Binary Search](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/search/binary-search.ts)
+    - [x] [Breadth-first Search](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/search/breadth-first-search.ts)
+    - [x] [Depth-first Search](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/search/depth-first-search.ts)
+  - [x] Sorting
+    - [x] [Merge Sort](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/merge-sort.ts)
+    - [x] [Quick Sort](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/quick-sort.ts)
+    - [x] [Heap Sort](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/heap-sort.ts)
+    - [x] [Topological Sort (DFS)](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/topological-sort-dfs.ts)
+    - [x] [Topological Sort (Kahns)](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/topological-sort-kahn.ts)
+    - [x] [Counting Sort](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/counting-sort.ts)
+    - [ ] [Bucket Sort]()
+  - [] Graph Theory
+    - [] Graphs
+      - [x] Shortest Paths
+        - [x] [Dijkstra's SSSP](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/graphs/shortest-paths/dijkstras-shortest-path.ts)
+        - [x] [Bellman-Ford SSSP](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/graphs/shortest-paths/bellman-ford-shortest-path.ts)
+        - [x] [Floyd-Warshall APSP](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/graphs/shortest-paths/floyd-warshall-shortest-path.ts)
+      - [ ] Minimum Spanning Tree
     - [ ] Network Flow
     
 ## References
