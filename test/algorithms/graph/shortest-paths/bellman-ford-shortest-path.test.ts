@@ -1,5 +1,5 @@
-import { GraphNode, WeightedGraph } from '../../../src/algorithms/graphs/graph-node'
-import { shortestPath } from '../../../src/algorithms/graphs/shortest-paths/bellman-ford-shortest-path'
+import { GraphNode, WeightedGraph } from '../../../../src/algorithms/graphs/graph-node'
+import { shortestPath } from '../../../../src/algorithms/graphs/shortest-paths/bellman-ford-shortest-path'
 
 describe('Bellman-Ford Shortest Path', () => {
   test('Basic Graph', () => {

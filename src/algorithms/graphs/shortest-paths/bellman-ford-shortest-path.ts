@@ -9,22 +9,22 @@ import { GraphNode, PrevVertices, ShortestDistances, WeightedGraph } from '../gr
  *
  * @param {WeightedGraph<T>} graph
  * @param {GraphNode<T>} source
- * @param {GraphNode<T>} end
+ * @param {GraphNode<T>} target
  * @return {[Array<<T>>, number]}
  */
 export const shortestPath = <T>(
   graph: WeightedGraph<T>,
   source: GraphNode<T>,
-  end: GraphNode<T>
+  target: GraphNode<T>
 ): [Array<T>, number] => {
   const [dist, prev] = bellmanFord(graph, source)
   const shortestPath = new Array<T>()
 
-  for (let at = end; at !== null; at = prev.get(at)!) {
+  for (let at = target; at !== null; at = prev.get(at)!) {
     shortestPath.push(at.val)
   }
 
-  return [shortestPath.reverse(), dist.get(end)!]
+  return [shortestPath.reverse(), dist.get(target)!]
 }
 
 const bellmanFord = <T>(

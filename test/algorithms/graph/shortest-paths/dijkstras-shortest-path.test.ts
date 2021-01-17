@@ -1,5 +1,5 @@
-import { GraphNode, WeightedGraph } from '../../../src/algorithms/graphs/graph-node'
-import { shortestPath } from '../../../src/algorithms/graphs/shortest-paths/dijkstras-shortest-path'
+import { GraphNode, WeightedGraph } from '../../../../src/algorithms/graphs/graph-node'
+import { shortestPath } from '../../../../src/algorithms/graphs/shortest-paths/dijkstras-shortest-path'
 
 describe('Dijksras Shortest Path', () => {
   test('Basic Graph', () => {
