@@ -1,5 +1,5 @@
-# dsa-ts
-![](https://miro.medium.com/proxy/1*_gg1Te-7SJfk9E2D-mORfw.png)
+# iruka
+![](https://i.imgur.com/q6N56c9.png)
 
 ![](https://img.shields.io/npm/v/dsa-ts)
 [![Tests](https://github.com/jeffzh4ng/dsa-ts/workflows/Tests/badge.svg)](https://github.com/jeffzh4ng/algorithms-and-data-structures/actions?query=branch%3Amaster++)
@@ -8,9 +8,7 @@
 
 A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#data-structures) and [algorithms](https://github.com/jeffzh4ng/dsa-ts#algorithms) implemented in Typescript. Click the 📹 emoji for tutorials.
 
-Data structure series: [View the entire series in order here](https://www.youtube.com/watch?v=CjVFSWchhEo&list=PLn4fTSbSpY5cL4_0MP83wq5khbmG3IKKd).
-
-The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader.
+The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader. The name of the project, iruka, is an ode to Iruka sensei from Naruto. He became a teacher to pass on the Will of Fire, and teach the future ninja of the leaf village. Likewise, this project is here to teach the future software engineers of earth.
 
 You can use this package in your projects if you so wish. Test coverage will be kept at 100%. To install the package, use npm or yarn:
 
@@ -80,6 +78,7 @@ yarn add dsa-ts
 When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
 
 *Commiting Process*
+
 The commit process does not directly use git. dsa-ts uses commitizen to ensure we are comitting semantic commits. To commit, use the command `yarn commit`, and follow the citizen cli which prompts you for various metainfo regarding the commit. After the pre-commit tests are run successfully, you are able to push to your development branch with `git push`.
 
 ## License
