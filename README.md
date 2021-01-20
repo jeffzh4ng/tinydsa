@@ -82,4 +82,4 @@ When contributing to this repository, please first discuss the change you wish t
 The commit process does not directly use git. dsa-ts uses commitizen to ensure we are comitting semantic commits. To commit, use the command `yarn commit`, and follow the citizen cli which prompts you for various metainfo regarding the commit. After the pre-commit tests are run successfully, you are able to push to your development branch with `git push`.
 
 ## License
-This repository is released under the MIT license. In short, this means you are free to use this software in any personal, open-source or commercial projects
+This repository is released under the MIT license. In short, this means you are free to use this software in any personal, open-source or commercial projects.
