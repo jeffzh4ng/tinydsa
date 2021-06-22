@@ -55,7 +55,7 @@ yarn add dsa-ts
     - [x] [Topological Sort (DFS)](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/topological-sort-dfs.ts)
     - [x] [Topological Sort (Kahns)](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/topological-sort-kahn.ts)
     - [x] [Counting Sort](https://github.com/jeffzh4ng/dsa-ts/blob/master/src/algorithms/sort/counting-sort.ts)
-    - [ ] [Bucket Sort]()
+    - [x] [Bucket Sort]()
   - [] Graph Theory
     - [] Graphs
       - [x] Shortest Paths
