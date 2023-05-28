@@ -6,6 +6,8 @@
 ![](https://img.shields.io/codecov/c/github/jeffzh4ng/dsa-ts)
 ![](https://img.shields.io/github/license/jeffzh4ng/algorithms-and-data-structures)
 
+[Mirror](https://git.sr.ht/~jeffzh4ng/iruka)
+
 A collection of classical [data structures](https://github.com/jeffzh4ng/dsa-ts#data-structures) and [algorithms](https://github.com/jeffzh4ng/dsa-ts#algorithms) implemented in Typescript. Click the 📹 emoji for tutorials.
 
 The repository's primary goal is educational. Hence, all implementations include a prolific number of comments which guide the reader. The name of the project, iruka, is an ode to Iruka sensei from Naruto. He became a teacher to pass on the Will of Fire, and teach the future ninja of the leaf village. Likewise, this project is here to teach the future software engineers of earth.
