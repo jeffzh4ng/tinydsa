@@ -1,7 +1,7 @@
 {
-  "name": "dsa-ts",
+  "name": "iruka",
   "version": "0.0.0-development",
-  "description": "A collection of data structures and algorithms in Typescript",
+  "description": "Performant algorithms and data structures",
   "main": "lib/index.js",
   "types": "lib",
   "scripts": {
@@ -11,7 +11,7 @@
     "commit": "npx git-cz",
     "report-coverage": "codecov"
   },
-  "repository": "https://github.com/jeffzh4ng/dsa-ts",
+  "repository": "https://github.com/jeffzh4ng/iruka",
   "author": "Jeff Zhang",
   "license": "MIT",
   "prepublish": "tsc",
